@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-12",
+  "platform": "darwin-arm64",
+  "cli_candidate": {
+    "version": "2026.10.01-e373342",
+    "url": "https://downloads.cursor.com/lab/2026.10.01-e373342/darwin/arm64/agent-cli-package.tar.gz",
+    "observed_sha256": "629e51de43a0b7fb3b86f5ebc7e579f7df7df941b39f29e82945cde750145afc",
+    "scope": "ACP initialization and unauthenticated rejection only"
+  },
+  "sdk_versions_tested": [
+    "1.0.29",
+    "1.0.31",
+    "1.0.32",
+    "1.0.37"
+  ],
+  "sdk_scope": "Python Connect fixture and bundled JS bridge discovery/conversion; no authenticated model execution",
+  "local_validation": {
+    "sdk_matrix_per_version": {
+      "passed": 32,
+      "skipped": 0
+    },
+    "focused": {
+      "passed": 263,
+      "skipped": 17
+    },
+    "full_suite": {
+      "passed": 4973,
+      "skipped": 73,
+      "xfailed": 1
+    },
+    "cli_import": "passed",
+    "wheel_metadata_and_inventory": "passed",
+    "hosted_ci": "not run",
+    "live_voice_and_service_restart": "pending"
+  }
+}

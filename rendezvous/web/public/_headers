@@ -1,0 +1,12 @@
+# Static assets bypass the Worker, including its header wrapper.
+/*
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+  Permissions-Policy: camera=(), microphone=(self)
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: default-src 'self'; connect-src 'self'; media-src 'self' blob:; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; base-uri 'none'; frame-ancestors 'none'
+
+# Older WebKit needs the same-origin WebSocket scheme explicitly.
+https://:subdomain.sleep.talk/*
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; connect-src 'self' wss://:subdomain.sleep.talk; media-src 'self' blob:; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; base-uri 'none'; frame-ancestors 'none'

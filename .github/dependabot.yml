@@ -1,0 +1,55 @@
+version: 2
+# Small updates arrive as one grouped PR per ecosystem each week. Major
+# versions are skipped for now (launch freeze); take them up deliberately.
+updates:
+  # Workflow actions are pinned to commit SHAs; this keeps the pins current.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        update-types: [minor, patch]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+  # Security advisories for the Python package and the browser code.
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      python:
+        update-types: [minor, patch]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+      # The web call's audio stack: 0.x, so a minor release can break it.
+      - dependency-name: "pywebrtc-audio"
+        update-types: ["version-update:semver-minor"]
+  - package-ecosystem: npm
+    directory: /rendezvous
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      rendezvous:
+        update-types: [minor, patch]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: npm
+    directory: /remote-entry-web
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      remote-entry-web:
+        update-types: [minor, patch]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+      # 0.x: a minor release can change the bundle it builds.
+      - dependency-name: "esbuild"
+        update-types: ["version-update:semver-minor"]

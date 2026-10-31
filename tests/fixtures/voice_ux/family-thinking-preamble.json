@@ -1,0 +1,27 @@
+{
+  "id": "family-thinking-preamble",
+  "requirement": "VUX-PR-001",
+  "kind": "event-trace",
+  "pins": {
+    "policy.fillers": false,
+    "policy.instant_ack": true,
+    "policy.instant_ack_mode": "smart",
+    "policy.smart_ack_budget_ms": 1200
+  },
+  "notes": "Filler clips are off. Smart ack still plays from DEFAULT_PREAMBLE_POOLS. filler_delay_ms=1200 is pinned but VoicePolicy.effective_filler_delay_ms uses first_token_budget_ms=800. Thinking events are visual only.",
+  "initial": {"session_state": "active", "conversation_state": "listening"},
+  "steps": [
+    {
+      "emit": {"type": "transcript.final", "payload": {"speaker": "user", "text": "What broke the tests?"}},
+      "expect": {"session_state": "active", "conversation_state": "thinking"}
+    },
+    {
+      "emit": {"type": "progress", "payload": {"pool": "action"}},
+      "expect": {"session_state": "active", "conversation_state": "thinking", "effects": ["ack-audio"]}
+    },
+    {
+      "emit": {"type": "agent.event", "payload": {"name": "thinking"}},
+      "expect": {"session_state": "active", "conversation_state": "thinking"}
+    }
+  ]
+}

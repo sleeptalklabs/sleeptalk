@@ -1,0 +1,21 @@
+[project]
+name = "sleeptalk-AGENT_NAME"
+version = "0.1.0"
+description = "AGENT_NAME agent adapter for Sleeptalk"
+requires-python = ">=3.11"
+dependencies = ["sleeptalk"]
+
+# Sleeptalk discovers the adapter through this entry point. The name on the
+# left is what a profile selects with [agent] type = "AGENT_NAME".
+[project.entry-points."sleeptalk.agents"]
+AGENT_NAME = "AGENT_MODULE:register"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/AGENT_MODULE"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

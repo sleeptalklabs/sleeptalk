@@ -1,0 +1,9 @@
+{
+  "id": "human-first-audio-feel",
+  "requirement": "VUX-HJ-004",
+  "kind": "human-judgment",
+  "setup": "Ask a short lookup question and a long agent task, back to back.",
+  "question": "Was the first audible response timely, and was the ack truthful when the answer was late?",
+  "result_vocabulary": ["timely", "late-but-honest", "late-and-silent", "ack-lied"],
+  "surfaces": ["terminal", "discord", "browser"]
+}

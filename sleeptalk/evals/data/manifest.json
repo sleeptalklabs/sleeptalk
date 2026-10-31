@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "visibility": "public",
+  "description": "Open-source eval registry for Sleeptalk contract and session-health tiers.",
+  "tiers": {
+    "contract": {
+      "description": "Deterministic seam contracts run on every PR.",
+      "pytest_paths": [
+        "tests/test_voice_ux_standard.py",
+        "tests/agent_conformance"
+      ],
+      "voice_ux_manifest": "../tests/fixtures/voice_ux/manifest.json"
+    },
+    "health": {
+      "description": "Post-hoc session health invariants on captured traces.",
+      "invariants": "invariants/session-health.json",
+      "checker": "sleeptalk.evals.session_health"
+    }
+  },
+  "voice_ux": {
+    "manifest": "../tests/fixtures/voice_ux/manifest.json",
+    "standard_doc": "../../docs/voice-ux-standard.md",
+    "automated_families": [
+      "family-thinking-preamble.json",
+      "family-vad-smart-turn.json",
+      "family-endpointing.json",
+      "family-interruption.json",
+      "family-capture.json",
+      "family-progress.json",
+      "family-reply-shaping.json",
+      "family-latency.json",
+      "family-lifecycle.json",
+      "family-recovery.json",
+      "family-accessibility.json"
+    ],
+    "human_judgment_public_spec": [
+      "human-pause-vs-end.json",
+      "human-false-start-vs-barge.json",
+      "human-keepalive-feel.json",
+      "human-first-audio-feel.json",
+      "human-error-clarity.json",
+      "human-cross-surface.json"
+    ]
+  },
+  "scenarios": {
+    "schema": "scenarios/schema.json",
+    "examples": [
+      "scenarios/examples/minimal-three-turn.json"
+    ]
+  },
+  "support_labels": {
+    "supported_v01": {
+      "surface": "web",
+      "route": "cascade",
+      "language": "en-US",
+      "note": "One reference agent"
+    },
+    "preview": ["discord", "terminal", "hybrid", "non-reference agents"]
+  }
+}

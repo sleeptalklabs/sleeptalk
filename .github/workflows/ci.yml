@@ -1,0 +1,189 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    # Support contract: Python 3.11+, so every minor version the package
+    # accepts runs the suite with the voice extras that import audio code.
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install PortAudio and libopus for the Terminal and Discord extras
+        run: sudo apt-get update && sudo apt-get install -y libportaudio2 libopus0
+
+      - name: Install dependencies
+        run: uv sync --locked --dev --python ${{ matrix.python-version }} --extra remote-entry --extra claude --extra discord --extra terminal
+
+      - name: Run tests
+        run: uv run --python ${{ matrix.python-version }} pytest
+
+      - name: Test release content audit
+        run: uv run pytest scripts/test_audit_release_contents.py -q
+
+      - name: Enforce package import boundary
+        run: uv run python -c "from sleeptalk._import_boundary import main; raise SystemExit(main())"
+
+  rendezvous:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rendezvous
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: rendezvous/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Build the private key-entry page
+        working-directory: remote-entry-web
+        run: |
+          npm ci
+          npm run build
+
+      - name: Committed page bundles match a fresh build
+        working-directory: .
+        run: |
+          git diff --exit-code -- sleeptalk/_web sleeptalk/_remote_entry
+          untracked="$(git ls-files --others --exclude-standard -- sleeptalk/_web sleeptalk/_remote_entry)"
+          if [ -n "$untracked" ]; then
+            echo "Built files not committed:" >&2
+            echo "$untracked" >&2
+            exit 1
+          fi
+
+  wheel-smoke:
+    # Support contract: current macOS + Ubuntu, Python 3.11+.
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install audio libraries and start PulseAudio for the headless runner
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update && sudo apt-get install -y libportaudio2 libopus0 pulseaudio
+          # PortAudio initializes PulseAudio even when no audio stream is opened.
+          pulseaudio --start --exit-idle-time=-1
+          pulseaudio --check
+
+      - name: Install libopus for the Discord extra
+        if: runner.os == 'macOS'
+        run: brew install opus
+
+      - name: Stamp main-branch wheels with a unique, increasing version
+        # Every build of an unreleased version would otherwise be "0.1.0", and
+        # pip treats a wheel with the version it already has as installed, so a
+        # host never picked up a newer build. A local version label orders
+        # after the bare version, and its numeric run-number part by value.
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          python3 - <<'PY'
+          import os, re
+          from pathlib import Path
+          path = Path("pyproject.toml")
+          text = path.read_text()
+          version = re.search(r'^version = "([^"]+)"', text, flags=re.M).group(1)
+          stamped = f"{version}+ci.{int(os.environ['GITHUB_RUN_NUMBER'])}"
+          path.write_text(text.replace(f'version = "{version}"', f'version = "{stamped}"', 1))
+          print("wheel version", stamped)
+          PY
+
+      - name: Prove release artifacts outside the checkout
+        run: bash scripts/prove_release_wheel.sh
+
+      - name: Upload artifacts, checksums, build record, and rollback record
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: sleeptalk-release-artifacts
+          path: |
+            dist/*.whl
+            dist/*.tar.gz
+            dist/constraints.txt
+            dist/install.sh
+            dist/SHA256SUMS
+            dist/BUILD_RECORD.json
+            dist/ROLLBACK.json
+
+      - name: Install sleeptalk[discord] and smoke no-connect startup
+        if: matrix.os == 'ubuntu-latest'
+        working-directory: ${{ runner.temp }}
+        run: |
+          python -m venv sleeptalk-smoke
+          wheel=$(echo "${GITHUB_WORKSPACE}"/dist/*.whl)
+          ./sleeptalk-smoke/bin/pip install "${wheel}[discord]"
+          ./sleeptalk-smoke/bin/python -c "import sleeptalk, pathlib; path = pathlib.Path(sleeptalk.__file__).resolve(); assert 'site-packages' in path.parts, path; from sleeptalk.transports.discord import DiscordTransport"
+          ./sleeptalk-smoke/bin/python -m sleeptalk.discord.smoke \
+            --config "${GITHUB_WORKSPACE}/config/profiles/example.toml" \
+            --root "${GITHUB_WORKSPACE}/sleeptalk.example.toml"
+
+  container-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Build package-only image
+        run: docker build -t sleeptalk:ci .
+
+      - name: Entrypoint is sleeptalk and no source tree remains
+        run: |
+          docker run --rm sleeptalk:ci --help
+          if docker run --rm --entrypoint /bin/sh sleeptalk:ci -c 'test -e /build'; then
+            echo "image must not keep the build tree" >&2
+            exit 1
+          fi
+          docker run --rm --entrypoint /bin/sh sleeptalk:ci -c 'command -v sleeptalk && test -x "$(command -v sleeptalk)"'

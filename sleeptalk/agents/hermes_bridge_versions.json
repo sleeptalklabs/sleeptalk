@@ -1,0 +1,48 @@
+{
+  "0.21.3": {
+    "tag": "v2026.9.14",
+    "revision": "7a963716b81be13ba513d4f127633b7da493aff2",
+    "hashes": {
+      "run_agent.py": "dc125031d13e2a341eec473bcfcafce16c7356505dcbc560bec562b1ecaddc04",
+      "agent/agent_init.py": "d1a1df8dc03a1381a9fd7591d4293e912fb1cb0fa2c1370f8c72a7500acb824a",
+      "agent/tool_executor.py": "9634ebdc01b12591753fa9a1653f4aa8937edde7130175bbd69be8a0e5895ab7",
+      "agent/conversation_loop.py": "2086d4d084a7cba728a5862f2f27d172860908af967e2b83a43d22fe757548c2",
+      "model_tools.py": "c99620c824ab59f341ac7d0e22cde016b0c469d0643e7a5a5a82e0d63176e4b5",
+      "tools/registry.py": "310a57a5dc5d41c935eacbe707e8a258dc21fd72fd44fccbc33d1a78b7143922",
+      "hermes_cli/env_loader.py": "4bdeccecea814299627f0e1a4fb54f9e93ba48a01f35b966337f7ad9a826f798",
+      "hermes_cli/plugins.py": "1b5aae9a34e97c9922b5ab7e76c4bd3562a6ab715a983bf9c4dfe6031c457942",
+      "hermes_cli/config.py": "d76471ce54d40e68165e2cce7c2ade9c2164ed5ce4dbcf673b1b289cb89c7d84",
+      "tools/file_tools.py": "3dfa1aa17b83641857b04634b7de7af77e0679719d9eb4a4f4bee689991ac433",
+      "tools/terminal_tool.py": "2fdfdb2d10b23d7cdf0db2e7eb981fd8d185a3534adf3f81fbad5750be4feebe",
+      "agent/anthropic_adapter.py": "4703f2f68d0da659c31f4cdfd05a2623212887d998d822b1ecd8541871ebe6f0",
+      "agent/auxiliary_client.py": "fa2c0aff55f6b17679ab76b85c42ee5950450ae08cf81bd4bdcbd44e65fce775",
+      "agent/transports/codex.py": "1b4d48515c0ddac7db53b3446e69da92dcdc773a5e59dd80b2bec17d49c65103",
+      "agent/client_lifecycle.py": "72b67a96ac478c7f4104642fd6f2c1b8eb24edc2b8432d2734ec047383998852",
+      "agent/agent_runtime_helpers.py": "d9e0f31bc5f192e48f4c84c91a4e375e77d04a6304bb660978fac9ca51d6207e",
+      "agent/turn_tool_round.py": "3e6cf5c94125dd75e2fb95cda6fe218a456187d9385a2a8005aa2f3276442d57"
+    }
+  },
+  "0.21.7": {
+    "tag": "v0.21.7",
+    "revision": "00f69310e29c24dfd7c6bb258b0a2337d3455d79",
+    "hashes": {
+      "run_agent.py": "9fca746dde685859ed084d6f7651a94d8849e8944a145de77f8a177c839cb5ac",
+      "agent/agent_init.py": "afe7c1198c9bca97519487144ee70f0a680087a02290c54ae2d9872a7fb690c1",
+      "agent/tool_executor.py": "8b145fbc70936f028f18e59cb7f9c8723fc992a067fe068f06e7f9f876e9c679",
+      "agent/conversation_loop.py": "926435d563ef1b7de1049f5c36897f1cda7376508b98164a68a0cb5192656270",
+      "model_tools.py": "872ca571c17379c8df19c0bcf639919bb0cb3a2706efc08e4dc6a1f3d8789662",
+      "tools/registry.py": "4a05aae5b4dd40bf9a104d23582d4363326ad7ce3fdac1ac249e0af04334d909",
+      "hermes_cli/env_loader.py": "da921984d4cd690bbb9813c6431ecc88b18b46307800d155c86e25c8e45ccee1",
+      "hermes_cli/plugins.py": "f5a1c27a22025984bbf956b58154ce23914592307bd945d7a1c0167cc443d771",
+      "hermes_cli/config.py": "a469923872fc1e4d905089bb4cc4af5c8cc4104f9f72a159656205c07cdb80ef",
+      "tools/file_tools.py": "1a23773abe410feb5dd99276d08b6c0837624309ea489c508d683c6965408f94",
+      "tools/terminal_tool.py": "099bb728adee76bfba4c138416a0799d98e5f26db35612cf9a565d9068eb688e",
+      "agent/anthropic_adapter.py": "98a6ac645c6df1796f8d389208f52d76439b76e86ed4f52b64a0dd803bdeb169",
+      "agent/auxiliary_client.py": "ea19aeb75950ebb63cf7763961ae20e3d3463cf89b7344fbec2ba3039536b513",
+      "agent/transports/codex.py": "8fa8c7a29cc39d1a70a165ba85a1d902742bb1d595dcfd0b3ef3365181223f2c",
+      "agent/client_lifecycle.py": "4e8a80556184c415256934c50e6191b840910867fe68d36efc263440ea7b7dd2",
+      "agent/agent_runtime_helpers.py": "295bd0adcb698ddeb87966f77a79ef1c8016702641db401bfe692ffb63e0dd49",
+      "agent/turn_tool_round.py": "31b894dbf63e5551b1b6c67d099cfa0fb487176e92d211bb043d88fba601e696"
+    }
+  }
+}

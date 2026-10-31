@@ -1,0 +1,222 @@
+{
+ "stt": [
+  {
+   "name": "general",
+   "canonical_name": "nova-3-general",
+   "architecture": "nova-3",
+   "languages": [
+    "zh-Hant",
+    "zh-TW"
+   ],
+   "version": "2026-04-01.40000",
+   "batch": false,
+   "streaming": true,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "general",
+   "canonical_name": "nova-3-general",
+   "architecture": "nova-3",
+   "languages": [
+    "zh-TW"
+   ],
+   "version": "2026-03-29.21657",
+   "batch": false,
+   "streaming": true,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "general",
+   "canonical_name": "nova-3-general",
+   "architecture": "nova-3",
+   "languages": [
+    "zh-Hant",
+    "zh-TW"
+   ],
+   "version": "2026-04-01.30000",
+   "batch": true,
+   "streaming": false,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "general",
+   "canonical_name": "nova-3-general",
+   "architecture": "nova-3",
+   "languages": [
+    "zh",
+    "zh-CN",
+    "zh-Hans"
+   ],
+   "version": "2026-03-31.10458",
+   "batch": true,
+   "streaming": false,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "2-general",
+   "canonical_name": "nova-2-general",
+   "architecture": "nova-2",
+   "languages": [
+    "zh-HK"
+   ],
+   "version": "2024-09-10.13256",
+   "batch": false,
+   "streaming": true,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "2-general",
+   "canonical_name": "nova-2-general",
+   "architecture": "nova-2",
+   "languages": [
+    "zh-Hant",
+    "zh-TW"
+   ],
+   "version": "2024-05-08.31016",
+   "batch": false,
+   "streaming": true,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "2-general",
+   "canonical_name": "nova-2-general",
+   "architecture": "nova-2",
+   "languages": [
+    "zh-HK"
+   ],
+   "version": "2024-09-09.30692",
+   "batch": true,
+   "streaming": false,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "2-general",
+   "canonical_name": "nova-2-general",
+   "architecture": "nova-2",
+   "languages": [
+    "zh-Hant",
+    "zh-TW"
+   ],
+   "version": "2024-05-10.30049",
+   "batch": true,
+   "streaming": false,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "medical",
+   "canonical_name": "nova-3-medical",
+   "architecture": "nova-3",
+   "languages": [
+    "en",
+    "en-AU",
+    "en-CA",
+    "en-GB",
+    "en-IE",
+    "en-IN",
+    "en-NZ",
+    "en-US"
+   ],
+   "version": "2025-09-30.18049",
+   "batch": false,
+   "streaming": true,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "medical",
+   "canonical_name": "nova-3-medical",
+   "architecture": "nova-3",
+   "languages": [
+    "en",
+    "en-AU",
+    "en-GB",
+    "en-IN",
+    "en-NZ",
+    "en-US"
+   ],
+   "version": "2025-05-05.29930",
+   "batch": false,
+   "streaming": true,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "medical",
+   "canonical_name": "nova-3-medical",
+   "architecture": "nova-3",
+   "languages": [
+    "en",
+    "en-AU",
+    "en-CA",
+    "en-GB",
+    "en-IE",
+    "en-IN",
+    "en-NZ",
+    "en-US"
+   ],
+   "version": "2026-05-18.18466",
+   "batch": true,
+   "streaming": false,
+   "formatted_output": false,
+   "multilingual": false
+  },
+  {
+   "name": "medical",
+   "canonical_name": "nova-3-medical",
+   "architecture": "nova-3",
+   "languages": [
+    "en",
+    "en-AU",
+    "en-GB",
+    "en-IN",
+    "en-NZ",
+    "en-US"
+   ],
+   "version": "2025-02-25.26775",
+   "batch": true,
+   "streaming": false,
+   "formatted_output": false,
+   "multilingual": false
+  }
+ ],
+ "tts": [
+  {
+   "name": "agathe",
+   "canonical_name": "aura-2-agathe-fr",
+   "architecture": "aura-2",
+   "languages": [
+    "fr",
+    "fr-FR"
+   ],
+   "version": "2025-10-29.0"
+  },
+  {
+   "name": "izanami",
+   "canonical_name": "aura-2-izanami-ja",
+   "architecture": "aura-2",
+   "languages": [
+    "ja",
+    "ja-JP"
+   ],
+   "version": "2025-10-29.0"
+  },
+  {
+   "name": "thalia",
+   "canonical_name": "aura-2-thalia-en",
+   "architecture": "aura-2",
+   "languages": [
+    "en",
+    "en-US"
+   ],
+   "version": "2025-04-15.3"
+  }
+ ]
+}

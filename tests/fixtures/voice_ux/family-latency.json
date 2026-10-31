@@ -1,0 +1,24 @@
+{
+  "id": "family-latency",
+  "requirement": "VUX-LT-001",
+  "kind": "event-trace",
+  "pins": {
+    "policy.first_token_budget_ms": 800
+  },
+  "invariants": {
+    "VoicePolicyTimings.ack_delay_seconds": 1.2,
+    "VoicePolicyTimings.sentence_grace_seconds": 0.4,
+    "VoicePolicyTimings.action_delay_seconds": 2.0
+  },
+  "initial": {"session_state": "active", "conversation_state": "thinking"},
+  "steps": [
+    {
+      "emit": {"type": "response.started"},
+      "expect": {"session_state": "active", "conversation_state": "thinking"}
+    },
+    {
+      "emit": {"type": "response.first_output", "payload": {"kind": "audio"}},
+      "expect": {"session_state": "active", "conversation_state": "bot-speaking"}
+    }
+  ]
+}

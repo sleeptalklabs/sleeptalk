@@ -1,0 +1,23 @@
+{
+  "id": "family-reply-shaping",
+  "requirement": "VUX-RP-001",
+  "kind": "policy-pin",
+  "pins": {
+    "policy.reply_max_sentences": 8,
+    "policy.reply_max_chars": 1200,
+    "policy.discord_reply_max_sentences": 8,
+    "policy.discord_reply_max_chars": 1200
+  },
+  "notes": "These caps apply to VoiceProcessor and legacy Discord text. Cascade kernel speech is uncapped.",
+  "initial": {"session_state": "active", "conversation_state": "thinking"},
+  "steps": [
+    {
+      "emit": {"type": "response.started"},
+      "expect": {"session_state": "active", "conversation_state": "thinking"}
+    },
+    {
+      "emit": {"type": "response.completed"},
+      "expect": {"session_state": "active", "conversation_state": "listening"}
+    }
+  ]
+}

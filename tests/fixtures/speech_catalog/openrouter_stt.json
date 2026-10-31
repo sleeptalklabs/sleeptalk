@@ -1,0 +1,104 @@
+{
+ "data": [
+  {
+   "id": "assemblyai/universal-3-5-pro",
+   "name": "AssemblyAI: Universal-3.5 Pro",
+   "pricing": {
+    "prompt": "0.0000625",
+    "completion": "0"
+   },
+   "supported_voices": null,
+   "architecture": {
+    "modality": "audio->transcription",
+    "input_modalities": [
+     "audio"
+    ],
+    "output_modalities": [
+     "transcription"
+    ],
+    "tokenizer": "Other",
+    "instruct_type": null
+   }
+  },
+  {
+   "id": "microsoft/mai-transcribe-2",
+   "name": "Microsoft AI: MAI-Transcribe 2",
+   "pricing": {
+    "prompt": "0.1",
+    "completion": "0"
+   },
+   "supported_voices": null,
+   "architecture": {
+    "modality": "audio->transcription",
+    "input_modalities": [
+     "audio"
+    ],
+    "output_modalities": [
+     "transcription"
+    ],
+    "tokenizer": "Other",
+    "instruct_type": null
+   }
+  },
+  {
+   "id": "nvidia/parakeet-tdt-0.6b-v3",
+   "name": "NVIDIA: Parakeet TDT 0.6B v3",
+   "pricing": {
+    "prompt": "0.000025",
+    "completion": "0"
+   },
+   "supported_voices": null,
+   "architecture": {
+    "modality": "audio->transcription",
+    "input_modalities": [
+     "audio"
+    ],
+    "output_modalities": [
+     "transcription"
+    ],
+    "tokenizer": "Other",
+    "instruct_type": null
+   }
+  },
+  {
+   "id": "qwen/qwen3-asr-flash-2026-02-10",
+   "name": "Qwen: Qwen3 ASR Flash",
+   "pricing": {
+    "prompt": "0.000035",
+    "completion": "0"
+   },
+   "supported_voices": null,
+   "architecture": {
+    "modality": "audio->transcription",
+    "input_modalities": [
+     "audio"
+    ],
+    "output_modalities": [
+     "transcription"
+    ],
+    "tokenizer": "Qwen3",
+    "instruct_type": null
+   }
+  },
+  {
+   "id": "openai/gpt-4o-mini-transcribe",
+   "name": "OpenAI: GPT-4o Mini Transcribe",
+   "pricing": {
+    "prompt": "0.00000125",
+    "completion": "0.000005"
+   },
+   "supported_voices": null,
+   "architecture": {
+    "modality": "audio->transcription",
+    "input_modalities": [
+     "audio"
+    ],
+    "output_modalities": [
+     "transcription"
+    ],
+    "tokenizer": "GPT",
+    "instruct_type": null
+   }
+  }
+ ]
+}

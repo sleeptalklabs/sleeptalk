@@ -1,0 +1,23 @@
+# Only package build inputs enter the Docker context.
+**
+!Dockerfile
+!pyproject.toml
+!uv.lock
+!README.md
+!LICENSE
+!sleeptalk/
+!sleeptalk/**
+!scripts/docker-entrypoint.sh
+
+# Exclude local state even if created inside the Python package.
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/calls/
+**/logs/
+**/recordings/
+**/credentials/

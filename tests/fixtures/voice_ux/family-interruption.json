@@ -1,0 +1,33 @@
+{
+  "id": "family-interruption",
+  "requirement": "VUX-IN-001",
+  "kind": "event-trace",
+  "pins": {
+    "policy.interrupt.mode": "soft",
+    "policy.interrupt.min_duration_ms": 150,
+    "policy.interrupt.min_volume": 0.03
+  },
+  "notes": "Live Discord and WebRTC barge streaks use interrupt.min_duration_ms. silero_barge_min_ms stays pinned as the measured-stop leftover. pi-bot overlays immediate.",
+  "initial": {
+    "session_state": "active",
+    "conversation_state": "bot-speaking"
+  },
+  "steps": [
+    {
+      "emit": {
+        "type": "interruption",
+        "payload": {
+          "source": "user_speech",
+          "phase": "answering"
+        }
+      },
+      "expect": {
+        "session_state": "active",
+        "conversation_state": "listening",
+        "effects": [
+          "response.cancelled"
+        ]
+      }
+    }
+  ]
+}

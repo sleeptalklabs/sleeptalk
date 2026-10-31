@@ -1,0 +1,9 @@
+{
+  "id": "human-cross-surface",
+  "requirement": "VUX-HJ-006",
+  "kind": "human-judgment",
+  "setup": "Run the same short conversation on terminal, Discord, and browser with the same profile overlay rules.",
+  "question": "Did the three surfaces feel like one product, aside from documented exceptions?",
+  "result_vocabulary": ["same-product", "accidental-drift"],
+  "surfaces": ["terminal", "discord", "browser"]
+}

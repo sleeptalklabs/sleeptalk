@@ -1,0 +1,76 @@
+name: Pi compatibility
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['sleeptalk/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/pi-compatibility.yml']
+  push:
+    branches: [main]
+    paths: ['sleeptalk/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/pi-compatibility.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  versions:
+    runs-on: ubuntu-latest
+    outputs:
+      pi: ${{ steps.inventory.outputs.pi }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: inventory
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from sleeptalk.harness_versions import inventory
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              print('pi=' + json.dumps(inventory()['harnesses']['pi']['verified']), file=output)
+          PY
+
+  protocol:
+    needs: versions
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        pi: ${{ fromJSON(needs.versions.outputs.pi) }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    env:
+      SLEEPTALK_TEST_PI_VERSION: ${{ matrix.pi }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - name: Install the exact Pi release separately
+        run: |
+          npm install --prefix "$RUNNER_TEMP/pi" --save-exact --no-audit --no-fund "@earendil-works/pi-coding-agent@$SLEEPTALK_TEST_PI_VERSION"
+          echo "SLEEPTALK_TEST_PI=$RUNNER_TEMP/pi/node_modules/.bin/pi" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/pi/node_modules/.bin" >> "$GITHUB_PATH"
+      - name: Install Python dependencies
+        run: uv sync --locked --dev
+      - name: Exercise actual Pi and focused adapter contracts
+        run: >-
+          uv run --no-sync pytest -q
+          tests/test_pi_release.py tests/test_pi_permissions.py tests/test_pi_rpc.py
+          tests/test_pi_rpc_ownership.py tests/runtime/test_pi_rpc.py
+          tests/test_harness_versions.py tests/agent_conformance
+          --junitxml=pi-results.xml
+      - name: Retain exact dependency resolution and results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: pi-${{ matrix.pi }}-${{ matrix.os }}
+          path: |
+            pi-results.xml
+            ${{ runner.temp }}/pi/package-lock.json
+          if-no-files-found: error

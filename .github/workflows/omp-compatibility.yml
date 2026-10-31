@@ -1,0 +1,118 @@
+name: OMP compatibility
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['sleeptalk/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/omp-compatibility.yml']
+  push:
+    branches: [main]
+    paths: ['sleeptalk/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/omp-compatibility.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  versions:
+    runs-on: ubuntu-latest
+    outputs:
+      releases: ${{ steps.inventory.outputs.releases }}
+      bun: ${{ steps.inventory.outputs.bun }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: inventory
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from sleeptalk.harness_versions import inventory
+          omp = inventory()['harnesses']['omp']
+          releases = [{'surface': 'cli', 'version': v} for v in omp['verified']]
+          releases += [{'surface': 'sdk', 'version': v} for v in omp['protected_sdk']['verified']]
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              print('releases=' + json.dumps(releases), file=output)
+              print('bun=' + omp['protected_sdk']['bun'], file=output)
+          PY
+
+  protocol:
+    needs: versions
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        release: ${{ fromJSON(needs.versions.outputs.releases) }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    env:
+      OMP_VERSION: ${{ matrix.release.version }}
+      BUN_VERSION: ${{ needs.versions.outputs.bun }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - name: Install exact SDK and Bun separately
+        if: matrix.release.surface == 'sdk'
+        run: |
+          npm install --prefix "$RUNNER_TEMP/omp-sdk" --save-exact --no-audit --no-fund "@oh-my-pi/pi-coding-agent@$OMP_VERSION"
+          npm install --prefix "$RUNNER_TEMP/bun" --save-exact --no-audit --no-fund "bun@$BUN_VERSION"
+          echo "SLEEPTALK_TEST_OMP_SDK_BIN=$RUNNER_TEMP/omp-sdk/node_modules/.bin/omp" >> "$GITHUB_ENV"
+          echo "SLEEPTALK_TEST_OMP_SDK_VERSION=$OMP_VERSION" >> "$GITHUB_ENV"
+          echo "SLEEPTALK_TEST_BUN=$RUNNER_TEMP/bun/node_modules/.bin/bun" >> "$GITHUB_ENV"
+      - name: Download and verify exact compiled CLI
+        if: matrix.release.surface == 'cli'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, platform, shutil
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          version = os.environ['OMP_VERSION']
+          system = {'Darwin': 'darwin', 'Linux': 'linux'}[platform.system()]
+          arch = {'arm64': 'arm64', 'aarch64': 'arm64', 'x86_64': 'x64'}[platform.machine()]
+          asset_name = f'omp-{system}-{arch}'
+          url = f'https://api.github.com/repos/can1357/oh-my-pi/releases/tags/v{version}'
+          headers = {'User-Agent': 'sleeptalk-compatibility', 'Authorization': 'Bearer ' + os.environ['GITHUB_TOKEN']}
+          with urlopen(Request(url, headers=headers), timeout=30) as response:
+              release = json.load(response)
+          asset = next(item for item in release['assets'] if item['name'] == asset_name)
+          assert asset['digest'].startswith('sha256:')
+          binary = Path(os.environ['RUNNER_TEMP']) / 'omp'
+          with urlopen(asset['browser_download_url'], timeout=120) as response, binary.open('wb') as output:
+              shutil.copyfileobj(response, output)
+          with binary.open('rb') as stream:
+              digest = hashlib.file_digest(stream, 'sha256').hexdigest()
+          assert 'sha256:' + digest == asset['digest'], 'OMP checksum mismatch'
+          binary.chmod(0o755)
+          Path('omp-binary.json').write_text(json.dumps({'version': version, 'asset': asset_name, 'sha256': digest}, indent=2))
+          with open(os.environ['GITHUB_ENV'], 'a') as output:
+              print(f'SLEEPTALK_TEST_OMP_CLI={binary}', file=output)
+              print(f'SLEEPTALK_TEST_OMP_CLI_VERSION={version}', file=output)
+          PY
+      - name: Install Python dependencies
+        run: uv sync --locked --dev
+      - name: Exercise actual OMP and focused contracts
+        run: >-
+          uv run --no-sync pytest -q
+          tests/test_omp_sdk.py tests/test_omp_release.py tests/test_omp_cli_release.py
+          tests/test_omp_workers.py tests/test_pi_permissions.py tests/test_pi_rpc.py
+          tests/test_pi_rpc_ownership.py tests/test_harness_versions.py tests/agent_conformance
+          --junitxml=omp-results.xml
+      - name: Retain exact dependencies, checksums and results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: omp-${{ matrix.release.surface }}-${{ matrix.release.version }}-${{ matrix.os }}
+          path: |
+            omp-results.xml
+            omp-binary.json
+            ${{ runner.temp }}/omp-sdk/package-lock.json
+            ${{ runner.temp }}/bun/package-lock.json
+          if-no-files-found: error

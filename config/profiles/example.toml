@@ -1,0 +1,40 @@
+# Copy this file to config/profiles/<slug>.toml and fill the empty strings.
+#   cp config/profiles/example.toml config/profiles/my-bot.toml
+# Secrets stay in .env. This overlay is composition + policy only.
+
+[agent]
+# pi is the built-in default. Other types need their CLIs on PATH.
+type = "pi"
+name = "My Bot"
+# Must match the filename stem (example.toml -> example).
+slug = "example"
+# "." means the project root that holds this profiles/ directory.
+workspace_dir = "."
+
+[transport]
+# discord | web | terminal
+type = "discord"
+# Discord guild snowflake. Needed for guild-scoped slash command sync.
+guild_id = ""
+# Discord application (client) id. Used for the invite URL and slash scope.
+client_id = ""
+# Who may talk to the agent. Only the listed operators, and only from the
+# listed voice channels (a voice channel's chat shares its ID). Setting
+# authorization_required = false lets anyone in the server drive your agent.
+authorization_required = true
+# Your Discord user ID (Developer Mode on, right-click your name, Copy User ID).
+operator_ids = ""
+# The voice channel ID the bot may be used in.
+allowed_channel_ids = ""
+# Name of the env var that holds the bot token. The value stays in .env.
+token_env = "MY_BOT_DISCORD_BOT_TOKEN"
+# false: join only on /<slug> join. true: join when someone enters a voice channel.
+presence_auto_join = false
+
+[tts]
+# Provider voice id. Empty lets init pick a language-matched voice.
+voice_id = ""
+
+# The public Discord overlay. Root sleeptalk.example.toml stays soft.
+[policy.interrupt]
+mode = "immediate"

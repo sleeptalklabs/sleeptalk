@@ -1,0 +1,114 @@
+name: Cursor compatibility
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['sleeptalk/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/cursor-compatibility.yml']
+  push:
+    branches: [main]
+    paths: ['sleeptalk/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/cursor-compatibility.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  versions:
+    runs-on: ubuntu-latest
+    outputs:
+      releases: ${{ steps.inventory.outputs.releases }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: inventory
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from sleeptalk.harness_versions import inventory
+          harnesses = inventory()['harnesses']
+          releases = [{'surface': 'sdk', 'version': v} for v in harnesses['cursor_sdk']['verified']]
+          releases += [{'surface': 'cli', 'version': v} for v in harnesses['cursor_cli']['handshake_verified']]
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              print('releases=' + json.dumps(releases), file=output)
+          PY
+
+  compatibility:
+    needs: versions
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        release: ${{ fromJSON(needs.versions.outputs.releases) }}
+    env:
+      CURSOR_VERSION: ${{ matrix.release.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - run: uv sync --locked --dev
+      - name: Install exact platform SDK wheel into CI environment
+        if: matrix.release.surface == 'sdk'
+        run: |
+          uv pip install --no-deps --only-binary=:all: "cursor-sdk==$CURSOR_VERSION"
+          uv pip freeze > cursor-packages.txt
+          echo "SLEEPTALK_TEST_CURSOR_SDK_VERSION=$CURSOR_VERSION" >> "$GITHUB_ENV"
+      - name: Stage exact CLI archive without running its installer
+        if: matrix.release.surface == 'cli'
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, platform, shutil, tarfile
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          version = os.environ['CURSOR_VERSION']
+          system = {'Darwin': 'darwin', 'Linux': 'linux'}[platform.system()]
+          arch = {'arm64': 'arm64', 'aarch64': 'arm64', 'x86_64': 'x64'}[platform.machine()]
+          url = f'https://downloads.cursor.com/lab/{version}/{system}/{arch}/agent-cli-package.tar.gz'
+          root = Path(os.environ['RUNNER_TEMP']) / 'cursor-qualification'
+          root.mkdir()
+          archive = root / 'package.tar.gz'
+          # downloads.cursor.com answers 403 to Python's default user agent.
+          request = Request(url, headers={'User-Agent': 'sleeptalk-compatibility-ci'})
+          with urlopen(request, timeout=120) as response, archive.open('wb') as output:
+              shutil.copyfileobj(response, output)
+          with archive.open('rb') as stream:
+              digest = hashlib.file_digest(stream, 'sha256').hexdigest()
+          # Observed digest for reproducibility; upstream publishes no checksum here.
+          Path('cursor-archive.json').write_text(json.dumps({'url': url, 'sha256': digest}, indent=2))
+          with tarfile.open(archive) as package:
+              package.extractall(root / 'unpacked', filter='data')
+          binaries = list((root / 'unpacked').glob('*/cursor-agent'))
+          assert len(binaries) == 1
+          with open(os.environ['GITHUB_ENV'], 'a') as output:
+              print(f'SLEEPTALK_TEST_CURSOR_CLI={binaries[0]}', file=output)
+              print(f'SLEEPTALK_TEST_CURSOR_CLI_VERSION={version}', file=output)
+          PY
+      - name: SDK wire, isolated bridge and adapter contracts
+        if: matrix.release.surface == 'sdk'
+        run: >-
+          uv run --no-sync pytest -q tests/test_cursor_release.py
+          tests/test_cursor_sdk_isolation.py tests/test_cursor_sdk_adapter.py
+          tests/test_cursor_voice.py tests/test_harness_versions.py
+          tests/test_agent_readiness.py tests/agent_conformance
+          --junitxml=cursor-results.xml
+      - name: CLI initialization and auth gate only
+        if: matrix.release.surface == 'cli'
+        run: >-
+          uv run --no-sync pytest -q tests/test_cursor_cli_release.py
+          tests/test_cursor_acp_profile.py tests/test_cursor_isolation.py
+          --junitxml=cursor-results.xml
+      - name: Retain exact versions, observed archive digest and results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: cursor-${{ matrix.release.surface }}-${{ matrix.release.version }}-${{ matrix.os }}
+          path: |
+            cursor-results.xml
+            cursor-packages.txt
+            cursor-archive.json
+          if-no-files-found: error

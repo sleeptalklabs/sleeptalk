@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-12",
+  "harnesses": {
+    "pi": {
+      "label": "Pi",
+      "latest_observed": "1.1.0",
+      "recommended": "1.1.0",
+      "verified": [
+        "0.84.0",
+        "1.1.0"
+      ],
+      "status": "protocol-verified",
+      "live_voice": "pending",
+      "upstream": {
+        "kind": "npm",
+        "package": "@earendil-works/pi-coding-agent"
+      },
+      "release_url": "https://github.com/earendil-works/pi/releases/tag/v1.1.0",
+      "evidence": "tests/test_pi_release.py",
+      "notes": "Existing installations are retained. Verification covers npm CLI RPC and protected pending/deny sessions; no version range is inferred."
+    },
+    "omp": {
+      "label": "Oh My Pi",
+      "latest_observed": "18.10.3",
+      "verified": [
+        "17.2.12",
+        "18.10.2"
+      ],
+      "status": "protocol-verified",
+      "upstream": {
+        "kind": "github",
+        "repository": "can1357/oh-my-pi"
+      },
+      "notes": "CLI verification covers auto mode. Protected pending/deny requires a separately selected npm SDK and Bun; a compiled CLI cannot provide isolated SDK startup. Keep existing installations unchanged. See docs/harness-upgrades/omp.md for limits.",
+      "recommended": "18.10.2",
+      "live_voice": "pending",
+      "verification_surface": "compiled-cli-auto",
+      "release_url": "https://github.com/can1357/oh-my-pi/releases/tag/v18.10.2",
+      "evidence": "tests/test_omp_cli_release.py",
+      "protected_sdk": {
+        "package": "@oh-my-pi/pi-coding-agent",
+        "recommended": "18.10.2",
+        "verified": [
+          "18.2.1",
+          "18.10.2"
+        ],
+        "bun": "1.3.14",
+        "evidence": [
+          "tests/test_omp_sdk.py",
+          "tests/test_omp_release.py"
+        ]
+      },
+      "pending_candidate": "18.10.3"
+    },
+    "hermes": {
+      "label": "Hermes",
+      "latest_observed": "0.21.7",
+      "verified": [
+        "0.21.7"
+      ],
+      "status": "protocol-verified",
+      "upstream": {
+        "kind": "github",
+        "repository": "NousResearch/hermes-agent"
+      },
+      "notes": "Source hash selection retains 0.21.3; 0.21.7 passes actual provider and permission fixtures. Installed customized Hermes and remote gateways are separate unqualified surfaces and remain unchanged.",
+      "recommended": "0.21.7",
+      "verification_surface": "isolated-source-bridge-acp-and-gateway",
+      "protected_versions": [
+        "0.21.3",
+        "0.21.7"
+      ],
+      "source_manifest": "sleeptalk/agents/hermes_bridge_versions.json",
+      "evidence": "tests/test_hermes_bridge.py",
+      "live_voice": "pending"
+    },
+    "openclaw": {
+      "label": "OpenClaw",
+      "latest_observed": "2026.10.2",
+      "verified": [
+        "2026.7.1-2",
+        "2026.10.2"
+      ],
+      "status": "protocol-verified",
+      "upstream": {
+        "kind": "github",
+        "repository": "openclaw/openclaw",
+        "package": "openclaw"
+      },
+      "notes": "Gateway authentication, repeated turns, same-version resume and ACP text turns verified. Tool approvals/cancellation remain adapter-fixture coverage. Remote hosts and persisted-state migrations require owner acceptance; never update a gateway from its client.",
+      "recommended": "2026.10.2",
+      "verification_surface": "actual-local-gateway-and-acp-text-turns",
+      "live_voice": "pending",
+      "evidence": "tests/test_openclaw_release.py",
+      "node_requirement": ">=24.16.0 <25 || >=26.1.0"
+    },
+    "codex": {
+      "label": "Codex CLI",
+      "latest_observed": "0.162.1",
+      "verified": [
+        "0.153.4",
+        "0.162.1"
+      ],
+      "status": "protocol-verified",
+      "upstream": {
+        "kind": "npm",
+        "package": "@openai/codex"
+      },
+      "notes": "Both schemas retained. Candidate removes untrusted approval_policy configuration; migrate disposable config explicitly. No installed CLI or user configuration is changed.",
+      "recommended": "0.162.1",
+      "verification_surface": "actual-app-server-local-responses-provider",
+      "live_voice": "pending",
+      "schemas": {
+        "0.153.4": {
+          "file": "codex_app_server_protocol.v2.0.153.4.schemas.json",
+          "sha256": "d3eace08be5dca386bfd1f1e8df650058b4113f1e10870a284d775d75517576a"
+        },
+        "0.162.1": {
+          "file": "codex_app_server_protocol.v2.schemas.json",
+          "sha256": "0bf5254bede109d4ae03ce2e81372e4c93a30b359c0749ec7dce7a9382a7f857"
+        }
+      },
+      "evidence": "tests/test_codex_release.py"
+    },
+    "claude_code": {
+      "label": "Claude Code CLI",
+      "latest_observed": "2.1.296",
+      "verified": [
+        "2.1.292",
+        "2.1.296"
+      ],
+      "status": "protocol-verified",
+      "upstream": {
+        "kind": "npm",
+        "package": "@anthropic-ai/claude-code"
+      },
+      "notes": "Standalone CLI fallback verified with SDK 0.2.165. Normal SDK startup prefers its bundled CLI (2.1.294 in SDK 0.2.165; 2.1.277 in 0.2.157). These are separate surfaces; existing installations are retained.",
+      "recommended": "2.1.296",
+      "verification_surface": "standalone-cli-through-sdk-fallback-local-messages-provider",
+      "evidence": "tests/test_claude_release.py",
+      "live_voice": "pending"
+    },
+    "claude_sdk": {
+      "label": "Claude Agent SDK",
+      "latest_observed": "0.2.165",
+      "verified": [
+        "0.2.157",
+        "0.2.165"
+      ],
+      "status": "protocol-verified",
+      "upstream": {
+        "kind": "pypi",
+        "package": "claude-agent-sdk"
+      },
+      "notes": "Fresh-install pin only; existing SDKs are retained. Bundled CLI is the SDK runtime, independent of the standalone CLI.",
+      "recommended": "0.2.165",
+      "verification_surface": "actual-sdk-and-bundled-cli-local-messages-provider",
+      "evidence": "tests/test_claude_release.py",
+      "live_voice": "pending",
+      "bundled_cli": {
+        "0.2.157": "2.1.277",
+        "0.2.165": "2.1.294"
+      }
+    },
+    "cursor_cli": {
+      "label": "Cursor CLI",
+      "latest_observed": "2026.10.01-e373342",
+      "verified": [],
+      "status": "candidate",
+      "upstream": {
+        "kind": "cursor-installer"
+      },
+      "notes": "Actual ACP initialization and unauthenticated rejection only. Authenticated turns, approvals and resume remain pending; no fresh-install recommendation yet.",
+      "handshake_verified": [
+        "2026.09.02-c22c1a3",
+        "2026.10.01-e373342"
+      ],
+      "evidence": "tests/test_cursor_cli_release.py"
+    },
+    "cursor_sdk": {
+      "label": "Cursor SDK",
+      "latest_observed": "1.0.37",
+      "verified": [
+        "1.0.29",
+        "1.0.31",
+        "1.0.32",
+        "1.0.37"
+      ],
+      "status": "protocol-verified",
+      "upstream": {
+        "kind": "pypi",
+        "package": "cursor-sdk"
+      },
+      "notes": "Exact Python SDK wire and bundled bridge discovery evidence; authenticated model execution and persistent-state migration are not qualified. Protected sessions remain new, isolated, deny-only. Existing installations are retained.",
+      "recommended": "1.0.37",
+      "verification_surface": "python-connect-wire-and-bundled-bridge-discovery",
+      "live_voice": "pending",
+      "evidence": [
+        "tests/test_cursor_release.py",
+        "tests/test_cursor_sdk_isolation.py"
+      ]
+    }
+  }
+}

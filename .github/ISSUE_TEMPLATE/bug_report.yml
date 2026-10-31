@@ -1,0 +1,62 @@
+name: Bug report
+description: A supported setup failed, or an unverified machine, agent, or voice misbehaved
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Supported setups are the ones in the [support matrix](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/launch-support-matrix.md). Paste command output when you have it. If a command failed, paste the error.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you saw.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS and architecture
+      placeholder: Ubuntu 24.04 x86_64, or macOS 15 arm64
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Python and Sleeptalk versions
+      placeholder: Python 3.12.3, sleeptalk 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where you were talking
+      options:
+        - Browser call through call.sleep.talk
+        - Tailnet
+        - Browser on the same machine
+        - Discord
+        - Terminal
+        - Settings or setup only
+    validations:
+      required: true
+  - type: input
+    id: speech
+    attributes:
+      label: Speech provider and voice
+      placeholder: Cartesia Sonic, Local Kokoro, OpenRouter, OpenAI Realtime
+    validations:
+      required: true
+  - type: textarea
+    id: agent
+    attributes:
+      label: Agent
+      description: The harness name and the output of `sleeptalk adapter versions`, including any `--pi-bin`, `--omp-bin`, or `--cursor-bin` path you actually run.
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Doctor
+      description: Output of `sleeptalk doctor --config <your-profile>`. Leave out keys, tokens, and workspace contents.
+    validations:
+      required: true

@@ -1,0 +1,15 @@
+{
+  "id": "exception-browser-intro-chime",
+  "requirement": "VUX-SX-003",
+  "kind": "surface-exception",
+  "surface": "browser",
+  "replaces": "VUX-LT-001",
+  "notes": "Browser still plays an intro chime before the greeting. r2-browser-intro-chime-barge-in removes it. The greeting remains the first semantic output. Operator WebRTC uses Floor. The Vite Daily/LiveKit harness uses VoiceAgentProcessor.",
+  "initial": {"session_state": "connecting", "conversation_state": "connecting"},
+  "steps": [
+    {
+      "emit": {"type": "session.state", "payload": {"state": "active"}},
+      "expect": {"session_state": "active", "conversation_state": "listening"}
+    }
+  ]
+}

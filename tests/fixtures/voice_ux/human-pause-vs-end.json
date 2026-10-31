@@ -1,0 +1,9 @@
+{
+  "id": "human-pause-vs-end",
+  "requirement": "VUX-HJ-001",
+  "kind": "human-judgment",
+  "setup": "Speak a complete thought, pause about 400ms, then add one more clause.",
+  "question": "Did the bot wait for the rest instead of answering the first clause?",
+  "result_vocabulary": ["waited", "answered-too-soon"],
+  "surfaces": ["terminal", "discord", "browser"]
+}

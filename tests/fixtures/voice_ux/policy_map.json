@@ -1,0 +1,874 @@
+{
+  "baseline_commit": "9ad5b40246c81f42a5ecc66a3d7f689869d3f565",
+  "recorded_baseline_tag": "golden-voice-95ffb75",
+  "recorded_baseline_commit": "95ffb75ea43193c2dc6a8dd1eaa86cce2f975c5e",
+  "checksums": {
+    "sleeptalk.example.toml": "f16bfea2cc9cbaa5c40a66eb7d84127842ffe9ec73f2d02b5ffafde81e2357c9",
+    "config/profiles/example.toml": "8e0a3618e843e1eadcd6fc7bfacd9e2a67daebf1f234fa63c1f9ec31642f8c5b"
+  },
+  "session_states": [
+    "created",
+    "connecting",
+    "active",
+    "recovering",
+    "closing",
+    "closed"
+  ],
+  "session_events": [
+    "session.state",
+    "transcript.partial",
+    "transcript.final",
+    "response.started",
+    "response.first_output",
+    "response.completed",
+    "response.cancelled",
+    "agent.event",
+    "tool.started",
+    "tool.completed",
+    "tool.failed",
+    "progress",
+    "interruption",
+    "error",
+    "warning",
+    "usage.attempt.started",
+    "usage.attempt.finished",
+    "usage.summary",
+    "roster.changed"
+  ],
+  "fields": [
+    {
+      "path": "policy.background_jobs",
+      "schema": true,
+      "effective": true,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "policy.barge_in_min_chars",
+      "schema": 4,
+      "effective": 4,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.capture.compare_primary",
+      "schema": "silero",
+      "effective": "silero",
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.capture.min_listen_utterance_ms",
+      "schema": 450,
+      "effective": 450,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.capture.min_transcript_words",
+      "schema": 4,
+      "effective": 4,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.capture.min_utterance_ms",
+      "schema": 450,
+      "effective": 450,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.capture.rms_threshold",
+      "schema": 300,
+      "effective": 0,
+      "in_root_toml": true,
+      "source": "root-tuned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.capture.silence_ms",
+      "schema": 450,
+      "effective": 120,
+      "in_root_toml": true,
+      "source": "root-tuned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.capture.smart_turn",
+      "schema": true,
+      "effective": true,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.capture.smart_turn_threshold",
+      "schema": 0.6,
+      "effective": 0.6,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.capture.vad_confidence",
+      "schema": 0.78,
+      "effective": 0.78,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.capture.vad_min_volume",
+      "schema": 0.005,
+      "effective": 0.01,
+      "in_root_toml": true,
+      "source": "root-tuned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.capture.vad_mode",
+      "schema": "hybrid",
+      "effective": "hybrid",
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.capture.vad_start_ms",
+      "schema": 250,
+      "effective": 250,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.capture.vad_stop_ms",
+      "schema": 900,
+      "effective": 900,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.discord_reply_max_chars",
+      "schema": 900,
+      "effective": 1200,
+      "in_root_toml": true,
+      "source": "root-tuned",
+      "family": "reply-shaping",
+      "requirement": "VUX-RP-001"
+    },
+    {
+      "path": "policy.discord_reply_max_sentences",
+      "schema": 8,
+      "effective": 8,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "reply-shaping",
+      "requirement": "VUX-RP-001"
+    },
+    {
+      "path": "policy.duplicate_turn_window_ms",
+      "schema": 10000,
+      "effective": 10000,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.early_barge_in_ms",
+      "schema": 900,
+      "effective": 900,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.endpointing",
+      "schema": "balanced",
+      "effective": "balanced",
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.balanced_complete_silence_ms",
+      "schema": 750,
+      "effective": 650,
+      "in_root_toml": true,
+      "source": "root-tuned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.complete_silence_ms",
+      "schema": 450,
+      "effective": 450,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.completion_threshold",
+      "schema": 0.72,
+      "effective": 0.72,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.early_transcript",
+      "schema": true,
+      "effective": true,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.enabled",
+      "schema": true,
+      "effective": true,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.filler_reset_ms",
+      "schema": 3500,
+      "effective": 3500,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.incomplete_silence_ms",
+      "schema": 3500,
+      "effective": 3500,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.monologue_complete_silence_ms",
+      "schema": 850,
+      "effective": 850,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.monologue_incomplete_silence_ms",
+      "schema": 5000,
+      "effective": 5000,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.monologue_mode_ms",
+      "schema": 15000,
+      "effective": 15000,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.responsive_mode_ms",
+      "schema": 5000,
+      "effective": 5000,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.semantic_complete_silence_ms",
+      "schema": 650,
+      "effective": 650,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.endpointing_overrides.uncertain_silence_ms",
+      "schema": 1800,
+      "effective": 1800,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "endpointing",
+      "requirement": "VUX-EP-001"
+    },
+    {
+      "path": "policy.filler_delay_ms",
+      "schema": 800,
+      "effective": 1200,
+      "in_root_toml": true,
+      "source": "root-tuned",
+      "family": "thinking-preamble",
+      "requirement": "VUX-PR-001"
+    },
+    {
+      "path": "policy.filler_general",
+      "schema": [
+        "Let me check that.",
+        "One second, I am looking.",
+        "I am checking now.",
+        "Let me pull that together."
+      ],
+      "effective": [
+        "Let me check that.",
+        "One second, I am looking.",
+        "I am checking now.",
+        "Let me pull that together."
+      ],
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "thinking-preamble",
+      "requirement": "VUX-PR-001"
+    },
+    {
+      "path": "policy.filler_web_search",
+      "schema": [
+        "Let me check that.",
+        "Checking now.",
+        "I'll look that up.",
+        "One second, checking.",
+        "Let me verify that."
+      ],
+      "effective": [
+        "Let me check that.",
+        "Checking now.",
+        "I'll look that up.",
+        "One second, checking.",
+        "Let me verify that."
+      ],
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "thinking-preamble",
+      "requirement": "VUX-PR-001"
+    },
+    {
+      "path": "policy.fillers",
+      "schema": true,
+      "effective": false,
+      "in_root_toml": true,
+      "source": "root-tuned",
+      "family": "thinking-preamble",
+      "requirement": "VUX-PR-001"
+    },
+    {
+      "path": "policy.first_token_budget_ms",
+      "schema": 800,
+      "effective": 800,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "latency",
+      "requirement": "VUX-LT-001"
+    },
+    {
+      "path": "policy.fragment_barge_window_ms",
+      "schema": 10000,
+      "effective": 10000,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.fragment_hold_ms",
+      "schema": 1500,
+      "effective": 1500,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.instant_ack",
+      "schema": true,
+      "effective": true,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "thinking-preamble",
+      "requirement": "VUX-PR-001"
+    },
+    {
+      "path": "policy.instant_ack_mode",
+      "schema": "smart",
+      "effective": "smart",
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "thinking-preamble",
+      "requirement": "VUX-PR-001"
+    },
+    {
+      "path": "policy.interrupt.cooldown_ms",
+      "schema": 1200,
+      "effective": 1200,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.interrupt.enabled",
+      "schema": true,
+      "effective": true,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.interrupt.gap_hold_ms",
+      "schema": 600,
+      "effective": 600,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.interrupt.grace_ms",
+      "schema": 400,
+      "effective": 400,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.interrupt.min_duration_ms",
+      "schema": 150,
+      "effective": 150,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.interrupt.min_volume",
+      "schema": 0.03,
+      "effective": 0.03,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.interrupt.mode",
+      "schema": "immediate",
+      "effective": "soft",
+      "in_root_toml": true,
+      "source": "root-tuned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.keepalive_interval_s",
+      "schema": 10.0,
+      "effective": 10.0,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "policy.max_background_jobs",
+      "schema": null,
+      "effective": null,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "policy.min_turn_chars",
+      "schema": 2,
+      "effective": 2,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.narration_style",
+      "schema": "silence",
+      "effective": "silence",
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "policy.post_bot_cooldown_ms",
+      "schema": 1200,
+      "effective": 1200,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.reply_length",
+      "schema": "full",
+      "effective": "full",
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "reply-shaping",
+      "requirement": "VUX-RP-001"
+    },
+    {
+      "path": "policy.reply_max_chars",
+      "schema": 1200,
+      "effective": 1200,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "reply-shaping",
+      "requirement": "VUX-RP-001"
+    },
+    {
+      "path": "policy.reply_max_sentences",
+      "schema": 8,
+      "effective": 8,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "reply-shaping",
+      "requirement": "VUX-RP-001"
+    },
+    {
+      "path": "policy.resume_after_interrupt",
+      "schema": true,
+      "effective": true,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.resume_grace_ms",
+      "schema": 750,
+      "effective": 750,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.resume_offer_text",
+      "schema": "I was partway through that. Want me to continue?",
+      "effective": "I was partway through that. Want me to continue?",
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.smart_ack_budget_ms",
+      "schema": 1200,
+      "effective": 1200,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "thinking-preamble",
+      "requirement": "VUX-PR-001"
+    },
+    {
+      "path": "policy.turn_debounce_ms",
+      "schema": 2000,
+      "effective": 2000,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.turns.bot_grace_ms",
+      "schema": 400,
+      "effective": 400,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.turns.debug",
+      "schema": false,
+      "effective": false,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.turns.duck_confidence",
+      "schema": 0.7,
+      "effective": 0.7,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.turns.duck_min_ms",
+      "schema": 200,
+      "effective": 200,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.turns.duck_min_volume",
+      "schema": 0.03,
+      "effective": 0.03,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.turns.duck_on_vad",
+      "schema": true,
+      "effective": true,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.turns.duck_release_ms",
+      "schema": 600,
+      "effective": 600,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.turns.interrupt_min_ms",
+      "schema": 250,
+      "effective": 250,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.turns.long_task_auto_continue_seconds",
+      "schema": 30.0,
+      "effective": 30.0,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "policy.turns.long_task_check_in_seconds",
+      "schema": 180.0,
+      "effective": 180.0,
+      "in_root_toml": false,
+      "source": "schema-live",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "policy.turns.max_wait_seconds",
+      "schema": 120.0,
+      "effective": 120.0,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "capture",
+      "requirement": "VUX-CP-001"
+    },
+    {
+      "path": "policy.turns.post_interrupt_cooldown_ms",
+      "schema": 1200,
+      "effective": 1200,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "interruption",
+      "requirement": "VUX-IN-001"
+    },
+    {
+      "path": "policy.turns.silero_confidence",
+      "schema": 0.7,
+      "effective": 0.7,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.turns.silero_min_volume",
+      "schema": 0.005,
+      "effective": 0.005,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.turns.silero_start_ms",
+      "schema": 220,
+      "effective": 220,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.turns.silero_stop_ms",
+      "schema": 900,
+      "effective": 900,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.turns.vad_profile",
+      "schema": "default",
+      "effective": "default",
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    },
+    {
+      "path": "policy.turns.vad_threshold",
+      "schema": 500,
+      "effective": 500,
+      "in_root_toml": true,
+      "source": "root-pinned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    }
+  ],
+  "invariants": [
+    {
+      "path": "policy.preamble_pools",
+      "schema": {},
+      "effective": "DEFAULT_PREAMBLE_POOLS",
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "thinking-preamble",
+      "requirement": "VUX-PR-001"
+    },
+    {
+      "path": "policy.reassure_tool_pools",
+      "schema": {},
+      "effective": "DEFAULT_REASSURE_TOOL_POOLS",
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "policy.narration_phrases",
+      "schema": {},
+      "effective": "DEFAULT_NARRATION_PHRASES",
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "VoicePolicyTimings.ack_delay_seconds",
+      "schema": null,
+      "effective": 1.2,
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "latency",
+      "requirement": "VUX-LT-001"
+    },
+    {
+      "path": "VoicePolicyTimings.sentence_grace_seconds",
+      "schema": null,
+      "effective": 0.4,
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "latency",
+      "requirement": "VUX-LT-001"
+    },
+    {
+      "path": "VoicePolicyTimings.action_delay_seconds",
+      "schema": null,
+      "effective": 2.0,
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "latency",
+      "requirement": "VUX-LT-001"
+    },
+    {
+      "path": "VoicePolicyRuntime._LOOP_DELAY_SECONDS",
+      "schema": null,
+      "effective": 2.0,
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "VoicePolicyRuntime._LOOP_GAP_SECONDS",
+      "schema": null,
+      "effective": 1.4,
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "VoicePolicyRuntime._MIDTURN_GAP_SECONDS",
+      "schema": null,
+      "effective": 3.0,
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "progress",
+      "requirement": "VUX-PG-001"
+    },
+    {
+      "path": "TurnPolicyValues.vad_mode",
+      "schema": "compare",
+      "effective": "compare",
+      "in_root_toml": false,
+      "source": "code-owned",
+      "family": "vad-smart-turn",
+      "requirement": "VUX-VD-001"
+    }
+  ]
+}

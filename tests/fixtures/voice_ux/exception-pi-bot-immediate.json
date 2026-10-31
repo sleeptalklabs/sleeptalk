@@ -1,0 +1,29 @@
+{
+  "id": "exception-pi-bot-immediate",
+  "requirement": "VUX-SX-002",
+  "kind": "surface-exception",
+  "surface": "discord",
+  "profile": "pi-bot",
+  "replaces": "VUX-IN-001",
+  "pins": {
+    "policy.interrupt.mode": "soft"
+  },
+  "overlay": {
+    "policy.interrupt.mode": "immediate"
+  },
+  "notes": "Root standard is soft. config/profiles/example.toml overlays immediate.",
+  "initial": {"session_state": "active", "conversation_state": "bot-speaking"},
+  "steps": [
+    {
+      "emit": {
+        "type": "interruption",
+        "payload": {"source": "user_speech", "phase": "answering"}
+      },
+      "expect": {
+        "session_state": "active",
+        "conversation_state": "listening",
+        "effects": ["response.cancelled"]
+      }
+    }
+  ]
+}

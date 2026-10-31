@@ -1,0 +1,24 @@
+{
+  "id": "family-lifecycle",
+  "requirement": "VUX-LS-001",
+  "kind": "event-trace",
+  "initial": {"session_state": "created", "conversation_state": "idle"},
+  "steps": [
+    {
+      "emit": {"type": "session.state", "payload": {"state": "connecting"}},
+      "expect": {"session_state": "connecting", "conversation_state": "connecting"}
+    },
+    {
+      "emit": {"type": "session.state", "payload": {"state": "active"}},
+      "expect": {"session_state": "active", "conversation_state": "listening"}
+    },
+    {
+      "emit": {"type": "session.state", "payload": {"state": "closing"}},
+      "expect": {"session_state": "closing", "conversation_state": "idle"}
+    },
+    {
+      "emit": {"type": "session.state", "payload": {"state": "closed"}},
+      "expect": {"session_state": "closed", "conversation_state": "idle"}
+    }
+  ]
+}

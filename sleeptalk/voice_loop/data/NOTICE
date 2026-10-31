@@ -1,0 +1,11 @@
+silero_vad.onnx
+  Source: pipecat-ai (pipecat.audio.vad.data), originally Silero VAD.
+  License: MIT.
+
+smart-turn-v3.2-cpu.onnx
+  Source: pipecat-ai (pipecat.audio.turn.smart_turn.data), Daily Smart Turn v3.
+  License: BSD 2-Clause.
+
+whisper_features.py
+  Source: pipecat-ai _whisper_features.py (BSD 2-Clause).
+  Feature math mirrors HuggingFace transformers WhisperFeatureExtractor (Apache-2.0).

@@ -1,0 +1,18 @@
+{
+ "routing_id": "r1234567routing",
+ "key": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8",
+ "sealed": {
+  "seq": 1,
+  "iv": "hIpnfiIdekcl3JzX",
+  "ct": "-QxXiY9M6WyuSMdclCwI4OCD5Lwu4-qDN3zsAlKu8jtPlkpPqsS0__MQSATBUAQtmiapECMSzayA8DSP8VZ9JTGSyu08KyjDjh0jsWuGadDn8ZEk6ncqQ2q7BalgzBrro4S7sVEgQ_nHRpDUFiPocz0JhqicFGJBKMV0nlQ9QxTzr5BgPJ_bJcCjjlj0T7Dijbg7RzEQjeI1WA"
+ },
+ "type": "settings.reply",
+ "payload": {
+  "id": 1,
+  "part": 0,
+  "parts": 1,
+  "status": 200,
+  "content_type": "application/json",
+  "data": "e30="
+ }
+}

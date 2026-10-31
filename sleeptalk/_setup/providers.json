@@ -1,0 +1,101 @@
+{
+  "note": "One source for both key pages. The phone page bundles this at build time; the local page fetches it from the host. Free-tier figures are as published in September 2026; keep them short and re-check them at release.",
+  "providers": [
+    {
+      "id": "cartesia",
+      "name": "Cartesia",
+      "tagline": "Natural voices, fast. The default pick.",
+      "free": "20,000 credits a month: about 25 minutes of speech plus a couple of hours of listening.",
+      "card": "No card to sign up.",
+      "fine_print": "Free plan is for personal use; paid plans start at $5 a month.",
+      "key_url": "https://play.cartesia.ai/keys",
+      "key_help": "Create an account, then generate an API key for your organization.",
+      "primary": true,
+      "usage": "Every month you get 20,000 free credits, shared by listening and speaking. Your agent talking uses them fastest: about 25 minutes of it talking uses up the month. In practice that's an hour or two of calls a month with short replies. Credits reset monthly and don't carry over."
+    },
+    {
+      "id": "deepgram",
+      "name": "Deepgram",
+      "tagline": "The most free usage.",
+      "free": "$200 of credit that never expires: dozens of hours of conversation.",
+      "card": "No card needed.",
+      "fine_print": "Pay as you go after the credit is used.",
+      "key_url": "https://console.deepgram.com/",
+      "key_help": "Create an account, then create a project API key.",
+      "primary": true,
+      "usage": "A one-time $200 credit that never expires. Listening costs about 50 cents per hour of call, and your agent talking about $1.60 per hour of speech. An hour-long call where the agent talks for about 10 minutes costs under a dollar, so the credit covers a couple of hundred hours of calls."
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "tagline": "The biggest voice library.",
+      "free": "10,000 credits a month: about 10 minutes of speech.",
+      "card": "No card to sign up.",
+      "fine_print": "Free plan is non-commercial; paid plans start at $5 a month.",
+      "key_url": "https://elevenlabs.io/app/settings/api-keys",
+      "key_help": "Create an account, then create an API key with text-to-speech and voice access.",
+      "primary": false,
+      "usage": "Every month you get 10,000 free credits. Each character your agent says uses one, so that's about 10 minutes of it talking a month: enough to try the voices, not for daily use."
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "tagline": "The key your agent may already have.",
+      "free": "Listening for cents an hour; Grok voices about a dollar an hour of speech, or the Flux voices (Hannah, Kit) free. Same key as the models.",
+      "card": "Uses the balance you already have; no separate sign-up.",
+      "fine_print": "Replies start about half a second later than with a dedicated speech key, because listening is one request per turn.",
+      "key_url": "https://openrouter.ai/keys",
+      "key_help": "Create an API key in your OpenRouter account, or reuse the one your agent uses.",
+      "primary": false,
+      "usage": "No free allowance: it's paid from your OpenRouter balance. Listening costs about 9 cents per hour of you talking, and the Grok voices about 80 cents per hour of the agent talking. An hour-long call where you talk for 20 minutes and the agent for 10 costs about 15 cents."
+    },
+    {
+      "id": "venice",
+      "name": "Venice",
+      "tagline": "Private inference; the key your agent may already have.",
+      "free": "Parakeet listening and Grok voices from your prepaid credits, about a dollar an hour of speech.",
+      "card": "Uses the credits you already have; no separate sign-up.",
+      "fine_print": "Replies start about half a second later than with a dedicated speech key.",
+      "key_url": "https://venice.ai/settings/api",
+      "key_help": "Create an API key in your Venice account, or reuse the one your agent uses.",
+      "primary": false,
+      "usage": "Paid from your Venice credits. Listening costs about 36 cents per hour of you talking, and the Grok voices about a dollar per hour of the agent talking. An hour-long call where you talk for 20 minutes and the agent for 10 costs about 30 cents."
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "tagline": "Fast Whisper listening.",
+      "free": "Whisper listening for a few cents an hour; Orpheus voices.",
+      "card": "Uses your Groq account.",
+      "fine_print": "Replies start about half a second later than with a dedicated speech key.",
+      "key_url": "https://console.groq.com/keys",
+      "key_help": "Create an API key in the Groq console, or reuse the one your agent uses.",
+      "primary": false,
+      "usage": "Paid from your Groq account. Whisper listening costs a few cents per hour of you talking; the Orpheus voice is billed by the characters the agent says."
+    },
+    {
+      "id": "together",
+      "name": "Together",
+      "tagline": "Parakeet listening and Cartesia voices.",
+      "free": "Listening for cents an hour; Cartesia voices at a few dollars an hour of speech.",
+      "card": "Uses your Together account.",
+      "fine_print": "Replies start about half a second later than with a dedicated speech key.",
+      "key_url": "https://api.together.xyz/settings/api-keys",
+      "key_help": "Create an API key in your Together account, or reuse the one your agent uses.",
+      "primary": false,
+      "usage": "Paid from your Together account. Listening costs cents per hour; the Cartesia voices a few dollars per hour of the agent talking. An hour-long call with short replies costs well under a dollar."
+    },
+    {
+      "id": "local",
+      "name": "Local",
+      "tagline": "No account, no key.",
+      "free": "Unlimited. Runs on the agent's own computer. Download size depends on the models you choose.",
+      "card": "No card, no account.",
+      "fine_print": "Voice quality and reply speed depend on the model and this computer. Choose local models below.",
+      "key_url": "",
+      "key_help": "",
+      "primary": false,
+      "usage": "Free and unlimited: listening and speaking run on this computer, so there's nothing to count."
+    }
+  ]
+}

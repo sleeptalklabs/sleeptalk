@@ -1,0 +1,9 @@
+{"v":1,"type":"turn.prompt","id":"p-9","turnId":3,"text":"delete build artifacts","mode":"stream"}
+{"v":1,"type":"status.changed","id":"e-10","turnId":3,"state":"working"}
+{"v":1,"type":"permission.requested","id":"e-11","turnId":3,"requestId":"perm-3","prompt":"Allow rm -rf dist?","options":["deny","allow_once"]}
+{"v":1,"type":"status.changed","id":"e-12","turnId":3,"state":"blocked"}
+{"v":1,"type":"permission.resolve","id":"c-3","turnId":3,"requestId":"perm-3","decision":"deny"}
+{"v":1,"type":"control.accepted","id":"e-13","ref":"c-3","requestId":"perm-3"}
+{"v":1,"type":"turn.abort","id":"a-1","turnId":3}
+{"v":1,"type":"turn.aborted","id":"e-14","turnId":3,"ref":"a-1"}
+{"v":1,"type":"error","id":"e-16","turnId":3,"code":"abort","message":"turn aborted","retryable":false,"fatal":false}

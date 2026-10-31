@@ -1,0 +1,4 @@
+{"v":1,"type":"hello.ok","sessionId":"sess-bp","resumeToken":"<redacted>","capabilities":{},"limits":{"heartbeatMs":15000,"missedHeartbeats":2,"sendQueue":2,"initialCredit":1,"replayWindowMs":120000,"maxFrameBytes":65536}}
+{"v":1,"type":"turn.prompt","id":"p-1","turnId":1,"text":"flood","mode":"stream"}
+{"v":1,"type":"sentence","id":"e-1","turnId":1,"text":"Line 1 of flood."}
+{"v":1,"type":"error","id":"e-2","turnId":1,"code":"backpressure","message":"credit or queue exhausted","retryable":true,"fatal":false}

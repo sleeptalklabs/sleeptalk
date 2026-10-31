@@ -1,0 +1,8 @@
+{"v":1,"type":"hello","auth":{"scheme":"bearer","token":"<redacted>"},"capabilities":{"session_identity":{"level":"supported"},"tool_lifecycle":{"level":"supported"},"permissions":{"level":"unsupported"},"clarification":{"level":"unsupported"},"structured_events":{"level":"supported"},"status":{"level":"unsupported"},"usage":{"level":"unsupported"},"steering":{"level":"unsupported"},"targeted_cancellation":{"level":"unsupported"},"workers":{"level":"unsupported"},"voice_sessions":{"level":"unsupported"}},"client":{"name":"sleeptalk","language":"python"}}
+{"v":1,"type":"hello.ok","session_id":"sess-1","resume_token":"<redacted>","capabilities":{"session_identity":{"level":"supported"},"tool_lifecycle":{"level":"supported"},"permissions":{"level":"unsupported"},"clarification":{"level":"unsupported"},"structured_events":{"level":"supported"},"status":{"level":"unsupported"},"usage":{"level":"unsupported"},"steering":{"level":"unsupported"},"targeted_cancellation":{"level":"unsupported"},"workers":{"level":"unsupported"},"voice_sessions":{"level":"unsupported"}},"limits":{"heartbeat_ms":15000,"missed_heartbeats":2,"send_queue":32,"initial_credit":16,"replay_window_ms":120000,"max_frame_bytes":65536}}
+{"v":1,"type":"turn.prompt","id":"p-1","turn_id":1,"text":"hello there","mode":"stream"}
+{"v":1,"type":"session.identified","id":"e-1","turn_id":1,"upstream_session_id":"agent-77","resumable":false}
+{"v":1,"type":"thinking.started","id":"e-2","turn_id":1}
+{"v":1,"type":"tool","id":"e-3","turn_id":1,"name":"bash","phase":"started","detail":"running echo hello"}
+{"v":1,"type":"sentence","id":"e-4","turn_id":1,"text":"You said hello there."}
+{"v":1,"type":"turn.completed","id":"e-5","turn_id":1,"ref":"p-1"}

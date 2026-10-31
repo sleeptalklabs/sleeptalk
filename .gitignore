@@ -1,0 +1,54 @@
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials/
+# Wrangler's local Worker secrets (rendezvous/.dev.vars and variants).
+.dev.vars*
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# Node
+node_modules/
+coverage/
+*.tsbuildinfo
+
+# Runtime state written by sleeptalk
+logs/
+*.log
+calls/
+recordings/
+workspaces/
+*.ses
+
+# Operator profiles stay local. They can contain Discord application IDs,
+# provider voice IDs, and machine paths even when secrets stay in .env.
+config/profiles/*.toml
+!config/profiles/example.toml
+
+# Operator-local composition. Copy sleeptalk.example.toml instead.
+sleeptalk.toml
+
+# The compose.yaml state volume: profiles, keys, and logs.
+sleeptalk-home/
+
+# Editors and tooling
+.DS_Store
+.idea/
+.vscode/
+.claude/
+.cursor/
+.worktrees/
+
+# Local run artifacts: QA captures, VPS logs, demo renders.
+outputs/

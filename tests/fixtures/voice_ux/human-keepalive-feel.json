@@ -1,0 +1,9 @@
+{
+  "id": "human-keepalive-feel",
+  "requirement": "VUX-HJ-003",
+  "kind": "human-judgment",
+  "setup": "Ask for a long command or file edit and stay silent for more than 10 seconds.",
+  "question": "Did the keepalive line sound like progress, or like spam?",
+  "result_vocabulary": ["reassuring", "spam", "silent-too-long"],
+  "surfaces": ["terminal", "discord", "browser"]
+}

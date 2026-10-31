@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sleeptalk.dev/evals/scenarios/schema.json",
+  "title": "SleeptalkMultiTurnScenario",
+  "type": "object",
+  "required": ["id", "tier", "turns"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "tier": {"type": "string", "enum": ["contract", "golden-path", "soak", "investigation"]},
+    "visibility": {"type": "string", "enum": ["public", "private"], "default": "public"},
+    "description": {"type": "string"},
+    "config": {"type": "string"},
+    "surface": {"type": "string", "enum": ["discord", "web", "terminal", "browser"]},
+    "turns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["user"],
+        "properties": {
+          "user": {"type": "string"},
+          "during_bot": {"type": "string", "pattern": "^barge:"},
+          "expect": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "deadline_s": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+    "session_invariants": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "automated_checks": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "human_checks": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "golden_sha": {"type": "string"}
+  }
+}

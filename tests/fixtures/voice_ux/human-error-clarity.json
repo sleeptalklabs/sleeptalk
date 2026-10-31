@@ -1,0 +1,9 @@
+{
+  "id": "human-error-clarity",
+  "requirement": "VUX-HJ-005",
+  "kind": "human-judgment",
+  "setup": "Force a missing key or a dropped network during an active turn.",
+  "question": "Was the spoken or visible error clear, secret-free, and recoverable?",
+  "result_vocabulary": ["clear-and-recoverable", "opaque", "leaked-secret", "stuck"],
+  "surfaces": ["terminal", "discord", "browser"]
+}

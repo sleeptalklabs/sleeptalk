@@ -1,0 +1,136 @@
+name: Codex Claude Hermes OpenClaw compatibility
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['sleeptalk/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/remaining-harness-compatibility.yml']
+  push:
+    branches: [main]
+    paths: ['sleeptalk/**', 'tests/**', 'pyproject.toml', 'uv.lock', '.github/workflows/remaining-harness-compatibility.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  versions:
+    runs-on: ubuntu-latest
+    outputs:
+      releases: ${{ steps.inventory.outputs.releases }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: inventory
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from sleeptalk.harness_versions import inventory
+          harnesses = inventory()['harnesses']
+          releases = []
+          for name in ['codex', 'claude_sdk', 'claude_code', 'hermes', 'openclaw']:
+              spec = harnesses[name]
+              versions = spec.get('protected_versions', spec['verified'])
+              for version in versions:
+                  releases.append({'harness': name, 'version': version, 'node': '24.16.0' if name == 'openclaw' and version == '2026.10.2' else '22.23.1'})
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              print('releases=' + json.dumps(releases), file=out)
+          PY
+
+  protocol:
+    needs: versions
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        release: ${{ fromJSON(needs.versions.outputs.releases) }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    env:
+      HARNESS: ${{ matrix.release.harness }}
+      RELEASE: ${{ matrix.release.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: ${{ matrix.release.node }}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - run: uv sync --locked --dev --extra claude
+      - name: Stage exact npm runtime
+        if: contains(fromJSON('["codex", "claude_code", "openclaw"]'), matrix.release.harness)
+        run: |
+          case "$HARNESS" in
+            codex) package=@openai/codex; binary=codex; variable=SLEEPTALK_TEST_CODEX_BIN; version_variable=SLEEPTALK_TEST_CODEX_VERSION ;;
+            claude_code) package=@anthropic-ai/claude-code; binary=claude; variable=SLEEPTALK_TEST_CLAUDE_BIN; version_variable=SLEEPTALK_TEST_CLAUDE_CLI_VERSION ;;
+            openclaw) package=openclaw; binary=openclaw; variable=SLEEPTALK_TEST_OPENCLAW_BIN; version_variable=SLEEPTALK_TEST_OPENCLAW_VERSION ;;
+          esac
+          npm install --prefix "$RUNNER_TEMP/harness" --save-exact --ignore-scripts --no-audit --no-fund "$package@$RELEASE"
+          echo "$variable=$RUNNER_TEMP/harness/node_modules/.bin/$binary" >> "$GITHUB_ENV"
+          if [ "$HARNESS" = codex ]; then
+            echo "CODEX_BIN=$RUNNER_TEMP/harness/node_modules/.bin/codex" >> "$GITHUB_ENV"
+          fi
+          echo "$version_variable=$RELEASE" >> "$GITHUB_ENV"
+          if [ "$HARNESS" = claude_code ]; then
+            installer="$RUNNER_TEMP/harness/node_modules/@anthropic-ai/claude-code/install.cjs"
+            if [ -f "$installer" ]; then node "$installer"; fi
+            echo "SLEEPTALK_TEST_CLAUDE_SDK_VERSION=$(uv run --no-sync python -c 'from sleeptalk.harness_versions import inventory; print(inventory()["harnesses"]["claude_sdk"]["recommended"])')" >> "$GITHUB_ENV"
+          fi
+      - name: Stage exact SDK wheel and identify its bundled CLI
+        if: matrix.release.harness == 'claude_sdk'
+        run: |
+          uv pip install --python .venv/bin/python --no-deps "claude-agent-sdk==$RELEASE"
+          echo "SLEEPTALK_TEST_CLAUDE_SDK_VERSION=$RELEASE" >> "$GITHUB_ENV"
+          python3 - <<'PY'
+          import os
+          from sleeptalk.harness_versions import inventory
+          cli = inventory()['harnesses']['claude_sdk']['bundled_cli'][os.environ['RELEASE']]
+          with open(os.environ['GITHUB_ENV'], 'a') as out:
+              print('SLEEPTALK_TEST_CLAUDE_CLI_VERSION=' + cli, file=out)
+          PY
+      - name: Stage reviewed Hermes source with independent dependencies
+        if: matrix.release.harness == 'hermes'
+        run: |
+          uv run --no-sync python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          from sleeptalk.agents.hermes_bridge import source_version
+          record = json.loads(Path('sleeptalk/agents/hermes_bridge_versions.json').read_text())[os.environ['RELEASE']]
+          root = Path(os.environ['RUNNER_TEMP']) / 'hermes'
+          subprocess.run(['git', 'init', str(root)], check=True)
+          subprocess.run(['git', '-C', str(root), 'fetch', '--depth=1', 'https://github.com/NousResearch/hermes-agent.git', record['revision']], check=True)
+          subprocess.run(['git', '-C', str(root), 'checkout', '--detach', 'FETCH_HEAD'], check=True)
+          assert source_version(root) == os.environ['RELEASE']
+          with open(os.environ['GITHUB_ENV'], 'a') as out:
+              print(f'SLEEPTALK_TEST_HERMES_ROOT={root}', file=out)
+              print(f'SLEEPTALK_TEST_HERMES_PYTHON={root}/venv/bin/python', file=out)
+          PY
+          uv venv --python 3.11 "$RUNNER_TEMP/hermes/venv"
+          # Hermes refuses wheel builds from source; an editable install is its supported path.
+          uv pip install --python "$RUNNER_TEMP/hermes/venv/bin/python" -e "$RUNNER_TEMP/hermes[anthropic]"
+          uv pip freeze --python "$RUNNER_TEMP/hermes/venv/bin/python" > hermes-dependencies.txt
+      - name: Exercise selected upstream runtime and shared contracts
+        run: |
+          case "$HARNESS" in
+            codex) tests='tests/test_codex_release.py tests/test_codex_app_server.py' ;;
+            claude_sdk|claude_code) tests='tests/test_claude_release.py tests/test_claude_code_adapter.py' ;;
+            hermes) tests='tests/test_hermes_bridge.py tests/test_hermes_installed.py tests/test_hermes_permissions.py tests/test_hermes_gateway_adapter.py' ;;
+            openclaw) tests='tests/test_openclaw_release.py tests/test_openclaw_gateway_adapter.py' ;;
+          esac
+          uv run --no-sync pytest -q $tests tests/test_harness_versions.py tests/agent_conformance --junitxml=harness-results.xml
+      - name: Retain resolution and results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ${{ matrix.release.harness }}-${{ matrix.release.version }}-${{ matrix.os }}
+          path: |
+            harness-results.xml
+            hermes-dependencies.txt
+            sleeptalk/harness_versions.json
+            sleeptalk/agents/hermes_bridge_versions.json
+            sleeptalk/agents/codex_app_server_schema/
+            ${{ runner.temp }}/harness/package-lock.json
+          if-no-files-found: error

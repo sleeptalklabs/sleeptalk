@@ -1,0 +1,22 @@
+# <agent> <run name> [start_call.py options]
+# Every agent on the default speech (OpenRouter), English.
+omp       omp-openrouter-en-US
+pi        pi-openrouter-en-US
+hermes    hermes-openrouter-en-US
+claude_code claude_code-openrouter-en-US
+codex     codex-openrouter-en-US
+cursor    cursor-openrouter-en-US
+openclaw  openclaw-openrouter-en-US --openclaw-read
+model     model-openrouter-en-US
+# Each speech service in three languages (needs SYNTH_KEYS_ENV for Deepgram, Cartesia, OpenAI).
+omp deepgram-en-US --speech deepgram
+omp cartesia-en-US --speech cartesia
+omp realtime-en-US --speech realtime
+omp openrouter-es-ES --speech openrouter --language es-ES
+omp deepgram-es-ES --speech deepgram --language es-ES
+omp cartesia-es-ES --speech cartesia --language es-ES
+omp realtime-es-ES --speech realtime --language es-ES
+omp openrouter-zh-CN --speech openrouter --language zh-CN
+omp deepgram-zh-CN --speech deepgram --language zh-CN
+omp cartesia-zh-CN --speech cartesia --language zh-CN
+omp realtime-zh-CN --speech realtime --language zh-CN

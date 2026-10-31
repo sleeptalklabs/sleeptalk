@@ -1,0 +1,10 @@
+{
+  "baseline_commit": "9ad5b40246c81f42a5ecc66a3d7f689869d3f565",
+  "recorded_baseline_tag": "golden-voice-95ffb75",
+  "recorded_baseline_commit": "95ffb75ea43193c2dc6a8dd1eaa86cce2f975c5e",
+  "checksums": {
+    "sleeptalk.example.toml": "f16bfea2cc9cbaa5c40a66eb7d84127842ffe9ec73f2d02b5ffafde81e2357c9",
+    "config/profiles/example.toml": "8e0a3618e843e1eadcd6fc7bfacd9e2a67daebf1f234fa63c1f9ec31642f8c5b"
+  },
+  "notes": "Root sleeptalk.example.toml is the versioned voice standard. golden-voice-95ffb75 is the recorded conversation baseline, not the config identity of this receipt."
+}

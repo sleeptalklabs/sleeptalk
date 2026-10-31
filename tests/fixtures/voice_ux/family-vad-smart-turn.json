@@ -1,0 +1,22 @@
+{
+  "id": "family-vad-smart-turn",
+  "requirement": "VUX-VD-001",
+  "kind": "event-trace",
+  "pins": {
+    "policy.capture.smart_turn": true,
+    "policy.capture.smart_turn_threshold": 0.6,
+    "policy.capture.vad_mode": "hybrid",
+    "policy.capture.vad_min_volume": 0.01
+  },
+  "initial": {"session_state": "active", "conversation_state": "listening"},
+  "steps": [
+    {
+      "emit": {"type": "transcript.partial", "payload": {"speaker": "user", "text": "Can you"}},
+      "expect": {"session_state": "active", "conversation_state": "user-speaking"}
+    },
+    {
+      "emit": {"type": "transcript.final", "payload": {"speaker": "user", "text": "Can you check the latest build?"}},
+      "expect": {"session_state": "active", "conversation_state": "thinking"}
+    }
+  ]
+}

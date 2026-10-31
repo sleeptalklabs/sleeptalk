@@ -1,0 +1,9 @@
+{
+  "id": "human-false-start-vs-barge",
+  "requirement": "VUX-HJ-002",
+  "kind": "human-judgment",
+  "setup": "While the bot is speaking, cough or say mhmm, then say stop.",
+  "question": "Did the cough duck or ignore, and did stop cut the audio?",
+  "result_vocabulary": ["cough-ignored-stop-cut", "false-barge", "stop-missed"],
+  "surfaces": ["terminal", "discord", "browser"]
+}

@@ -1,0 +1,15 @@
+Service and agent logos shown on the settings page.
+
+Each logo is a trademark of its owner and appears only to identify the
+service or agent it names. No endorsement is implied.
+
+Sources:
+- LobeHub Icons (@lobehub/icons-static-svg 1.95.1, MIT licence,
+  https://github.com/lobehub/lobe-icons): claude_code, codex, cursor,
+  elevenlabs, groq, hermes (Hermes Agent), openai, openclaw, openrouter (the
+  one-colour mark), pi
+  (also used for oh-my-pi, which builds on pi), together, venice.
+- Simple Icons (simple-icons 16.32.0, CC0 1.0,
+  https://github.com/simple-icons/simple-icons): deepgram; discord (fetched 2026-09-24, filled in its brand blurple).
+- Cartesia's own site icon (https://cartesia.ai/favicon.svg): cartesia.
+- Original house symbol for Local speech: local (project licence).

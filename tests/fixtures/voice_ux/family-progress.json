@@ -1,0 +1,22 @@
+{
+  "id": "family-progress",
+  "requirement": "VUX-PG-001",
+  "kind": "event-trace",
+  "pins": {
+    "policy.keepalive_interval_s": 10.0,
+    "policy.turns.long_task_check_in_seconds": 180.0,
+    "policy.turns.long_task_auto_continue_seconds": 30.0
+  },
+  "notes": "Kernel keepalive resets on any agent event. Legacy knock keepalive is audible silence only. Legacy long_task timer pins are parse-only: elapsed time never pauses, aborts, or restarts the agent.",
+  "initial": {"session_state": "active", "conversation_state": "thinking"},
+  "steps": [
+    {
+      "emit": {"type": "tool.started", "payload": {"name": "bash"}},
+      "expect": {"session_state": "active", "conversation_state": "thinking"}
+    },
+    {
+      "emit": {"type": "progress", "payload": {"pool": "reassure:bash"}},
+      "expect": {"session_state": "active", "conversation_state": "thinking", "effects": ["keepalive-audio"]}
+    }
+  ]
+}

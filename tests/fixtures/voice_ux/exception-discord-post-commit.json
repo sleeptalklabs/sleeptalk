@@ -1,0 +1,20 @@
+{
+  "id": "exception-discord-post-commit",
+  "requirement": "VUX-SX-004",
+  "kind": "surface-exception",
+  "surface": "discord",
+  "replaces": "VUX-CP-001",
+  "pins": {
+    "policy.fragment_hold_ms": 1500,
+    "policy.resume_grace_ms": 750,
+    "policy.fragment_barge_window_ms": 10000
+  },
+  "notes": "Fragment hold, grace abort, status-query intercept, control-word stop, and user-driven continue live in PiDiscordLiveSession. Kernel WebRTC and terminal do not implement that loop.",
+  "initial": {"session_state": "active", "conversation_state": "thinking"},
+  "steps": [
+    {
+      "emit": {"type": "transcript.final", "payload": {"speaker": "user", "text": "continue"}},
+      "expect": {"session_state": "active", "conversation_state": "thinking", "effects": ["resume-interrupted"]}
+    }
+  ]
+}

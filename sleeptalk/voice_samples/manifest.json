@@ -1,0 +1,1977 @@
+{
+ "cartesia": {
+  "00e9ec78-2002-41dd-8d19-6b1d3b17a461": {
+   "file": "cartesia/00e9ec78-2002-41dd-8d19-6b1d3b17a461.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Elena"
+  },
+  "07b6f895-78b9-4921-8e10-8a21c99c2e8a": {
+   "file": "cartesia/07b6f895-78b9-4921-8e10-8a21c99c2e8a.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Rafael",
+   "voice": "07b6f895-78b9-4921-8e10-8a21c99c2e8a"
+  },
+  "1a602be4-3b57-4bef-a270-dfa5efed0541": {
+   "file": "cartesia/1a602be4-3b57-4bef-a270-dfa5efed0541.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Yeji",
+   "voice": "1a602be4-3b57-4bef-a270-dfa5efed0541"
+  },
+  "1cc00672-e9d4-455e-b3fb-31dfb7aad231": {
+   "file": "cartesia/1cc00672-e9d4-455e-b3fb-31dfb7aad231.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Laura",
+   "voice": "1cc00672-e9d4-455e-b3fb-31dfb7aad231"
+  },
+  "225ba8cf-9fc2-4371-a78c-fe38ba38898a": {
+   "file": "cartesia/225ba8cf-9fc2-4371-a78c-fe38ba38898a.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Anneliese",
+   "voice": "225ba8cf-9fc2-4371-a78c-fe38ba38898a"
+  },
+  "2578354e-4b18-4d28-832c-5943344b7085": {
+   "file": "cartesia/2578354e-4b18-4d28-832c-5943344b7085.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Klara",
+   "voice": "2578354e-4b18-4d28-832c-5943344b7085"
+  },
+  "2fc4f1ec-bfd0-46f1-8e6d-d4279eaaf838": {
+   "file": "cartesia/2fc4f1ec-bfd0-46f1-8e6d-d4279eaaf838.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Mateo"
+  },
+  "30894953-bcce-41fe-892c-15ce19c843ff": {
+   "file": "cartesia/30894953-bcce-41fe-892c-15ce19c843ff.mp3",
+   "language": "en",
+   "line": "Hi, I'm Parker. This is how I'll sound when your agent answers.",
+   "name": "Parker"
+  },
+  "32b0f12b-67c3-421d-8850-b46c019ced91": {
+   "file": "cartesia/32b0f12b-67c3-421d-8850-b46c019ced91.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Anika",
+   "voice": "32b0f12b-67c3-421d-8850-b46c019ced91"
+  },
+  "3597a26f-80ef-4bd5-8101-9699bc764917": {
+   "file": "cartesia/3597a26f-80ef-4bd5-8101-9699bc764917.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Ximena",
+   "voice": "3597a26f-80ef-4bd5-8101-9699bc764917"
+  },
+  "35b2cfc1-e6fb-4d69-a598-c1780612be4a": {
+   "file": "cartesia/35b2cfc1-e6fb-4d69-a598-c1780612be4a.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Darío"
+  },
+  "4459a9a5-69d6-4680-b970-e13dc51845b6": {
+   "file": "cartesia/4459a9a5-69d6-4680-b970-e13dc51845b6.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Siya",
+   "voice": "4459a9a5-69d6-4680-b970-e13dc51845b6"
+  },
+  "47c38ca4-5f35-497b-b1a3-415245fb35e1": {
+   "file": "cartesia/47c38ca4-5f35-497b-b1a3-415245fb35e1.mp3",
+   "language": "en",
+   "line": "Hi, I'm Daniel. This is how I'll sound when your agent answers.",
+   "name": "Daniel"
+  },
+  "47f3bbb1-e98f-4e0c-92c5-5f0325e1e206": {
+   "file": "cartesia/47f3bbb1-e98f-4e0c-92c5-5f0325e1e206.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Neha"
+  },
+  "4877b818-c7fe-4c89-b1cf-eadf8e23da72": {
+   "file": "cartesia/4877b818-c7fe-4c89-b1cf-eadf8e23da72.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Rohan"
+  },
+  "498e7f37-7fa3-4e2c-b8e2-8b6e9276f956": {
+   "file": "cartesia/498e7f37-7fa3-4e2c-b8e2-8b6e9276f956.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Aiko",
+   "voice": "498e7f37-7fa3-4e2c-b8e2-8b6e9276f956"
+  },
+  "4ad22058-7cb6-402c-a115-196cbfc25dce": {
+   "file": "cartesia/4ad22058-7cb6-402c-a115-196cbfc25dce.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Moritz"
+  },
+  "4dd4630e-19e0-4243-bca0-676ff85119b7": {
+   "file": "cartesia/4dd4630e-19e0-4243-bca0-676ff85119b7.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Haeun",
+   "voice": "4dd4630e-19e0-4243-bca0-676ff85119b7"
+  },
+  "526ab945-9cbf-4bd2-9c72-3833d55d4c68": {
+   "file": "cartesia/526ab945-9cbf-4bd2-9c72-3833d55d4c68.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Fabio",
+   "voice": "526ab945-9cbf-4bd2-9c72-3833d55d4c68"
+  },
+  "579dc63a-1c19-4512-866a-1295dff18f0f": {
+   "file": "cartesia/579dc63a-1c19-4512-866a-1295dff18f0f.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Sakura",
+   "voice": "579dc63a-1c19-4512-866a-1295dff18f0f"
+  },
+  "57a3a9e0-a91c-4c94-a2bb-e6cbab3ae649": {
+   "file": "cartesia/57a3a9e0-a91c-4c94-a2bb-e6cbab3ae649.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Clemens",
+   "voice": "57a3a9e0-a91c-4c94-a2bb-e6cbab3ae649"
+  },
+  "616c64d7-f541-436b-9b8d-e79cfbe19ef9": {
+   "file": "cartesia/616c64d7-f541-436b-9b8d-e79cfbe19ef9.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Felipe"
+  },
+  "62ae83ad-4f6a-430b-af41-a9bede9286ca": {
+   "file": "cartesia/62ae83ad-4f6a-430b-af41-a9bede9286ca.mp3",
+   "language": "en",
+   "line": "Hi, I'm Gemma. This is how I'll sound when your agent answers.",
+   "name": "Gemma"
+  },
+  "653b9445-ae0c-4312-a3ce-375504cff31e": {
+   "file": "cartesia/653b9445-ae0c-4312-a3ce-375504cff31e.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "name": "Liu",
+   "voice": "653b9445-ae0c-4312-a3ce-375504cff31e"
+  },
+  "7706804e-ea85-443a-968a-b9bf363bdde8": {
+   "file": "cartesia/7706804e-ea85-443a-968a-b9bf363bdde8.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Minji"
+  },
+  "7a5d4663-88ae-47b7-808e-8f9b9ee4127b": {
+   "file": "cartesia/7a5d4663-88ae-47b7-808e-8f9b9ee4127b.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "name": "Hua",
+   "voice": "7a5d4663-88ae-47b7-808e-8f9b9ee4127b"
+  },
+  "7c58f4a4-a72c-42fa-a503-41b9408820f3": {
+   "file": "cartesia/7c58f4a4-a72c-42fa-a503-41b9408820f3.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Inès"
+  },
+  "7ca2afba-a719-4f06-9af2-ea2b8e3cf14c": {
+   "file": "cartesia/7ca2afba-a719-4f06-9af2-ea2b8e3cf14c.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Yuto",
+   "voice": "7ca2afba-a719-4f06-9af2-ea2b8e3cf14c"
+  },
+  "7e2a44d1-76b8-42b8-9507-fedfe3a803c8": {
+   "file": "cartesia/7e2a44d1-76b8-42b8-9507-fedfe3a803c8.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "name": "Jian"
+  },
+  "89f4372f-1f73-4b85-8e1e-5d24ed8bc826": {
+   "file": "cartesia/89f4372f-1f73-4b85-8e1e-5d24ed8bc826.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Jaewon"
+  },
+  "8a6d0b8e-8cd8-4952-a41e-b7af18662135": {
+   "file": "cartesia/8a6d0b8e-8cd8-4952-a41e-b7af18662135.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Helena"
+  },
+  "90c7d657-9599-4cd0-9ed2-2568359e4d1a": {
+   "file": "cartesia/90c7d657-9599-4cd0-9ed2-2568359e4d1a.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Sofia",
+   "voice": "90c7d657-9599-4cd0-9ed2-2568359e4d1a"
+  },
+  "92579402-6868-412e-b845-3efed0be7a9e": {
+   "file": "cartesia/92579402-6868-412e-b845-3efed0be7a9e.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Jade",
+   "voice": "92579402-6868-412e-b845-3efed0be7a9e"
+  },
+  "95e9fdaf-cf0b-4739-b1de-3350ca50774a": {
+   "file": "cartesia/95e9fdaf-cf0b-4739-b1de-3350ca50774a.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Thijs"
+  },
+  "96355f3d-0179-4c9a-a8d8-11ef0779a9b8": {
+   "file": "cartesia/96355f3d-0179-4c9a-a8d8-11ef0779a9b8.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Noa",
+   "voice": "96355f3d-0179-4c9a-a8d8-11ef0779a9b8"
+  },
+  "9904416a-0831-44ea-b8ee-5f145e8f9bbf": {
+   "file": "cartesia/9904416a-0831-44ea-b8ee-5f145e8f9bbf.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Alice",
+   "voice": "9904416a-0831-44ea-b8ee-5f145e8f9bbf"
+  },
+  "996ec149-0dca-4389-ad08-e2d6f906b4bf": {
+   "file": "cartesia/996ec149-0dca-4389-ad08-e2d6f906b4bf.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Mathis"
+  },
+  "9b4d08b6-0494-4301-ab92-9150f4ee2718": {
+   "file": "cartesia/9b4d08b6-0494-4301-ab92-9150f4ee2718.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Marlene"
+  },
+  "9b67072c-d46c-465d-87dc-f7a1c6db2bf3": {
+   "file": "cartesia/9b67072c-d46c-465d-87dc-f7a1c6db2bf3.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Ramon",
+   "voice": "9b67072c-d46c-465d-87dc-f7a1c6db2bf3"
+  },
+  "a7beff01-8f8b-4809-bfe6-e2166e57e0c2": {
+   "file": "cartesia/a7beff01-8f8b-4809-bfe6-e2166e57e0c2.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Iria",
+   "voice": "a7beff01-8f8b-4809-bfe6-e2166e57e0c2"
+  },
+  "aa3ccc4a-cfd8-405c-acf5-1873a527b006": {
+   "file": "cartesia/aa3ccc4a-cfd8-405c-acf5-1873a527b006.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Naoki"
+  },
+  "ac197a78-cec7-4c50-93e5-93bdc1910b11": {
+   "file": "cartesia/ac197a78-cec7-4c50-93e5-93bdc1910b11.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Jennifer",
+   "voice": "ac197a78-cec7-4c50-93e5-93bdc1910b11"
+  },
+  "ad38904c-0ce9-42b1-9159-5ad5352ef089": {
+   "file": "cartesia/ad38904c-0ce9-42b1-9159-5ad5352ef089.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Celia",
+   "voice": "ad38904c-0ce9-42b1-9159-5ad5352ef089"
+  },
+  "b4b8e2af-6139-466e-a93a-30c20d2e1fc5": {
+   "file": "cartesia/b4b8e2af-6139-466e-a93a-30c20d2e1fc5.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Fernanda"
+  },
+  "b56a7171-86f0-42b6-b3fa-a316794aa4e0": {
+   "file": "cartesia/b56a7171-86f0-42b6-b3fa-a316794aa4e0.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Zoé",
+   "voice": "b56a7171-86f0-42b6-b3fa-a316794aa4e0"
+  },
+  "bf32f849-7bc9-4b91-8c62-954588efcc30": {
+   "file": "cartesia/bf32f849-7bc9-4b91-8c62-954588efcc30.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "name": "Lan",
+   "voice": "bf32f849-7bc9-4b91-8c62-954588efcc30"
+  },
+  "c8403b5c-6465-4396-9065-a440d376528a": {
+   "file": "cartesia/c8403b5c-6465-4396-9065-a440d376528a.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Alessio"
+  },
+  "cb21b4af-0e46-44f7-9128-51be7f898311": {
+   "file": "cartesia/cb21b4af-0e46-44f7-9128-51be7f898311.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Yuzuki"
+  },
+  "cb2694c3-715f-4da9-99f3-1c974fff2928": {
+   "file": "cartesia/cb2694c3-715f-4da9-99f3-1c974fff2928.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Eloá",
+   "voice": "cb2694c3-715f-4da9-99f3-1c974fff2928"
+  },
+  "cb9c954d-bcaa-43ed-82bf-aeb5e88a3cb5": {
+   "file": "cartesia/cb9c954d-bcaa-43ed-82bf-aeb5e88a3cb5.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Kabir",
+   "voice": "cb9c954d-bcaa-43ed-82bf-aeb5e88a3cb5"
+  },
+  "cbb6fdf0-30dd-49f6-af7d-bbb1185c1fa5": {
+   "file": "cartesia/cbb6fdf0-30dd-49f6-af7d-bbb1185c1fa5.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Rafael",
+   "voice": "cbb6fdf0-30dd-49f6-af7d-bbb1185c1fa5"
+  },
+  "d718e944-b313-4998-b011-d1cc078d4ef3": {
+   "file": "cartesia/d718e944-b313-4998-b011-d1cc078d4ef3.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Liv",
+   "voice": "d718e944-b313-4998-b011-d1cc078d4ef3"
+  },
+  "d9f4af15-c402-4f50-bbda-d8823d028d6a": {
+   "file": "cartesia/d9f4af15-c402-4f50-bbda-d8823d028d6a.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Henri",
+   "voice": "d9f4af15-c402-4f50-bbda-d8823d028d6a"
+  },
+  "da743a82-ddf2-4d9b-8eb8-ff67ca0b138e": {
+   "file": "cartesia/da743a82-ddf2-4d9b-8eb8-ff67ca0b138e.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Stijn",
+   "voice": "da743a82-ddf2-4d9b-8eb8-ff67ca0b138e"
+  },
+  "db6b0ed5-d5d3-463d-ae85-518a07d3c2b4": {
+   "file": "cartesia/db6b0ed5-d5d3-463d-ae85-518a07d3c2b4.mp3",
+   "language": "en",
+   "line": "Hi, I'm Skylar. This is how I'll sound when your agent answers.",
+   "name": "Skylar"
+  },
+  "de075c71-b2dd-4723-848d-ea9aa9cd010b": {
+   "file": "cartesia/de075c71-b2dd-4723-848d-ea9aa9cd010b.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Fleur"
+  },
+  "de38f545-c574-44e8-9b54-a7d6fec1c6b1": {
+   "file": "cartesia/de38f545-c574-44e8-9b54-a7d6fec1c6b1.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Marta"
+  },
+  "e1717dc3-b87b-4720-aa7f-b6db290e0609": {
+   "file": "cartesia/e1717dc3-b87b-4720-aa7f-b6db290e0609.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Taehyun",
+   "voice": "e1717dc3-b87b-4720-aa7f-b6db290e0609"
+  },
+  "ef191366-f52f-447a-a398-ed8c0f2943a1": {
+   "file": "cartesia/ef191366-f52f-447a-a398-ed8c0f2943a1.mp3",
+   "language": "en",
+   "line": "Hi, I'm Archie. This is how I'll sound when your agent answers.",
+   "name": "Archie"
+  },
+  "f9a4b3a6-b44b-469f-90e3-c8e19bd30e99": {
+   "file": "cartesia/f9a4b3a6-b44b-469f-90e3-c8e19bd30e99.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "name": "Shuwen",
+   "voice": "f9a4b3a6-b44b-469f-90e3-c8e19bd30e99"
+  }
+ },
+ "deepgram": {
+  "aura-2-agathe-fr": {
+   "file": "deepgram/aura-2-agathe-fr.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Agathe",
+   "voice": "aura-2-agathe-fr"
+  },
+  "aura-2-agustina-es": {
+   "file": "deepgram/aura-2-agustina-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Agustina",
+   "voice": "aura-2-agustina-es"
+  },
+  "aura-2-alvaro-es": {
+   "file": "deepgram/aura-2-alvaro-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Alvaro"
+  },
+  "aura-2-ama-ja": {
+   "file": "deepgram/aura-2-ama-ja.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Ama",
+   "voice": "aura-2-ama-ja"
+  },
+  "aura-2-aquila-es": {
+   "file": "deepgram/aura-2-aquila-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Aquila",
+   "voice": "aura-2-aquila-es"
+  },
+  "aura-2-aurelia-de": {
+   "file": "deepgram/aura-2-aurelia-de.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Aurelia",
+   "voice": "aura-2-aurelia-de"
+  },
+  "aura-2-beatrix-nl": {
+   "file": "deepgram/aura-2-beatrix-nl.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Beatrix",
+   "voice": "aura-2-beatrix-nl"
+  },
+  "aura-2-carina-es": {
+   "file": "deepgram/aura-2-carina-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Carina",
+   "voice": "aura-2-carina-es"
+  },
+  "aura-2-cesare-it": {
+   "file": "deepgram/aura-2-cesare-it.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Cesare"
+  },
+  "aura-2-cinzia-it": {
+   "file": "deepgram/aura-2-cinzia-it.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Cinzia",
+   "voice": "aura-2-cinzia-it"
+  },
+  "aura-2-cornelia-nl": {
+   "file": "deepgram/aura-2-cornelia-nl.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Cornelia",
+   "voice": "aura-2-cornelia-nl"
+  },
+  "aura-2-demetra-it": {
+   "file": "deepgram/aura-2-demetra-it.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Demetra",
+   "voice": "aura-2-demetra-it"
+  },
+  "aura-2-diana-es": {
+   "file": "deepgram/aura-2-diana-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Diana"
+  },
+  "aura-2-dionisio-it": {
+   "file": "deepgram/aura-2-dionisio-it.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Dionisio",
+   "voice": "aura-2-dionisio-it"
+  },
+  "aura-2-ebisu-ja": {
+   "file": "deepgram/aura-2-ebisu-ja.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Ebisu",
+   "voice": "aura-2-ebisu-ja"
+  },
+  "aura-2-elara-de": {
+   "file": "deepgram/aura-2-elara-de.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Elara",
+   "voice": "aura-2-elara-de"
+  },
+  "aura-2-fujin-ja": {
+   "file": "deepgram/aura-2-fujin-ja.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Fujin"
+  },
+  "aura-2-hector-fr": {
+   "file": "deepgram/aura-2-hector-fr.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Hector"
+  },
+  "aura-2-izanami-ja": {
+   "file": "deepgram/aura-2-izanami-ja.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Izanami"
+  },
+  "aura-2-javier-es": {
+   "file": "deepgram/aura-2-javier-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Javier",
+   "voice": "aura-2-javier-es"
+  },
+  "aura-2-julius-de": {
+   "file": "deepgram/aura-2-julius-de.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Julius",
+   "voice": "aura-2-julius-de"
+  },
+  "aura-2-lars-nl": {
+   "file": "deepgram/aura-2-lars-nl.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Lars",
+   "voice": "aura-2-lars-nl"
+  },
+  "aura-2-luciano-es": {
+   "file": "deepgram/aura-2-luciano-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Luciano"
+  },
+  "aura-2-melia-it": {
+   "file": "deepgram/aura-2-melia-it.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Melia"
+  },
+  "aura-2-nestor-es": {
+   "file": "deepgram/aura-2-nestor-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Néstor",
+   "voice": "aura-2-nestor-es"
+  },
+  "aura-2-olivia-es": {
+   "file": "deepgram/aura-2-olivia-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Olivia"
+  },
+  "aura-2-rhea-nl": {
+   "file": "deepgram/aura-2-rhea-nl.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Rhea"
+  },
+  "aura-2-sander-nl": {
+   "file": "deepgram/aura-2-sander-nl.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Sander"
+  },
+  "aura-2-selena-es": {
+   "file": "deepgram/aura-2-selena-es.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Selena",
+   "voice": "aura-2-selena-es"
+  },
+  "aura-2-uzume-ja": {
+   "file": "deepgram/aura-2-uzume-ja.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Uzume",
+   "voice": "aura-2-uzume-ja"
+  },
+  "aura-2-viktoria-de": {
+   "file": "deepgram/aura-2-viktoria-de.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Viktoria"
+  },
+  "flux-alexis-en": {
+   "file": "deepgram/flux-alexis-en.mp3",
+   "language": "en",
+   "line": "Hi, I'm Alexis. This is how I'll sound when your agent answers.",
+   "name": "Alexis"
+  },
+  "flux-cliff-en": {
+   "file": "deepgram/flux-cliff-en.mp3",
+   "language": "en",
+   "line": "Hi, I'm Cliff. This is how I'll sound when your agent answers.",
+   "name": "Cliff"
+  },
+  "flux-hannah-en": {
+   "file": "deepgram/flux-hannah-en.mp3",
+   "language": "en",
+   "line": "Hi, I'm Hannah. This is how I'll sound when your agent answers.",
+   "name": "Hannah"
+  },
+  "flux-kit-en": {
+   "file": "deepgram/flux-kit-en.mp3",
+   "language": "en",
+   "line": "Hi, I'm Kit. This is how I'll sound when your agent answers.",
+   "name": "Kit"
+  },
+  "flux-sienna-en": {
+   "file": "deepgram/flux-sienna-en.mp3",
+   "language": "en",
+   "line": "Hi, I'm Sienna. This is how I'll sound when your agent answers.",
+   "name": "Sienna"
+  }
+ },
+ "elevenlabs": {
+  "13Cuh3NuYvWOVQtLbRN8": {
+   "file": "elevenlabs/13Cuh3NuYvWOVQtLbRN8.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Marco",
+   "voice": "13Cuh3NuYvWOVQtLbRN8"
+  },
+  "1eHrpOW5l98cxiSRjbzJ": {
+   "file": "elevenlabs/1eHrpOW5l98cxiSRjbzJ.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Raquel",
+   "voice": "1eHrpOW5l98cxiSRjbzJ"
+  },
+  "33B4UnXyTNbgLmdEDh5P": {
+   "file": "elevenlabs/33B4UnXyTNbgLmdEDh5P.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Keren"
+  },
+  "36rVQA1AOIPwpA3Hg1tC": {
+   "file": "elevenlabs/36rVQA1AOIPwpA3Hg1tC.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Matheus"
+  },
+  "3DPhHWXDY263XJ1d2EPN": {
+   "file": "elevenlabs/3DPhHWXDY263XJ1d2EPN.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Linda Fiore",
+   "voice": "3DPhHWXDY263XJ1d2EPN"
+  },
+  "3JDquces8E8bkmvbh6Bc": {
+   "file": "elevenlabs/3JDquces8E8bkmvbh6Bc.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Otani"
+  },
+  "4VZIsMPtgggwNg7OXbPY": {
+   "file": "elevenlabs/4VZIsMPtgggwNg7OXbPY.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "name": "James Gao"
+  },
+  "4lOQ7A2l7HPuG7UIHiKA": {
+   "file": "elevenlabs/4lOQ7A2l7HPuG7UIHiKA.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Kyoko",
+   "voice": "4lOQ7A2l7HPuG7UIHiKA"
+  },
+  "5egO01tkUjEzu7xSSE8M": {
+   "file": "elevenlabs/5egO01tkUjEzu7xSSE8M.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Carmelo",
+   "voice": "5egO01tkUjEzu7xSSE8M"
+  },
+  "7eVMgwCnXydb3CikjV7a": {
+   "file": "elevenlabs/7eVMgwCnXydb3CikjV7a.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Lea",
+   "voice": "7eVMgwCnXydb3CikjV7a"
+  },
+  "7qdUFMklKPaaAVMsBTBt": {
+   "file": "elevenlabs/7qdUFMklKPaaAVMsBTBt.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Roos"
+  },
+  "8EkOjt4xTPGMclNlh1pk": {
+   "file": "elevenlabs/8EkOjt4xTPGMclNlh1pk.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Morioki",
+   "voice": "8EkOjt4xTPGMclNlh1pk"
+  },
+  "8KInRSd4DtD5L5gK7itu": {
+   "file": "elevenlabs/8KInRSd4DtD5L5gK7itu.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Giusy",
+   "voice": "8KInRSd4DtD5L5gK7itu"
+  },
+  "9Godp7dNohUvXk6qp0gS": {
+   "file": "elevenlabs/9Godp7dNohUvXk6qp0gS.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Regina",
+   "voice": "9Godp7dNohUvXk6qp0gS"
+  },
+  "9w21nMuk8CWXIME31V1S": {
+   "file": "elevenlabs/9w21nMuk8CWXIME31V1S.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Simran",
+   "voice": "9w21nMuk8CWXIME31V1S"
+  },
+  "AW5wrnG1jVizOYY7R1Oo": {
+   "file": "elevenlabs/AW5wrnG1jVizOYY7R1Oo.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Jiyoung",
+   "voice": "AW5wrnG1jVizOYY7R1Oo"
+  },
+  "AmMsHJaCw4BtwV3KoUXF": {
+   "file": "elevenlabs/AmMsHJaCw4BtwV3KoUXF.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Nicolas Petit",
+   "voice": "AmMsHJaCw4BtwV3KoUXF"
+  },
+  "BqljjWyTnrioXPCNkCd4": {
+   "file": "elevenlabs/BqljjWyTnrioXPCNkCd4.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "name": "Stella Gu",
+   "voice": "BqljjWyTnrioXPCNkCd4"
+  },
+  "Ca5bKgudqKJzq8YRFoAz": {
+   "file": "elevenlabs/Ca5bKgudqKJzq8YRFoAz.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "name": "Coco Li"
+  },
+  "CstacWqMhJQlnfLPxRG4": {
+   "file": "elevenlabs/CstacWqMhJQlnfLPxRG4.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Will",
+   "voice": "CstacWqMhJQlnfLPxRG4"
+  },
+  "EXAVITQu4vr4xnSDxMaL": {
+   "file": "elevenlabs/EXAVITQu4vr4xnSDxMaL.mp3",
+   "language": "en",
+   "line": "Hi, I'm Sarah. This is how I'll sound when your agent answers.",
+   "name": "Sarah"
+  },
+  "FTNCalFNG5bRnkkaP5Ug": {
+   "file": "elevenlabs/FTNCalFNG5bRnkkaP5Ug.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Otto"
+  },
+  "GDzHdQOi6jjf8zaXhCYD": {
+   "file": "elevenlabs/GDzHdQOi6jjf8zaXhCYD.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Raquel",
+   "voice": "GDzHdQOi6jjf8zaXhCYD"
+  },
+  "GxxMAMfQkDlnqjpzjLHH": {
+   "file": "elevenlabs/GxxMAMfQkDlnqjpzjLHH.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Kozy",
+   "voice": "GxxMAMfQkDlnqjpzjLHH"
+  },
+  "JYyJjNPfmNJdaby8LdZs": {
+   "file": "elevenlabs/JYyJjNPfmNJdaby8LdZs.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Marlene"
+  },
+  "K75lPKuh15SyVhQC1LrE": {
+   "file": "elevenlabs/K75lPKuh15SyVhQC1LrE.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Carola",
+   "voice": "K75lPKuh15SyVhQC1LrE"
+  },
+  "KYiVPerWcenyBTIvWbfY": {
+   "file": "elevenlabs/KYiVPerWcenyBTIvWbfY.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Sia",
+   "voice": "KYiVPerWcenyBTIvWbfY"
+  },
+  "MI36FIkp9wRP7cpWKPTl": {
+   "file": "elevenlabs/MI36FIkp9wRP7cpWKPTl.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "name": "Evan Zhao",
+   "voice": "MI36FIkp9wRP7cpWKPTl"
+  },
+  "Nh2zY9kknu6z4pZy6FhD": {
+   "file": "elevenlabs/Nh2zY9kknu6z4pZy6FhD.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "David Martin"
+  },
+  "O31r762Gb3WFygrEOGh0": {
+   "file": "elevenlabs/O31r762Gb3WFygrEOGh0.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Victoria",
+   "voice": "O31r762Gb3WFygrEOGh0"
+  },
+  "OlBRrVAItyi00MuGMbna": {
+   "file": "elevenlabs/OlBRrVAItyi00MuGMbna.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Emma",
+   "voice": "OlBRrVAItyi00MuGMbna"
+  },
+  "OtEfb2LVzIE45wdYe54M": {
+   "file": "elevenlabs/OtEfb2LVzIE45wdYe54M.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Zara"
+  },
+  "PDoCXqBQFGsvfO0hNkEs": {
+   "file": "elevenlabs/PDoCXqBQFGsvfO0hNkEs.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Chris",
+   "voice": "PDoCXqBQFGsvfO0hNkEs"
+  },
+  "RBnMinrYKeccY3vaUxlZ": {
+   "file": "elevenlabs/RBnMinrYKeccY3vaUxlZ.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "name": "Sakura"
+  },
+  "RGymW84CSmfVugnA5tvA": {
+   "file": "elevenlabs/RGymW84CSmfVugnA5tvA.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "name": "Roberta",
+   "voice": "RGymW84CSmfVugnA5tvA"
+  },
+  "UOIqAnmS11Reiei1Ytkc": {
+   "file": "elevenlabs/UOIqAnmS11Reiei1Ytkc.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Carolina"
+  },
+  "UgBBYS2sOqTuMpoF3BR0": {
+   "file": "elevenlabs/UgBBYS2sOqTuMpoF3BR0.mp3",
+   "language": "en",
+   "line": "Hi, I'm Mark. This is how I'll sound when your agent answers.",
+   "name": "Mark"
+  },
+  "W71zT1VwIFFx3mMGH2uZ": {
+   "file": "elevenlabs/W71zT1VwIFFx3mMGH2uZ.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "MarcoTrox"
+  },
+  "YxrwjAKoUKULGd0g8K9Y": {
+   "file": "elevenlabs/YxrwjAKoUKULGd0g8K9Y.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Lucie"
+  },
+  "ZJCNdZEjYwkOElxugmW2": {
+   "file": "elevenlabs/ZJCNdZEjYwkOElxugmW2.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Hyuk"
+  },
+  "aQROLel5sQbj1vuIVi6B": {
+   "file": "elevenlabs/aQROLel5sQbj1vuIVi6B.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Nicolas"
+  },
+  "aTTiK3YzK3dXETpuDE2h": {
+   "file": "elevenlabs/aTTiK3YzK3dXETpuDE2h.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Ben",
+   "voice": "aTTiK3YzK3dXETpuDE2h"
+  },
+  "cgSgspJ2msm6clMCkdW9": {
+   "file": "elevenlabs/cgSgspJ2msm6clMCkdW9.mp3",
+   "language": "en",
+   "line": "Hi, I'm Jessica. This is how I'll sound when your agent answers.",
+   "name": "Jessica"
+  },
+  "cjVigY5qzO86Huf0OWal": {
+   "file": "elevenlabs/cjVigY5qzO86Huf0OWal.mp3",
+   "language": "en",
+   "line": "Hi, I'm Eric. This is how I'll sound when your agent answers.",
+   "name": "Eric"
+  },
+  "dLPO5AsXc3FZDbTh1IKa": {
+   "file": "elevenlabs/dLPO5AsXc3FZDbTh1IKa.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Ido"
+  },
+  "fzC7H9Y1bPn3gzVLtghe": {
+   "file": "elevenlabs/fzC7H9Y1bPn3gzVLtghe.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Marcèles",
+   "voice": "fzC7H9Y1bPn3gzVLtghe"
+  },
+  "gbTn1bmCvNgk0QEAVyfM": {
+   "file": "elevenlabs/gbTn1bmCvNgk0QEAVyfM.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Enrique M. Nieto",
+   "voice": "gbTn1bmCvNgk0QEAVyfM"
+  },
+  "gfKKsLN1k0oYYN9n2dXX": {
+   "file": "elevenlabs/gfKKsLN1k0oYYN9n2dXX.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "name": "Violetta"
+  },
+  "h2cd3gvcqTp3m65Dysk7": {
+   "file": "elevenlabs/h2cd3gvcqTp3m65Dysk7.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Carolina Ruiz",
+   "voice": "h2cd3gvcqTp3m65Dysk7"
+  },
+  "iDEmt5MnqUotdwCIVplo": {
+   "file": "elevenlabs/iDEmt5MnqUotdwCIVplo.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Enrique Mondragón"
+  },
+  "iWNf11sz1GrUE4ppxTOL": {
+   "file": "elevenlabs/iWNf11sz1GrUE4ppxTOL.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Viraj",
+   "voice": "iWNf11sz1GrUE4ppxTOL"
+  },
+  "imRmmzTqlLHt9Do1HufF": {
+   "file": "elevenlabs/imRmmzTqlLHt9Do1HufF.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "name": "Hélène",
+   "voice": "imRmmzTqlLHt9Do1HufF"
+  },
+  "kPzsL2i3teMYv0FxEYQ6": {
+   "file": "elevenlabs/kPzsL2i3teMYv0FxEYQ6.mp3",
+   "language": "en",
+   "line": "Hi, I'm Brittney. This is how I'll sound when your agent answers.",
+   "name": "Brittney"
+  },
+  "ksaI0TCD9BstzEzlxj4q": {
+   "file": "elevenlabs/ksaI0TCD9BstzEzlxj4q.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Seulki",
+   "voice": "ksaI0TCD9BstzEzlxj4q"
+  },
+  "m7yTemJqdIqrcNleANfX": {
+   "file": "elevenlabs/m7yTemJqdIqrcNleANfX.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "name": "Ana María",
+   "voice": "m7yTemJqdIqrcNleANfX"
+  },
+  "tfweP7lGJyLeNV9dH1Rm": {
+   "file": "elevenlabs/tfweP7lGJyLeNV9dH1Rm.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "name": "Marianne",
+   "voice": "tfweP7lGJyLeNV9dH1Rm"
+  },
+  "uyVNoMrnUku1dZyVEXwD": {
+   "file": "elevenlabs/uyVNoMrnUku1dZyVEXwD.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "name": "Anna Kim"
+  },
+  "v3V1d2rk6528UrLKRuy8": {
+   "file": "elevenlabs/v3V1d2rk6528UrLKRuy8.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "name": "Susi"
+  },
+  "zT03pEAEi0VHKciJODfn": {
+   "file": "elevenlabs/zT03pEAEi0VHKciJODfn.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "name": "Raju"
+  }
+ },
+ "local": {
+  "af_bella": {
+   "file": "local/af_bella.mp3",
+   "language": "en",
+   "line": "Hi, I'm Bella. This is how I'll sound when your agent answers.",
+   "model": "kokoro-en",
+   "name": "Bella",
+   "voice": "af_bella"
+  },
+  "af_heart": {
+   "file": "local/af_heart.mp3",
+   "language": "en",
+   "line": "Hi, I'm Heart. This is how I'll sound when your agent answers.",
+   "model": "kokoro-en",
+   "name": "Heart",
+   "voice": "af_heart"
+  },
+  "am_michael": {
+   "file": "local/am_michael.mp3",
+   "language": "en",
+   "line": "Hi, I'm Michael. This is how I'll sound when your agent answers.",
+   "model": "kokoro-en",
+   "name": "Michael",
+   "voice": "am_michael"
+  },
+  "bf_emma": {
+   "file": "local/bf_emma.mp3",
+   "language": "en",
+   "line": "Hi, I'm Emma. This is how I'll sound when your agent answers.",
+   "model": "kokoro-en",
+   "name": "Emma",
+   "voice": "bf_emma"
+  },
+  "bm_george": {
+   "file": "local/bm_george.mp3",
+   "language": "en",
+   "line": "Hi, I'm George. This is how I'll sound when your agent answers.",
+   "model": "kokoro-en",
+   "name": "George",
+   "voice": "bm_george"
+  },
+  "lessac": {
+   "file": "local/lessac.mp3",
+   "language": "en",
+   "line": "Hi, I'm Lessac. This is how I'll sound when your agent answers.",
+   "model": "piper-lessac-medium",
+   "name": "Lessac"
+  },
+  "pocket-bria": {
+   "file": "local/pocket-bria.mp3",
+   "language": "en",
+   "line": "Hi, I'm Bria. This is how I'll sound when your agent answers.",
+   "model": "pocket-tts-en",
+   "name": "Bria",
+   "voice": "pocket-bria"
+  },
+  "pocket-loona": {
+   "file": "local/pocket-loona.mp3",
+   "language": "en",
+   "line": "Hi, I'm Loona. This is how I'll sound when your agent answers.",
+   "model": "pocket-tts-en",
+   "name": "Loona",
+   "voice": "pocket-loona"
+  }
+ },
+ "openrouter": {
+  "ara": {
+   "file": "openrouter/ara.mp3",
+   "language": "en",
+   "line": "Hi, I'm Ara. This is how I'll sound when your agent answers.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara"
+  },
+  "ara@de": {
+   "file": "openrouter/de/ara.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@es": {
+   "file": "openrouter/es/ara.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@fr": {
+   "file": "openrouter/fr/ara.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@hi": {
+   "file": "openrouter/hi/ara.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@it": {
+   "file": "openrouter/it/ara.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@ja": {
+   "file": "openrouter/ja/ara.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@ko": {
+   "file": "openrouter/ko/ara.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@nl": {
+   "file": "openrouter/nl/ara.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@pt": {
+   "file": "openrouter/pt/ara.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@zh": {
+   "file": "openrouter/zh/ara.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "eve": {
+   "file": "openrouter/eve.mp3",
+   "language": "en",
+   "line": "Hi, I'm Eve. This is how I'll sound when your agent answers.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve"
+  },
+  "eve@de": {
+   "file": "openrouter/de/eve.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@es": {
+   "file": "openrouter/es/eve.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@fr": {
+   "file": "openrouter/fr/eve.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@hi": {
+   "file": "openrouter/hi/eve.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@it": {
+   "file": "openrouter/it/eve.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@ja": {
+   "file": "openrouter/ja/eve.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@ko": {
+   "file": "openrouter/ko/eve.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@nl": {
+   "file": "openrouter/nl/eve.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@pt": {
+   "file": "openrouter/pt/eve.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@zh": {
+   "file": "openrouter/zh/eve.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "flux-hannah-en": {
+   "file": "openrouter/flux-hannah-en.mp3",
+   "language": "en",
+   "line": "Hi, I'm Hannah. This is how I'll sound when your agent answers.",
+   "model": "deepgram/flux-tts:free",
+   "name": "Hannah"
+  },
+  "flux-kit-en": {
+   "file": "openrouter/flux-kit-en.mp3",
+   "language": "en",
+   "line": "Hi, I'm Kit. This is how I'll sound when your agent answers.",
+   "model": "deepgram/flux-tts:free",
+   "name": "Kit"
+  },
+  "leo@de": {
+   "file": "openrouter/de/leo.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@es": {
+   "file": "openrouter/es/leo.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@fr": {
+   "file": "openrouter/fr/leo.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@hi": {
+   "file": "openrouter/hi/leo.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@it": {
+   "file": "openrouter/it/leo.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@ja": {
+   "file": "openrouter/ja/leo.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@ko": {
+   "file": "openrouter/ko/leo.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@nl": {
+   "file": "openrouter/nl/leo.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@pt": {
+   "file": "openrouter/pt/leo.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@zh": {
+   "file": "openrouter/zh/leo.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "longanhuan_v3.6": {
+   "file": "openrouter/longanhuan_v3.6.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "qwen/qwen-audio-3.0-tts-flash",
+   "name": "Longanhuan"
+  },
+  "loongjohn": {
+   "file": "openrouter/loongjohn.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "qwen/qwen-audio-3.0-tts-flash",
+   "name": "Loongjohn",
+   "voice": "loongjohn"
+  },
+  "rex": {
+   "file": "openrouter/rex.mp3",
+   "language": "en",
+   "line": "Hi, I'm Rex. This is how I'll sound when your agent answers.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex"
+  },
+  "rex@de": {
+   "file": "openrouter/de/rex.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@es": {
+   "file": "openrouter/es/rex.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@fr": {
+   "file": "openrouter/fr/rex.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@hi": {
+   "file": "openrouter/hi/rex.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@it": {
+   "file": "openrouter/it/rex.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@ja": {
+   "file": "openrouter/ja/rex.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@ko": {
+   "file": "openrouter/ko/rex.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@nl": {
+   "file": "openrouter/nl/rex.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@pt": {
+   "file": "openrouter/pt/rex.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@zh": {
+   "file": "openrouter/zh/rex.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "sal@de": {
+   "file": "openrouter/de/sal.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@es": {
+   "file": "openrouter/es/sal.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@fr": {
+   "file": "openrouter/fr/sal.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@hi": {
+   "file": "openrouter/hi/sal.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@it": {
+   "file": "openrouter/it/sal.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@ja": {
+   "file": "openrouter/ja/sal.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@ko": {
+   "file": "openrouter/ko/sal.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@nl": {
+   "file": "openrouter/nl/sal.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@pt": {
+   "file": "openrouter/pt/sal.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@zh": {
+   "file": "openrouter/zh/sal.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "x-ai/grok-voice-tts-1.0",
+   "name": "Sal",
+   "voice": "sal"
+  }
+ },
+ "venice": {
+  "ara": {
+   "file": "venice/ara.mp3",
+   "language": "en",
+   "line": "Hi, I'm Ara. This is how I'll sound when your agent answers.",
+   "model": "tts-xai-v1",
+   "name": "Ara"
+  },
+  "ara@de": {
+   "file": "venice/de/ara.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@es": {
+   "file": "venice/es/ara.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@fr": {
+   "file": "venice/fr/ara.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@hi": {
+   "file": "venice/hi/ara.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@it": {
+   "file": "venice/it/ara.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@ja": {
+   "file": "venice/ja/ara.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@ko": {
+   "file": "venice/ko/ara.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@nl": {
+   "file": "venice/nl/ara.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@pt": {
+   "file": "venice/pt/ara.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "ara@zh": {
+   "file": "venice/zh/ara.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "tts-xai-v1",
+   "name": "Ara",
+   "voice": "ara"
+  },
+  "eve": {
+   "file": "venice/eve.mp3",
+   "language": "en",
+   "line": "Hi, I'm Eve. This is how I'll sound when your agent answers.",
+   "model": "tts-xai-v1",
+   "name": "Eve"
+  },
+  "eve@de": {
+   "file": "venice/de/eve.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@es": {
+   "file": "venice/es/eve.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@fr": {
+   "file": "venice/fr/eve.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@hi": {
+   "file": "venice/hi/eve.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@it": {
+   "file": "venice/it/eve.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@ja": {
+   "file": "venice/ja/eve.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@ko": {
+   "file": "venice/ko/eve.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@nl": {
+   "file": "venice/nl/eve.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@pt": {
+   "file": "venice/pt/eve.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "eve@zh": {
+   "file": "venice/zh/eve.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "tts-xai-v1",
+   "name": "Eve",
+   "voice": "eve"
+  },
+  "leo": {
+   "file": "venice/leo.mp3",
+   "language": "en",
+   "line": "Hi, I'm Leo. This is how I'll sound when your agent answers.",
+   "model": "tts-xai-v1",
+   "name": "Leo"
+  },
+  "leo@de": {
+   "file": "venice/de/leo.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@es": {
+   "file": "venice/es/leo.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@fr": {
+   "file": "venice/fr/leo.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@hi": {
+   "file": "venice/hi/leo.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@it": {
+   "file": "venice/it/leo.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@ja": {
+   "file": "venice/ja/leo.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@ko": {
+   "file": "venice/ko/leo.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@nl": {
+   "file": "venice/nl/leo.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@pt": {
+   "file": "venice/pt/leo.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "leo@zh": {
+   "file": "venice/zh/leo.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "tts-xai-v1",
+   "name": "Leo",
+   "voice": "leo"
+  },
+  "rex": {
+   "file": "venice/rex.mp3",
+   "language": "en",
+   "line": "Hi, I'm Rex. This is how I'll sound when your agent answers.",
+   "model": "tts-xai-v1",
+   "name": "Rex"
+  },
+  "rex@de": {
+   "file": "venice/de/rex.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@es": {
+   "file": "venice/es/rex.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@fr": {
+   "file": "venice/fr/rex.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@hi": {
+   "file": "venice/hi/rex.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@it": {
+   "file": "venice/it/rex.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@ja": {
+   "file": "venice/ja/rex.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@ko": {
+   "file": "venice/ko/rex.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@nl": {
+   "file": "venice/nl/rex.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@pt": {
+   "file": "venice/pt/rex.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "rex@zh": {
+   "file": "venice/zh/rex.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "tts-xai-v1",
+   "name": "Rex",
+   "voice": "rex"
+  },
+  "sal": {
+   "file": "venice/sal.mp3",
+   "language": "en",
+   "line": "Hi, I'm Sal. This is how I'll sound when your agent answers.",
+   "model": "tts-xai-v1",
+   "name": "Sal"
+  },
+  "sal@de": {
+   "file": "venice/de/sal.mp3",
+   "language": "de",
+   "line": "Hallo. So klinge ich, wenn dein Agent antwortet.",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@es": {
+   "file": "venice/es/sal.mp3",
+   "language": "es",
+   "line": "Hola. Así sonaré cuando responda tu agente.",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@fr": {
+   "file": "venice/fr/sal.mp3",
+   "language": "fr",
+   "line": "Bonjour. Voici ma voix quand votre agent vous répond.",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@hi": {
+   "file": "venice/hi/sal.mp3",
+   "language": "hi",
+   "line": "नमस्ते। जब आपका एजेंट जवाब देगा, तो आवाज़ ऐसी होगी।",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@it": {
+   "file": "venice/it/sal.mp3",
+   "language": "it",
+   "line": "Ciao. Questa è la mia voce quando risponde il tuo agente.",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@ja": {
+   "file": "venice/ja/sal.mp3",
+   "language": "ja",
+   "line": "こんにちは。エージェントが答えるとき、この声でお話しします。",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@ko": {
+   "file": "venice/ko/sal.mp3",
+   "language": "ko",
+   "line": "안녕하세요. 에이전트가 답할 때 이 목소리로 말해요.",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@nl": {
+   "file": "venice/nl/sal.mp3",
+   "language": "nl",
+   "line": "Hallo. Zo klink ik wanneer je agent antwoordt.",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@pt": {
+   "file": "venice/pt/sal.mp3",
+   "language": "pt",
+   "line": "Olá. É assim que vou soar quando o seu agente responder.",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  },
+  "sal@zh": {
+   "file": "venice/zh/sal.mp3",
+   "language": "zh",
+   "line": "你好。你的助手回答时，我就是这个声音。",
+   "model": "tts-xai-v1",
+   "name": "Sal",
+   "voice": "sal"
+  }
+ }
+}

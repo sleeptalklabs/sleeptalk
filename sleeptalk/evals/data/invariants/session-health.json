@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "description": "Session health invariants for voice_latency.jsonl and optional session_events.jsonl traces.",
+  "thresholds": {
+    "agent_first_token_after_utterance_s": 30.0,
+    "tts_after_agent_token_s": 30.0,
+    "progress_after_tool_started_s": 15.0,
+    "audio_after_tool_completed_s": 15.0,
+    "utterance_after_interruption_s": 10.0,
+    "orphan_turn_timeout_s": 120.0,
+    "barge_check_from_turn_index": 3
+  },
+  "latency_stages": {
+    "utterance_ready": ["utterance_ready", "terminal_utterance_ready"],
+    "agent_requested": ["agent_request_sent", "agent_started", "agent_request_started", "agent_prompt_sent"],
+    "agent_first_token": [
+      "agent_first_text_delta",
+      "agent_first_token",
+      "agent_first_speakable_segment"
+    ],
+    "tts_requested": ["tts_request_sent", "tts_started"],
+    "tts_first_audio": ["tts_first_audio_chunk", "route_first_audio_write", "answer_first_output_enqueue", "acknowledgement_first_output_enqueue", "narration_first_output_enqueue"],
+    "turn_complete": ["turn_complete"],
+    "interruption": ["speech_interrupted", "barge_in_detected"],
+    "tool_narration": ["tool_narration_played", "progress_line_played", "preamble_played"],
+    "session_closed": ["session_closed"]
+  },
+  "session_event_types": {
+    "tool_started": ["tool.started"],
+    "tool_completed": ["tool.completed"],
+    "interruption": ["interruption"],
+    "response_first_output": ["response.first_output"],
+    "response_completed": ["response.completed"]
+  },
+  "invariants": [
+    {
+      "id": "agent_stall_after_utterance",
+      "description": "After utterance_ready, agent must emit a first token within threshold.",
+      "severity": "error"
+    },
+    {
+      "id": "tts_silent_after_agent_token",
+      "description": "After agent first token, TTS or route audio must start within threshold unless turn was cancelled.",
+      "severity": "error"
+    },
+    {
+      "id": "dead_air_during_tool",
+      "description": "After tool.started, progress narration or audio must appear within keepalive slack.",
+      "severity": "error"
+    },
+    {
+      "id": "silent_after_tool_completed",
+      "description": "After tool.completed, response output or turn completion with audio must appear within threshold.",
+      "severity": "error"
+    },
+    {
+      "id": "incomplete_post_interrupt_recovery",
+      "description": "After interruption, a new utterance_ready must appear within threshold.",
+      "severity": "error"
+    },
+    {
+      "id": "orphan_turn",
+      "description": "Agent request without turn_complete or terminal error within orphan timeout.",
+      "severity": "error"
+    },
+    {
+      "id": "dirty_session_shutdown",
+      "description": "Session ended while a turn was still in flight without turn_complete.",
+      "severity": "warning"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "policy_map": "policy_map.json",
+  "receipt": "baseline-receipt.json",
+  "scenarios": [
+    "family-thinking-preamble.json",
+    "family-vad-smart-turn.json",
+    "family-endpointing.json",
+    "family-interruption.json",
+    "family-capture.json",
+    "family-progress.json",
+    "family-reply-shaping.json",
+    "family-latency.json",
+    "family-lifecycle.json",
+    "family-recovery.json",
+    "family-accessibility.json",
+    "human-pause-vs-end.json",
+    "human-false-start-vs-barge.json",
+    "human-keepalive-feel.json",
+    "human-first-audio-feel.json",
+    "human-error-clarity.json",
+    "human-cross-surface.json",
+    "exception-terminal-speaker-safe.json",
+    "exception-pi-bot-immediate.json",
+    "exception-browser-intro-chime.json",
+    "exception-discord-post-commit.json"
+  ]
+}

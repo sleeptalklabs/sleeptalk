@@ -1,0 +1,24 @@
+{
+  "name": "sleeptalk-remote-entry-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:browser": "node test/browser-proof.mjs",
+    "test:integration": "SLEEPTALK_BROWSER_PEER=./integrated_host.py node test/browser-proof.mjs",
+    "test:auth-entry": "node test/auth-input-proof.mjs",
+    "test:integration-model-auth": "SLEEPTALK_BROWSER_MODEL_AUTH=1 SLEEPTALK_BROWSER_PEER=./integrated_host.py node test/browser-proof.mjs"
+  },
+  "dependencies": {
+    "@hpke/core": "1.9.0",
+    "canonicalize": "2.1.0",
+    "cborg": "4.5.8",
+    "jsonc-parser": "3.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "playwright": "1.63.0"
+  }
+}

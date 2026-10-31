@@ -1,0 +1,90 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "sleeptalk-call-production",
+  "main": "src/worker.ts",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "call.sleep.talk",
+      "custom_domain": true
+    }
+  ],
+  "compatibility_date": "2026-08-14",
+  "vars": {
+    "DEPLOYMENT_ENV": "production",
+    "PUBLIC_ORIGIN": "https://call.sleep.talk",
+    "INITIAL_SERVICE_MODE": "halted",
+    "ALLOW_STUN_ONLY": "false",
+    // Per IPv4 /24 or IPv6 /48 of the enrolling host, per UTC day.
+    "ENROLLMENT_PER_PREFIX_PER_DAY": "5",
+    "ENROLLMENT_GLOBAL_PER_DAY": "100",
+    "MINTS_PER_MINUTE": "12",
+    "MINTS_PER_DAY": "100",
+    "CONCURRENT_CALLS": "3",
+    // Relay units are charged when a browser redeems a call link (4 per call).
+    // These bound credential issuance, not traffic bytes or dollar spend.
+    // The global limit is enforced atomically across all locations.
+    "RELAY_ATTEMPTS_PER_DAY": "800",
+    "RELAY_ATTEMPTS_PER_INSTALLATION_PER_DAY": "160",
+    "RELAY_ATTEMPTS_PER_SOURCE_PER_DAY": "320"
+  },
+  // Per-network request limits (IPv4 /24, IPv6 /48) in front of the durable
+  // limits. Namespace IDs are account-unique; keep them distinct from staging.
+  // RateLimit counters are approximate and separate per Cloudflare location.
+  // GLOBAL_REQUEST_RATE_LIMIT shares one key within each location, not worldwide.
+  "ratelimits": [
+    { "name": "REQUEST_RATE_LIMIT", "namespace_id": "7104", "simple": { "limit": 120, "period": 60 } },
+    { "name": "GLOBAL_REQUEST_RATE_LIMIT", "namespace_id": "7105", "simple": { "limit": 1000, "period": 60 } },
+    { "name": "SIGNAL_RATE_LIMIT", "namespace_id": "7106", "simple": { "limit": 30, "period": 60 } },
+    { "name": "ADMIN_RATE_LIMIT", "namespace_id": "7107", "simple": { "limit": 30, "period": 60 } },
+    { "name": "ENROLL_RATE_LIMIT", "namespace_id": "7101", "simple": { "limit": 5, "period": 60 } },
+    { "name": "TICKET_RATE_LIMIT", "namespace_id": "7102", "simple": { "limit": 30, "period": 60 } },
+    { "name": "REDEEM_RATE_LIMIT", "namespace_id": "7103", "simple": { "limit": 30, "period": 60 } }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "TICKETS",
+        "class_name": "TicketRoom"
+      },
+      {
+        "name": "INSTALLATIONS",
+        "class_name": "Installation"
+      },
+      {
+        "name": "SERVICE_CONTROL",
+        "class_name": "ServiceControl"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["TicketRoom"]
+    },
+    {
+      "tag": "v2",
+      "new_sqlite_classes": ["Installation", "ServiceControl"]
+    }
+  ],
+  "assets": {
+    "directory": "../sleeptalk/_web",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      // No per-request records: they carry each visitor's IP address and
+      // location. Only the Worker's own lines are kept (call length, route,
+      // end reason; nothing that identifies anyone).
+      "invocation_logs": false,
+      "head_sampling_rate": 1
+    },
+    // Traces record request metadata too.
+    "traces": {
+      "enabled": false
+    }
+  }
+}

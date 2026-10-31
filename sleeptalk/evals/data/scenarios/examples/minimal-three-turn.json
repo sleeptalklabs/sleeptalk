@@ -1,0 +1,12 @@
+{
+  "id": "minimal-three-turn",
+  "tier": "contract",
+  "visibility": "public",
+  "description": "Public example of a short scripted conversation for contributors.",
+  "turns": [
+    {"user": "hello", "expect": ["response.first_output"]},
+    {"user": "what can you do", "expect": ["response.first_output"]},
+    {"user": "thanks", "expect": ["response.first_output"]}
+  ],
+  "session_invariants": ["no_orphan_traces"]
+}

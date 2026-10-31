@@ -1,0 +1,20 @@
+{
+  "id": "family-recovery",
+  "requirement": "VUX-ER-001",
+  "kind": "event-trace",
+  "initial": {"session_state": "active", "conversation_state": "bot-speaking"},
+  "steps": [
+    {
+      "emit": {"type": "error", "payload": {"fatal": false, "message": "provider timeout"}},
+      "expect": {"session_state": "active", "conversation_state": "error"}
+    },
+    {
+      "emit": {"type": "session.state", "payload": {"state": "recovering"}},
+      "expect": {"session_state": "recovering", "conversation_state": "error"}
+    },
+    {
+      "emit": {"type": "session.state", "payload": {"state": "active"}},
+      "expect": {"session_state": "active", "conversation_state": "listening"}
+    }
+  ]
+}

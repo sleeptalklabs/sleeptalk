@@ -1,0 +1,143 @@
+[project]
+name = "sleeptalk"
+version = "0.1.0"
+description = "Config-driven voice runtime for bring-your-own agents."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "sleep.talk" }]
+maintainers = [{ name = "Sleeptalk Labs" }]
+keywords = [
+  "voice",
+  "agents",
+  "discord",
+  "webrtc",
+  "speech",
+  "realtime",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Communications",
+  "Typing :: Typed",
+]
+dependencies = [
+  "aiohttp>=3.12.14",
+  "aiortc>=1.15.0",
+  # Silero VAD + Smart Turn run on the host for every surface. They are core,
+  # not an extra: without them capture degrades to RMS energy gating and quiet
+  # speech never becomes a turn — a silent failure for a new user.
+  "numpy>=1.26",
+  "onnxruntime>=1.17",
+  "soxr>=0.5.0",
+  # audioop left the standard library in 3.13; web, terminal and Discord audio use it.
+  "audioop-lts>=0.2.1; python_version >= '3.13'",
+  # HPKE for phone setup links (cryptography.hazmat.primitives.hpke).
+  "cryptography>=50.0.1",
+  "pydantic>=2.8.0",
+  # Read dependency markers from installed metadata when repairing an extra.
+  "packaging>=24.1",
+  "python-dotenv>=1.0.1",
+  # wizard (sleeptalk init): arrow-key selects/masked input + panels/tables.
+  "questionary>=2.0",
+  "rich>=13.0",
+]
+
+[project.optional-dependencies]
+# Optional OS credential store; private file storage supports headless hosts.
+credentials = ["keyring>=25.0"]
+# Paired remote private setup and the dedicated relay service.
+remote-entry = ["fido2>=2.2.1,<3", "rfc8785>=0.1.4,<0.2"]
+# Browser host. aiortc is already a base dependency; this extra exists so
+# install docs and Host ensure can ask for sleeptalk[web].
+# Browser calls need nothing beyond the core dependencies; the extra stays so
+# `sleeptalk[web]` installs keep working.
+web = []
+# Local microphone/speaker transport. The control panel can install this
+# optional extra into its shared runtime on first use.
+terminal = [
+  "sounddevice>=0.5.0",
+  "pywebrtc-audio>=0.1.0",
+]
+# Production Discord bot. Native receive needs discord-ext-voice-recv.
+# That package is still an alpha; pin the release here so a newer
+# pre-release is a deliberate bump. Speech providers share aiohttp from core;
+# Silero / Smart Turn also use core dependencies. davey stays a documented
+# native install.
+discord = [
+  "discord.py[voice]>=2.5.0",
+  "discord-ext-voice-recv==0.5.2a179",
+]
+# Local speech on this machine: sherpa-onnx runs Moonshine (STT) and Piper or
+# Kokoro (TTS) on CPU. Models download on first use, never with the package.
+local = [
+  "sherpa-onnx>=1.13",
+  "sherpa-onnx-core>=1.13",
+  "onnx>=1.17",
+]
+# Optional CPU streaming input; batch local speech stays lightweight.
+local-streaming = ["moonshine-voice==0.1.5"]
+# Compatibility name: hosted speech providers use aiohttp from core.
+tts-providers = []
+claude = [
+  "claude-agent-sdk==0.2.165",
+]
+cursor = [
+  "cursor-sdk==1.0.37",
+]
+
+[project.urls]
+Homepage = "https://github.com/sleeptalklabs/sleeptalk"
+Documentation = "https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/README.md"
+Repository = "https://github.com/sleeptalklabs/sleeptalk"
+Issues = "https://github.com/sleeptalklabs/sleeptalk/issues"
+Changelog = "https://github.com/sleeptalklabs/sleeptalk/blob/main/CHANGELOG.md"
+Support = "https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/launch-support-matrix.md"
+
+[project.scripts]
+sleeptalk = "sleeptalk.cli:main"
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sleeptalk"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/sleeptalk",
+  "/tests",
+  "/README.md",
+  "/pyproject.toml",
+  "/LICENSE",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3.0",
+  "pytest-asyncio>=0.24.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+  "real_key_discovery: the test supplies its own home and profiles for key discovery (otherwise discovery is stubbed out)",
+]
+
+[tool.uv]
+# sherpa-onnx's sdist builds without the native runtime its wheel declares; always take the wheel.
+no-build-package = ["sherpa-onnx", "sherpa-onnx-core"]

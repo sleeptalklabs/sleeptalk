@@ -1,0 +1,5 @@
+Bundled license information:
+
+@hpke/common/esm/src/curve/modular.js:
+@hpke/common/esm/src/curve/montgomery.js:
+  /*! noble-curves - MIT License (c) 2022 Paul Miller (paulmillr.com) */

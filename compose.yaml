@@ -1,0 +1,11 @@
+# Example compose file for the sleeptalk Docker path.
+#   docker compose run --rm -it sleeptalk init   # create config (once)
+#   docker compose up -d                          # run supervised
+services:
+  sleeptalk:
+    build: .
+    restart: unless-stopped
+    volumes:
+      - ./sleeptalk-home:/home/sleeptalk
+    environment:
+      SLEEPTALK_HOME: /home/sleeptalk

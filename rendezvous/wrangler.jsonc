@@ -1,0 +1,91 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "sleeptalk-call-staging",
+  "main": "src/worker.ts",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "call-staging.sleep.talk",
+      "custom_domain": true
+    }
+  ],
+  "compatibility_date": "2026-08-14",
+  "dev": {
+    "port": 8788
+  },
+  "vars": {
+    "DEPLOYMENT_ENV": "staging",
+    "PUBLIC_ORIGIN": "https://call-staging.sleep.talk",
+    "INITIAL_SERVICE_MODE": "running",
+    "ALLOW_STUN_ONLY": "false",
+    "ENROLLMENT_PER_PREFIX_PER_DAY": "3",
+    "ENROLLMENT_GLOBAL_PER_DAY": "100",
+    "MINTS_PER_MINUTE": "6",
+    "MINTS_PER_DAY": "30",
+    "CONCURRENT_CALLS": "2",
+    "RELAY_ATTEMPTS_PER_DAY": "400",
+    "RELAY_ATTEMPTS_PER_INSTALLATION_PER_DAY": "40",
+    "RELAY_ATTEMPTS_PER_SOURCE_PER_DAY": "80"
+  },
+  // RateLimit counters are approximate and separate per Cloudflare location.
+  // GLOBAL_REQUEST_RATE_LIMIT shares one key within each location, not worldwide.
+  "ratelimits": [
+    { "name": "REQUEST_RATE_LIMIT", "namespace_id": "7204", "simple": { "limit": 120, "period": 60 } },
+    { "name": "GLOBAL_REQUEST_RATE_LIMIT", "namespace_id": "7205", "simple": { "limit": 1000, "period": 60 } },
+    { "name": "SIGNAL_RATE_LIMIT", "namespace_id": "7206", "simple": { "limit": 30, "period": 60 } },
+    { "name": "ADMIN_RATE_LIMIT", "namespace_id": "7207", "simple": { "limit": 30, "period": 60 } },
+    { "name": "ENROLL_RATE_LIMIT", "namespace_id": "7201", "simple": { "limit": 30, "period": 60 } },
+    { "name": "TICKET_RATE_LIMIT", "namespace_id": "7202", "simple": { "limit": 120, "period": 60 } },
+    { "name": "REDEEM_RATE_LIMIT", "namespace_id": "7203", "simple": { "limit": 120, "period": 60 } }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "DEV_ROOMS",
+        "class_name": "DevRoom"
+      },
+      {
+        "name": "TICKETS",
+        "class_name": "TicketRoom"
+      },
+      {
+        "name": "INSTALLATIONS",
+        "class_name": "Installation"
+      },
+      {
+        "name": "SERVICE_CONTROL",
+        "class_name": "ServiceControl"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["DevRoom"]
+    },
+    {
+      "tag": "v2",
+      "new_sqlite_classes": ["TicketRoom"]
+    },
+    {
+      "tag": "v3",
+      "new_sqlite_classes": ["Installation", "ServiceControl"]
+    }
+  ],
+  "assets": {
+    "directory": "../sleeptalk/_web",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      // No per-request records (visitor IPs), as in production.
+      "invocation_logs": false
+    },
+    "traces": {
+      "enabled": false
+    }
+  }
+}

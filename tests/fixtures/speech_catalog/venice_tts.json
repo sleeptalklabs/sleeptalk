@@ -1,0 +1,92 @@
+{
+ "data": [
+  {
+   "id": "tts-kokoro",
+   "model_spec": {
+    "name": "Kokoro Text to Speech",
+    "pricing": {
+     "input": {
+      "usd": 3.5,
+      "diem": 3.5
+     }
+    },
+    "voices": [
+     "af_alloy",
+     "af_aoede",
+     "af_bella",
+     "af_heart",
+     "af_jadzia"
+    ]
+   },
+   "object": "model",
+   "owned_by": "venice.ai",
+   "type": "tts"
+  },
+  {
+   "id": "tts-qwen3-0-6b",
+   "model_spec": {
+    "name": "Qwen 3 TTS 0.6B",
+    "pricing": {
+     "input": {
+      "usd": 87.5,
+      "diem": 87.5
+     }
+    },
+    "voices": [
+     "Aiden",
+     "Dylan",
+     "Eric",
+     "Ono_Anna",
+     "Ryan"
+    ]
+   },
+   "object": "model",
+   "owned_by": "venice.ai",
+   "type": "tts"
+  },
+  {
+   "id": "tts-qwen3-1-7b",
+   "model_spec": {
+    "name": "Qwen 3 TTS 1.7B",
+    "pricing": {
+     "input": {
+      "usd": 112.5,
+      "diem": 112.5
+     }
+    },
+    "voices": [
+     "Aiden",
+     "Dylan",
+     "Eric",
+     "Ono_Anna",
+     "Ryan"
+    ]
+   },
+   "object": "model",
+   "owned_by": "venice.ai",
+   "type": "tts"
+  },
+  {
+   "id": "tts-xai-v1",
+   "model_spec": {
+    "name": "xAI TTS v1",
+    "pricing": {
+     "input": {
+      "usd": 18.75,
+      "diem": 18.75
+     }
+    },
+    "voices": [
+     "altair",
+     "ara",
+     "atlas",
+     "carina",
+     "castor"
+    ]
+   },
+   "object": "model",
+   "owned_by": "venice.ai",
+   "type": "tts"
+  }
+ ]
+}

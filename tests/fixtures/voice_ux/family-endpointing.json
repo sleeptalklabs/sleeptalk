@@ -1,0 +1,19 @@
+{
+  "id": "family-endpointing",
+  "requirement": "VUX-EP-001",
+  "kind": "event-trace",
+  "pins": {
+    "policy.endpointing": "balanced",
+    "policy.endpointing_overrides.balanced_complete_silence_ms": 650,
+    "policy.endpointing_overrides.uncertain_silence_ms": 1800,
+    "policy.endpointing_overrides.incomplete_silence_ms": 3500
+  },
+  "notes": "Discord, Web, and terminal use these buckets via adaptive endpointing. Terminal also wires live STT into decide_endpoint. Streaming STT still gets at most 200 ms of trailing hush. See VUX-SX-001.",
+  "initial": {"session_state": "active", "conversation_state": "user-speaking"},
+  "steps": [
+    {
+      "emit": {"type": "transcript.final", "payload": {"speaker": "user", "text": "Ship it."}},
+      "expect": {"session_state": "active", "conversation_state": "thinking"}
+    }
+  ]
+}

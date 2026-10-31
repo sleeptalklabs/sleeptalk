@@ -1,0 +1,17 @@
+{
+  "id": "family-accessibility",
+  "requirement": "VUX-AX-001",
+  "kind": "event-trace",
+  "notes": "Conversation state must be visible. Captions come from transcript.final. transcript.partial is on the contract and is not produced by kernel routes.",
+  "initial": {"session_state": "active", "conversation_state": "listening"},
+  "steps": [
+    {
+      "emit": {"type": "transcript.final", "payload": {"speaker": "user", "text": "hello"}},
+      "expect": {"session_state": "active", "conversation_state": "thinking"}
+    },
+    {
+      "emit": {"type": "transcript.final", "payload": {"speaker": "assistant", "text": "Hey, I am here."}},
+      "expect": {"session_state": "active", "conversation_state": "bot-speaking"}
+    }
+  ]
+}

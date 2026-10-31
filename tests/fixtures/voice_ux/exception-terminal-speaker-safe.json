@@ -1,0 +1,21 @@
+{
+  "id": "exception-terminal-speaker-safe",
+  "requirement": "VUX-SX-001",
+  "kind": "surface-exception",
+  "surface": "terminal",
+  "replaces": "VUX-IN-001",
+  "pins": {
+    "policy.interrupt.mode": "soft"
+  },
+    "notes": "Terminal capture is speaker-safe by default. Local TTS echo cannot start a recursive turn. After drain, speech-level loopback stays ignored until a quiet frame. s or space cuts the current turn. SLEEPTALK_TERMINAL_FULL_DUPLEX=1 restores spoken barge-in. Commit uses UtteranceAssembler, decide_endpoint on live partials, and Smart Turn. Streaming STT gets at most 200 ms of trailing hush. No Silero, fragment hold, or user-driven resume. Gold pin 4b3efe5 for the speaker-safe loop.",
+  "initial": {"session_state": "active", "conversation_state": "bot-speaking"},
+  "steps": [
+    {
+      "emit": {
+        "type": "interruption",
+        "payload": {"source": "user_speech", "phase": "answering"}
+      },
+      "expect": {"session_state": "active", "conversation_state": "listening"}
+    }
+  ]
+}

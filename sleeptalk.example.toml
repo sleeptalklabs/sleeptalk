@@ -1,0 +1,121 @@
+# Copy this file to sleeptalk.toml and fill the empty strings.
+#   cp sleeptalk.example.toml sleeptalk.toml
+# Secrets (bot token, API keys) stay in .env. This file is composition + policy.
+
+[transport]
+# discord | web | terminal | null
+type = "discord"
+# Discord guild snowflake. Needed for guild-scoped slash command sync.
+guild_id = ""
+# Comma-separated channel snowflakes. Empty means any channel in the guild.
+allowed_channel_ids = ""
+# Path to libopus if Discord voice cannot find it (Homebrew: /opt/homebrew/lib/libopus.dylib).
+opus_library = ""
+# Optional DAVE protocol library path. Leave empty unless you ship one.
+dave_library = ""
+# Native Discord voice receive (required for the bot to hear you).
+native_voice_enabled = true
+debug = false
+
+[agent]
+# Built-in default. Other types need their CLIs on PATH.
+type = "pi"
+# participation_mode = "conversationalist"  # or attendee, proactive
+# addressable_name = ""
+# proactive_triggers = []
+
+[stt]
+# deepgram today. Secrets via DEEPGRAM_API_KEY in .env.
+provider = "deepgram"
+# Optional proxy origin: base_url = "https://proxy.example/deepgram"
+model = "nova-3"
+# Language you will speak. Sets the STT locale.
+language = "en-US"
+keyterms = ""
+rest_timeout_seconds = 8.0
+
+[tts]
+# cartesia | elevenlabs. Secrets via that provider's key in .env.
+provider = "cartesia"
+# Optional proxy origin: base_url = "https://proxy.example/cartesia"
+model = "sonic-3.6"
+# Provider voice id. Empty lets init pick a language-matched voice.
+voice_id = ""
+
+[policy]
+endpointing = "balanced"
+# Long-turn keepalive narration: seconds of audible silence before a
+# "still working" line fires (0 = off).
+keepalive_interval_s = 10.0
+fillers = false
+filler_delay_ms = 1200
+first_token_budget_ms = 800
+filler_general = ["Let me check that.", "One second, I am looking.", "I am checking now.", "Let me pull that together."]
+filler_web_search = ["Let me check that.", "Checking now.", "I'll look that up.", "One second, checking.", "Let me verify that."]
+barge_in_min_chars = 4
+early_barge_in_ms = 900
+resume_after_interrupt = true
+resume_offer_text = "I was partway through that. Want me to continue?"
+turn_debounce_ms = 2000
+min_turn_chars = 2
+duplicate_turn_window_ms = 10000
+post_bot_cooldown_ms = 1200
+reply_max_sentences = 8
+reply_max_chars = 1200
+discord_reply_max_sentences = 8
+discord_reply_max_chars = 1200
+
+# Turn-taking baseline. These are the values every generated profile resolves
+# to today; they live here so the base is the standard and a profile TOML shows
+# only its genuine deviations.
+[policy.endpointing_overrides]
+enabled = true
+completion_threshold = 0.72
+complete_silence_ms = 450
+balanced_complete_silence_ms = 650
+uncertain_silence_ms = 1800
+incomplete_silence_ms = 3500
+semantic_complete_silence_ms = 650
+responsive_mode_ms = 5000
+monologue_mode_ms = 15000
+monologue_complete_silence_ms = 850
+monologue_incomplete_silence_ms = 5000
+filler_reset_ms = 3500
+# A listener that transcribes only whole utterances (OpenRouter, Groq, Venice,
+# Together) gets the pause's early transcript to judge the turn by; false ends
+# on silence alone.
+early_transcript = true
+
+[policy.interrupt]
+enabled = true
+mode = "soft"
+min_duration_ms = 150
+grace_ms = 400
+gap_hold_ms = 600
+cooldown_ms = 1200
+min_volume = 0.03
+
+[policy.turns]
+vad_threshold = 500
+interrupt_min_ms = 250
+bot_grace_ms = 400
+silero_confidence = 0.7
+silero_start_ms = 220
+silero_stop_ms = 900
+silero_min_volume = 0.005
+post_interrupt_cooldown_ms = 1200
+vad_profile = "default"
+debug = false
+max_wait_seconds = 120.0
+
+[policy.capture]
+silence_ms = 120
+min_utterance_ms = 450
+min_transcript_words = 4
+rms_threshold = 0
+vad_mode = "hybrid"
+vad_confidence = 0.78
+vad_start_ms = 250
+vad_stop_ms = 900
+vad_min_volume = 0.01
+min_listen_utterance_ms = 450

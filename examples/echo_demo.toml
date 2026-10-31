@@ -1,0 +1,15 @@
+# Minimal clean-machine config: no Discord, no API keys.
+# Null transport logs composition instead of connecting; the echo agent is
+# a GenericStdioAgent spec registered by echo_demo.py (a command + a vocab
+# table + one registration — no streaming or lifecycle code).
+[transport]
+type = "null"
+
+[agent]
+type = "echo"
+
+[stt]
+provider = "deepgram"   # constructed but never called on this path
+
+[tts]
+provider = "cartesia"   # constructed but never called on this path

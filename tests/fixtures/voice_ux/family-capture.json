@@ -1,0 +1,24 @@
+{
+  "id": "family-capture",
+  "requirement": "VUX-CP-001",
+  "kind": "event-trace",
+  "pins": {
+    "policy.capture.silence_ms": 120,
+    "policy.capture.rms_threshold": 0,
+    "policy.capture.min_utterance_ms": 450,
+    "policy.fragment_hold_ms": 1500,
+    "policy.resume_grace_ms": 750
+  },
+  "notes": "rms_threshold 0 disables the RMS capture floor on Web/Discord (Silero hears quiet speech). Terminal uses its listen floor (120). Debounce and barge-char pins are VoiceProcessor-only. Fragment hold is Discord-only.",
+  "initial": {"session_state": "active", "conversation_state": "listening"},
+  "steps": [
+    {
+      "emit": {"type": "transcript.partial", "payload": {"speaker": "user", "text": "can you tell me about the"}},
+      "expect": {"session_state": "active", "conversation_state": "user-speaking"}
+    },
+    {
+      "emit": {"type": "transcript.final", "payload": {"speaker": "user", "text": "can you tell me about the failing test"}},
+      "expect": {"session_state": "active", "conversation_state": "thinking"}
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+{"v":1,"type":"hello","auth":{"scheme":"bearer","token":"<redacted>"},"capabilities":{},"client":{"name":"sleeptalk","language":"python"}}
+{"v":1,"type":"hello.err","code":"auth","message":"expired"}

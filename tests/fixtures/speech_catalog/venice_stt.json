@@ -1,0 +1,68 @@
+{
+ "data": [
+  {
+   "id": "nvidia/parakeet-tdt-0.6b-v3",
+   "model_spec": {
+    "name": "Parakeet ASR",
+    "pricing": {
+     "per_audio_second": {
+      "usd": 0.0001,
+      "diem": 0.0001
+     }
+    },
+    "voices": []
+   },
+   "object": "model",
+   "owned_by": "venice.ai",
+   "type": "asr"
+  },
+  {
+   "id": "openai/whisper-large-v3",
+   "model_spec": {
+    "name": "Whisper Large V3",
+    "pricing": {
+     "per_audio_second": {
+      "usd": 0.0001,
+      "diem": 0.0001
+     }
+    },
+    "voices": []
+   },
+   "object": "model",
+   "owned_by": "venice.ai",
+   "type": "asr"
+  },
+  {
+   "id": "fal-ai/wizper",
+   "model_spec": {
+    "name": "Wizper (Whisper v3)",
+    "pricing": {
+     "per_audio_second": {
+      "usd": 0.0001,
+      "diem": 0.0001
+     }
+    },
+    "voices": []
+   },
+   "object": "model",
+   "owned_by": "venice.ai",
+   "type": "asr"
+  },
+  {
+   "id": "elevenlabs/scribe-v2",
+   "model_spec": {
+    "name": "ElevenLabs Scribe V2",
+    "pricing": {
+     "per_audio_second": {
+      "usd": 0.000167,
+      "diem": 0.000167
+     }
+    },
+    "voices": []
+   },
+   "object": "model",
+   "owned_by": "venice.ai",
+   "type": "asr"
+  }
+ ]
+}
