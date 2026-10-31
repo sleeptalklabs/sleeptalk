@@ -99,3 +99,20 @@ def test_source_archive_symlink_fails(tmp_path):
         archive.addfile(entry)
     with pytest.raises(ValueError, match='link or special file'):
         audit(path, SOURCES, SCRIPTS)
+
+
+def test_build_record_versions_do_not_include_local_install_paths(tmp_path):
+    import json
+    import sys
+    from prove_release_surfaces import Venv
+
+    venv = Venv(tmp_path / "private-build-directory", sys.executable)
+    site = Path(venv.py("import sysconfig; print(sysconfig.get_path('purelib'))", cwd=tmp_path).strip())
+    metadata = site / "example_dist-1.2.3.dist-info"
+    metadata.mkdir()
+    (metadata / "METADATA").write_text("Metadata-Version: 2.1\nName: example-dist\nVersion: 1.2.3\n")
+    (metadata / "direct_url.json").write_text(json.dumps({
+        "url": (tmp_path / "private-source" / "example_dist-1.2.3.whl").as_uri(),
+        "archive_info": {},
+    }))
+    assert venv.freeze() == ["example-dist==1.2.3"]

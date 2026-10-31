@@ -106,7 +106,13 @@ class Venv:
         run(["uv", "pip", "install", "-q", "--python", self.python, requirement], env=outside_env())
 
     def freeze(self) -> list[str]:
-        return run(["uv", "pip", "freeze", "--python", self.python], env=outside_env()).stdout.split()
+        # Distribution metadata gives exact installed versions without uv's
+        # diagnostics or direct-file URLs that reveal the build machine's paths.
+        return json.loads(self.py(
+            "import importlib.metadata as m, json; "
+            "print(json.dumps(sorted(f'{d.name}=={d.version}' for d in m.distributions())))",
+            cwd=self.path,
+        ))
 
     def py(self, code: str, *, cwd: Path, env: dict[str, str] | None = None, timeout: float = 120) -> str:
         result = run([self.python, "-c", code], cwd=cwd, env=outside_env(env), timeout=timeout)
