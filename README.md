@@ -46,31 +46,61 @@ agent and voice route. Start with [background workers](docs/background-workers.m
 
 ## Get started
 
-**Ask your agent.** If it can run commands on the machine it lives on, tell it:
+**Ask your agent.** Open it in the project you want to use. It needs to run
+commands on the Mac or Ubuntu host where Sleeptalk will run and have permission
+to install software. You need a browser on that computer or your phone.
 
 ```text
-Set up voice for me and start a call. Run `sleeptalk host --help` first and follow it.
+Help me set up Sleeptalk for this project. Read https://github.com/sleeptalklabs/sleeptalk and follow its installation instructions if needed. Keep my current project as the workspace.
+
+Then follow `sleeptalk host --help` and check that my agent is ready. Ask which device I'll call from. Use the private settings page for speech choices and credentials; ask before reusing an existing key, and never request keys in chat.
+
+Once setup is ready, start one browser call and give me the link. Help me verify that I can speak and hear a response.
 ```
 
-It installs Sleeptalk, sets voice up (from a key it already has, or through a private page on your phone), and hands you a call link. It tells you which voice it picked.
+Your agent checks your setup, asks for any missing choices, and guides you to
+your first call. Agent login and local model downloads may need additional
+steps. The [agent setup guide](docs/agent-setup.md) covers installation,
+workspace selection, readiness checks, and phone versus same-computer calls.
 
-**Or do it yourself**, in the folder your agent works in:
-
-Download the wheel (`.whl`), `install.sh`, and `constraints.txt` from the
+**Or do it yourself.** Download the wheel (`.whl`), `install.sh`, and
+`constraints.txt` from the
 [latest release](https://github.com/sleeptalklabs/sleeptalk/releases/latest) into
-one folder. Install that wheel with its tested dependency constraints:
+one folder. If no release is available yet, extract `sleeptalk-release-artifacts`
+from a successful [CI run](https://github.com/sleeptalklabs/sleeptalk/actions/workflows/ci.yml).
+In that folder, run:
 
 ```bash
 sh install.sh --constraints constraints.txt ./sleeptalk-*.whl
+```
+
+The installer brings uv and Python if needed. Use the full command path it
+prints, or open a new terminal if it changes your PATH. Then switch to the
+project your agent should work in:
+
+```bash
 cd /path/to/your/project
 sleeptalk
 ```
 
 This installs the command without a source checkout, Git, or Node.js. Only the
 extras you select are installed; the constraints keep dependencies at the
-versions tested for that release.
-For a source checkout, `sh scripts/install.sh` still works; see
-[Contributing](CONTRIBUTING.md).
+versions tested for that release. Your selected agent may have its own runtime
+requirements.
+
+If you cannot download a wheel bundle, install from source (requires Git).
+Choose a separate destination for Sleeptalk's source, then return to your own
+project before setup:
+
+```bash
+git clone https://github.com/sleeptalklabs/sleeptalk.git /path/to/sleeptalk-source
+sh /path/to/sleeptalk-source/scripts/install.sh
+cd /path/to/your/project
+sleeptalk
+```
+
+Replace the example paths with your own. See [Contributing](CONTRIBUTING.md)
+for development setup.
 
 `sleeptalk` opens the settings page in your browser. Setup there offers any speech-capable key already on the machine, or asks for one, plays a few voices to choose from, and asks where you want to talk; then you start a call from the page. With no browser on the machine (over SSH, or a server with no display), the same setup runs in the terminal.
 
@@ -156,14 +186,20 @@ There is one settings page. On your own machine Sleeptalk serves it itself; on a
 
 <br>
 
-The agent-facing recipe lives in `sleeptalk host --help`, and every command returns a JSON receipt an agent can act on without seeing a secret.
+Start with [Set up through an agent](docs/agent-setup.md). After installation,
+`sleeptalk host --help` describes the available setup commands and their JSON
+receipts. Pass the intended workspace and the selected agent explicitly.
 
-```bash
-sleeptalk host ensure --profile default --agent hermes --surface web --json
-sleeptalk host start-voice --profile default --json
-```
+`host ensure` checks readiness and never starts a call. When it offers an
+existing speech key, ask the user before rerunning with `--reuse-key`. Otherwise,
+`host input link` returns a single-use private setup page for speech choices
+and credentials. Send the link to the user without opening it yourself, then
+check the completion receipt before starting a call.
 
-`host ensure` converges the profile and never starts a call. If a key that can listen and speak is already on the host, it sets voice up from it and tells the agent what to say. If a key has to be entered, `host input link` returns a single-use page for your phone that offers every service with its free usage and card facts. `host settings-link --json` (also `settings --phone --json`) returns a single-use URL for the full settings page and exits while a detached server handles requests. Send the returned `settings_url` privately. Without `--json`, `settings --phone` must keep running for its link to work. The start receipt says which way the call travels, tailnet or relay, so the agent tells you the truth. A Discord bot sets up the same way, reusing the speech key. See [Bring your own agent](docs/bring-your-own-agent.md).
+`host settings-link --json` returns a private link to the full settings page.
+Use it to review the voice and delivery choice. The start receipt names the
+actual delivery: local, tailnet, or hosted relay. A join link alone does not
+prove audio works; ask the user to verify a spoken response.
 
 </details>
 
