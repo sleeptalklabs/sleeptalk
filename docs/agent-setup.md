@@ -18,8 +18,10 @@ setup, even if installation changes the shell's working directory. Choose a
 profile for this project; keep an existing profile's workspace binding intact.
 
 Follow the [README installation instructions](../README.md#get-started): use a
-release wheel with its installer and constraints, a successful CI artifact
-bundle before the first release, or a separate source checkout. Do not assume
+pip install from the fixed GitHub preview in a Python 3.11+ virtual environment,
+a release wheel with its installer and constraints, a successful CI artifact
+bundle, or a separate source checkout. Keep a pip-created environment active
+for all following commands, or use its full `bin/sleeptalk` path. Do not assume
 that a PyPI release exists or that `sleeptalk` is already on PATH. Use the full
 command path printed by the installer if needed.
 
@@ -30,7 +32,8 @@ sleeptalk host --help
 sleeptalk host inventory
 ```
 
-The installer supplies Sleeptalk and Python. Agent login, an agent's own runtime
+The bundle installer supplies Sleeptalk and Python; the pip quickstart requires
+Python to be installed already. Agent login, an agent's own runtime
 requirements, speech credentials, and local speech model downloads are separate.
 
 ## 2. Check the selected agent
