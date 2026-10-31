@@ -18,12 +18,11 @@ setup, even if installation changes the shell's working directory. Choose a
 profile for this project; keep an existing profile's workspace binding intact.
 
 Follow the [README installation instructions](../README.md#get-started): use a
-pip install from the fixed GitHub preview in a Python 3.11+ virtual environment,
-a release wheel with its installer and constraints, a successful CI artifact
-bundle, or a separate source checkout. Keep a pip-created environment active
-for all following commands, or use its full `bin/sleeptalk` path. Do not assume
-that a PyPI release exists or that `sleeptalk` is already on PATH. Use the full
-command path printed by the installer if needed.
+pip install from PyPI in a Python 3.11+ virtual environment, a release wheel
+with its installer and constraints, or a separate source checkout for
+development. Keep a pip-created environment active for all following commands,
+or use its full `bin/sleeptalk` path. Do not assume that `sleeptalk` is already
+installed or on PATH. Use the full command path printed by the installer if needed.
 
 Once installed, read:
 

@@ -1,5 +1,5 @@
 <h2 align="center">
-  <img src="docs/images/logo.png" alt="" width="100"><br>
+  <img src="https://raw.githubusercontent.com/sleeptalklabs/sleeptalk/main/docs/images/logo.png" alt="" width="100"><br>
   Sleeptalk
 </h2>
 
@@ -13,25 +13,25 @@
 <p align="center">
   <a href="https://sleep.talk">Website</a> ·
   <a href="#get-started">Get started</a> ·
-  <a href="docs/README.md">Docs</a> ·
-  <a href="docs/your-keys.md">Your keys</a> ·
-  <a href="SECURITY.md">Security</a>
+  <a href="https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/README.md">Docs</a> ·
+  <a href="https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/your-keys.md">Your keys</a> ·
+  <a href="https://github.com/sleeptalklabs/sleeptalk/blob/main/SECURITY.md">Security</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/sleeptalklabs/sleeptalk/actions/workflows/ci.yml"><img src="https://github.com/sleeptalklabs/sleeptalk/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.11%2B-3776AB" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/macOS%20%7C%20Linux-supported-555" alt="macOS and Linux">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-yellow" alt="MIT"></a>
+  <a href="https://github.com/sleeptalklabs/sleeptalk/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-yellow" alt="MIT"></a>
 </p>
 
 
 ## Features
 
-- **Keep talking while work runs.** Hand research, builds, and tests to background workers. Ask for progress, add instructions, or start another task while the conversation continues. Three workers run at once by default on eligible Cascade calls; more queue. See [background workers](docs/background-workers.md).
-- **Bring your own agent.** Use Claude Code, Codex, Hermes, pi, Cursor, OpenClaw, or a [custom integration](docs/bring-your-own-agent.md) (preview). Your agent keeps its tools and memory. Or use [just a model](docs/model-only.md) for conversation without tools.
+- **Keep talking while work runs.** Hand research, builds, and tests to background workers. Ask for progress, add instructions, or start another task while the conversation continues. Three workers run at once by default on eligible Cascade calls; more queue. See [background workers](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/background-workers.md).
+- **Bring your own agent.** Use Claude Code, Codex, Hermes, pi, Cursor, OpenClaw, or a [custom integration](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/bring-your-own-agent.md) (preview). Your agent keeps its tools and memory. Or use [just a model](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/model-only.md) for conversation without tools.
 - **Talk from your phone or computer.** Open a browser call, use your terminal's microphone, or join a Discord voice channel. Browser calls work on the host, over your tailnet, or through a single-use hosted link.
-- **Cloud or local speech.** Choose a speech service or run English speech on the host with no speech key. Reuse a compatible key when you choose; keys stay in your host's [private store](docs/your-keys.md). See [Local speech](docs/local-speech.md).
+- **Cloud or local speech.** Choose a speech service or run English speech on the host with no speech key. Reuse a compatible key when you choose; keys stay in your host's [private store](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/your-keys.md). See [Local speech](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/local-speech.md).
 
 ## Voice for work that takes time
 
@@ -42,7 +42,7 @@ text output. Name a job when you want to change or cancel it.
 
 This is a workflow for long-running tasks during a call. Jobs currently end
 with the call; they do not survive hangup. Available controls depend on the
-agent and voice route. Start with [background workers](docs/background-workers.md).
+agent and voice route. Start with [background workers](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/background-workers.md).
 
 ## Get started
 
@@ -52,20 +52,17 @@ open a terminal in your project and paste:
 ```bash
 python3 -m venv ~/.venvs/sleeptalk
 source ~/.venvs/sleeptalk/bin/activate
-python -m pip install "sleeptalk @ https://github.com/sleeptalklabs/sleeptalk/archive/517fbd4a2f691db5622206cdc95becd1e105ed81.zip"
+python -m pip install sleeptalk
 sleeptalk
 ```
 
-This installs a fixed preview of Sleeptalk from GitHub and opens setup. No Git
-or Node.js is needed. The virtual environment keeps the install separate from
-your system Python; in a new terminal, activate it again with
+This installs Sleeptalk from PyPI and opens setup. No Git or Node.js is needed.
+The virtual environment keeps the install separate from your system Python; in a new terminal, activate it again with
 `source ~/.venvs/sleeptalk/bin/activate`, then run `sleeptalk` from your project.
 If you already have a Python 3.11+ virtual environment active, you can use just
 the `python -m pip install ...` and `sleeptalk` lines.
 
-**PyPI publication is still pending:** `pip install sleeptalk` is not available
-yet. After the first release, that will be the short install command. If you
-need Python installed too, expand **Other installation options** below.
+If you need Python installed too, expand **Other installation options** below.
 
 **Or ask your agent.** Open it in the project you want to use. It needs to run
 commands on the Mac or Ubuntu host where Sleeptalk will run and have permission
@@ -81,7 +78,7 @@ Once setup is ready, start one browser call and give me the link. Help me verify
 
 Your agent checks your setup, asks for any missing choices, and guides you to
 your first call. Agent login and local model downloads may need additional
-steps. The [agent setup guide](docs/agent-setup.md) covers installation,
+steps. The [agent setup guide](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/agent-setup.md) covers installation,
 workspace selection, readiness checks, and phone versus same-computer calls.
 
 <details>
@@ -95,9 +92,7 @@ install `python3-venv` with your package manager, or use the installer below.
 Download the wheel (`.whl`), `install.sh`, and
 `constraints.txt` from the
 [latest release](https://github.com/sleeptalklabs/sleeptalk/releases/latest) into
-one folder. If no release is available yet, extract `sleeptalk-release-artifacts`
-from a successful [CI run](https://github.com/sleeptalklabs/sleeptalk/actions/workflows/ci.yml).
-In that folder, run:
+one folder. In that folder, run:
 
 ```bash
 sh install.sh --constraints constraints.txt ./sleeptalk-*.whl
@@ -117,7 +112,7 @@ extras you select are installed; the constraints keep dependencies at the
 versions tested for that release. Your selected agent may have its own runtime
 requirements.
 
-If you cannot download a wheel bundle, install from source (requires Git).
+To try the development version, install from source (requires Git).
 Choose a separate destination for Sleeptalk's source, then return to your own
 project before setup:
 
@@ -128,7 +123,7 @@ cd /path/to/your/project
 sleeptalk
 ```
 
-Replace the example paths with your own. See [Contributing](CONTRIBUTING.md)
+Replace the example paths with your own. See [Contributing](https://github.com/sleeptalklabs/sleeptalk/blob/main/CONTRIBUTING.md)
 for development setup.
 
 The pip quickstart resolves current compatible dependencies. Use the wheel
@@ -139,20 +134,20 @@ bundle and its constraints when you want the exact versions tested for a release
 `sleeptalk` opens the settings page in your browser. Setup there offers any speech-capable key already on the machine, or asks for one, plays a few voices to choose from, and asks where you want to talk; then you start a call from the page. With no browser on the machine (over SSH, or a server with no display), the same setup runs in the terminal.
 
 > [!NOTE]
-> **Early release.** 0.1 covers the setups in the [support matrix](docs/launch-support-matrix.md). If yours isn't there or something breaks, open an issue.
+> **Early release.** 0.1 covers the setups in the [support matrix](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/launch-support-matrix.md). If yours isn't there or something breaks, open an issue.
 
 ## Choose how voice works
 
 | Mode | Conversation and work | Where to start |
 | --- | --- | --- |
-| **Cascade, with cloud or local speech** | Your own agent handles the conversation. Separate listening and speaking models add voice; eligible agents can run several background workers. | [Voice modes](docs/voice-modes.md) |
-| **Local speech** | Moonshine listens and Kokoro, Piper, or Pocket TTS speaks on the host, with no speech key. Your agent can still use a cloud model; use a local model as well for an offline call. English only. | [Local speech](docs/local-speech.md) |
-| **GPT Realtime** | OpenAI handles spoken conversation and hands files, tools, and current information to your configured agent. One specialist task at a time. | [OpenAI Realtime](docs/realtime-hybrid.md) |
-| **GPT Live — browser preview** | Continuous listening and speech, with your configured agent doing specialist work. A separate implementation from GPT Realtime; eligible agents can run background workers while conversation continues. | [GPT Live](docs/gpt-live.md) |
+| **Cascade, with cloud or local speech** | Your own agent handles the conversation. Separate listening and speaking models add voice; eligible agents can run several background workers. | [Voice modes](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/voice-modes.md) |
+| **Local speech** | Moonshine listens and Kokoro, Piper, or Pocket TTS speaks on the host, with no speech key. Your agent can still use a cloud model; use a local model as well for an offline call. English only. | [Local speech](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/local-speech.md) |
+| **GPT Realtime** | OpenAI handles spoken conversation and hands files, tools, and current information to your configured agent. One specialist task at a time. | [OpenAI Realtime](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/realtime-hybrid.md) |
+| **GPT Live — browser preview** | Continuous listening and speech, with your configured agent doing specialist work. A separate implementation from GPT Realtime; eligible agents can run background workers while conversation continues. | [GPT Live](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/gpt-live.md) |
 
 Local speech is a Cascade option. Browser delivery—same machine, tailnet, or
 hosted link—is a separate choice from the speech mode. See the
-[support matrix](docs/launch-support-matrix.md) for surface and preview limits.
+[support matrix](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/launch-support-matrix.md) for surface and preview limits.
 
 ## How it works
 
@@ -181,7 +176,7 @@ The hosted relay at `call.sleep.talk` only introduces your phone to your machine
 | **Discord** | A bot in one voice channel, locked to your account | None |
 | **Terminal** | Your microphone and speakers on the host | None |
 
-See [Calls over your tailnet](docs/tailnet-calls.md) and [Discord setup](docs/discord.md).
+See [Calls over your tailnet](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/tailnet-calls.md) and [Discord setup](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/discord.md).
 
 <details>
 <summary><strong>Speech services</strong> · who listens, who speaks, what it costs</summary>
@@ -197,10 +192,10 @@ See [Calls over your tailnet](docs/tailnet-calls.md) and [Discord setup](docs/di
 | Venice | Parakeet | Grok Voice | Prepaid credits |
 | Together | Parakeet | Cartesia Sonic | Cents an hour to listen |
 | Groq | Whisper | Orpheus | Fast, cheap listening |
-| OpenAI Realtime / GPT Live | Hears you directly | The selected OpenAI voice model | Conversation plus handoff to your agent. These use separate routes with different controls; GPT Live is a browser preview. See [voice modes](docs/voice-modes.md) |
-| Local | Moonshine Streaming | Kokoro, Piper, or Pocket TTS | No speech key; English, on the host. Pocket's bundle also carries a non-commercial notice. See [Local speech](docs/local-speech.md) |
+| OpenAI Realtime / GPT Live | Hears you directly | The selected OpenAI voice model | Conversation plus handoff to your agent. These use separate routes with different controls; GPT Live is a browser preview. See [voice modes](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/voice-modes.md) |
+| Local | Moonshine Streaming | Kokoro, Piper, or Pocket TTS | No speech key; English, on the host. Pocket's bundle also carries a non-commercial notice. See [Local speech](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/local-speech.md) |
 
-Every service has a golden default voice and a few curated picks; any voice ID from its library works, and you can change voices mid-call from the settings wheel. Streaming services decide the end of your turn from the audio itself; the aggregators listen one turn at a time, so replies start a beat later there. See [Voice from a key you already have](docs/reuse-your-key.md) and [Voices](docs/voices.md).
+Every service has a golden default voice and a few curated picks; any voice ID from its library works, and you can change voices mid-call from the settings wheel. Streaming services decide the end of your turn from the audio itself; the aggregators listen one turn at a time, so replies start a beat later there. See [Voice from a key you already have](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/reuse-your-key.md) and [Voices](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/voices.md).
 
 </details>
 
@@ -211,7 +206,7 @@ Every service has a golden default voice and a few curated picks; any voice ID f
 
 Sleeptalk has no account and no server that holds keys. Every key you enter is checked once with its provider (a short clip and one spoken line, which uses a little credit), then written to a private store on the machine that runs Sleeptalk: by default a file only your user can read, or the macOS Keychain or Linux Secret Service if you install `sleeptalk[credentials]` before the first key is saved. The settings page's Keys page says which. Profiles hold a reference to that store, never the key.
 
-There is one settings page. On your own machine Sleeptalk serves it itself; on a phone (for a host with no browser) it opens through an encrypted channel to the host, and the hosted relay passes ciphertext it cannot read. Sleeptalk never logs a key and sends it to nobody but the provider that issued it. See [Where your keys live](docs/your-keys.md).
+There is one settings page. On your own machine Sleeptalk serves it itself; on a phone (for a host with no browser) it opens through an encrypted channel to the host, and the hosted relay passes ciphertext it cannot read. Sleeptalk never logs a key and sends it to nobody but the provider that issued it. See [Where your keys live](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/your-keys.md).
 
 </details>
 
@@ -220,7 +215,7 @@ There is one settings page. On your own machine Sleeptalk serves it itself; on a
 
 <br>
 
-Start with [Set up through an agent](docs/agent-setup.md). After installation,
+Start with [Set up through an agent](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/agent-setup.md). After installation,
 `sleeptalk host --help` describes the available setup commands and their JSON
 receipts. Pass the intended workspace and the selected agent explicitly.
 
@@ -263,7 +258,7 @@ Turn-taking, endpointing, fillers, barge-in, and reply length live under `[polic
 
 Current macOS or Ubuntu, Python 3.11 or newer. The installer brings uv and Python and installs the wheel into an isolated tool environment. A source checkout uses the `web` extra, so `uv tool install ./sleeptalk[web]` from the parent folder does the same by hand. Discord voice needs libopus (`brew install opus` or `sudo apt install libopus0`). Terminal calls on Linux need PortAudio (`sudo apt install libportaudio2`).
 
-The [support matrix](docs/launch-support-matrix.md) is the release contract. Other Linux distributions are unverified. Local speech is English and CPU-only; streaming Moonshine has Apple silicon and Linux x86-64/ARM64 wheels, and Intel Macs use Moonshine Tiny. A phone link through `call.sleep.talk` needs outbound UDP from the host. A host that cannot send UDP uses `--tailnet` or the browser on that machine. `sleeptalk adapter versions` names the exact agent releases the protocol checks cover. Bring-your-own agents stay [preview](docs/bring-your-own-agent.md).
+The [support matrix](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/launch-support-matrix.md) is the release contract. Other Linux distributions are unverified. Local speech is English and CPU-only; streaming Moonshine has Apple silicon and Linux x86-64/ARM64 wheels, and Intel Macs use Moonshine Tiny. A phone link through `call.sleep.talk` needs outbound UDP from the host. A host that cannot send UDP uses `--tailnet` or the browser on that machine. `sleeptalk adapter versions` names the exact agent releases the protocol checks cover. Bring-your-own agents stay [preview](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/bring-your-own-agent.md).
 
 ## Repository
 
@@ -273,8 +268,8 @@ The [support matrix](docs/launch-support-matrix.md) is the release contract. Oth
 | `tests/` | Package tests (`tests/runtime/` holds the transport and session suites) |
 | `rendezvous/` | The hosted link service (Cloudflare Worker) and the browser call and settings pages |
 | `examples/` | Runnable adapter and session examples |
-| `docs/` | Guides, contracts, and decision records. Start at [docs/README.md](docs/README.md) |
+| `docs/` | Guides, contracts, and decision records. Start at [docs/README.md](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/README.md) |
 
-[CONTRIBUTING.md](CONTRIBUTING.md) covers tests, the release proof, and the page preview tool. Security reports go through [SECURITY.md](SECURITY.md).
+[CONTRIBUTING.md](https://github.com/sleeptalklabs/sleeptalk/blob/main/CONTRIBUTING.md) covers tests, the release proof, and the page preview tool. Security reports go through [SECURITY.md](https://github.com/sleeptalklabs/sleeptalk/blob/main/SECURITY.md).
 
 <p align="center"><sub>MIT licensed · by <a href="https://sleep.talk">sleep.talk</a></sub></p>
