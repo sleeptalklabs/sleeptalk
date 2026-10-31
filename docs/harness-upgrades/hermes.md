@@ -52,16 +52,18 @@ to 30 seconds, and cleans up failed startup so it can be retried.
 
 On macOS, the 0.21.7 Python 3.14 runtime passed the complete selected bridge,
 installed-runtime, permission, gateway, inventory and shared conformance suite:
-230 passed, 17 unrelated runtime cases skipped. The retained 0.21.3 source
-also passed the same selection in its Python 3.11 environment (230 passed,
-17 skipped). Four new cases exercise early
-exit and stalled replies during initialization and session creation, including
-retry. Another 74 shared Hermes/OpenClaw tests passed. The credential fixtures
+232 passed, 17 unrelated runtime cases skipped. The retained 0.21.3 source
+also passed the same selection in its Python 3.11 environment (232 passed,
+17 skipped). Six failure cases exercise early exits and stalled replies during
+initialization, session creation and saved-session resume, including retry.
+Connection loss or a deadline during resume retains the saved conversation ID
+and never requests a new session. Focused startup and shared Hermes/OpenClaw
+tests passed 131 cases. The credential fixtures
 block startup network/process IO with the same OSError as production, permitting
 optional upstream version probes to handle the denial while preserving their
 credential, endpoint and redirect assertions.
 
-The full repository suite passed: 5,179 passed, 93 skipped and one expected
+The full repository suite passed: 5,189 passed, 92 skipped and one expected
 failure; the CLI import also passed. Hosted compatibility and artifact checks
 must still pass on the release commit. Live voice and service checks remain
 human gates.

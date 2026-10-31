@@ -102,7 +102,7 @@ async def test_gateway_without_url_or_root_points_at_both_options(tmp_path):
     assert "--gateway-url" in result["next_action"] and "--agent hermes" in result["next_action"]
 
 
-@pytest.mark.parametrize("stage", ["initialize", "session/new"])
+@pytest.mark.parametrize("stage", ["initialize", "session/new", "session/load"])
 @pytest.mark.parametrize("behavior", ["exit", "stall"])
 async def test_failed_acp_startup_settles_and_can_retry(tmp_path, monkeypatch, stage, behavior):
     import asyncio
@@ -110,28 +110,38 @@ async def test_failed_acp_startup_settles_and_can_retry(tmp_path, monkeypatch, s
     from sleeptalk.agents import hermes_adapter as adapter
 
     script = tmp_path / "failed-hermes"
+    requests = tmp_path / "requests.log"
     script.write_text(f'''#!{sys.executable}
 import json, sys, time
 for line in sys.stdin:
     request = json.loads(line)
+    with open({str(requests)!r}, "a") as log:
+        log.write(request["method"] + "\\n")
     if request["method"] == {stage!r}:
         if {behavior!r} == "exit":
             sys.exit(2)
         time.sleep(60)
     print(json.dumps({{"jsonrpc": "2.0", "id": request["id"],
-                      "result": {{"protocolVersion": 1}}}}), flush=True)
+                      "result": {{"protocolVersion": 1,
+                                   "agentCapabilities": {{"loadSession": True}}}}}}), flush=True)
 ''')
     script.chmod(0o700)
     monkeypatch.setattr(adapter, "ACP_REQUEST_TIMEOUT", 0.3)
     client = adapter.HermesACPClient(binary=str(script), cwd=str(tmp_path), permission_mode="deny")
+    if stage == "session/load":
+        assert client.use_saved_session(tmp_path)
+        client._session_file.write_text("saved-conversation")
     expected = "connection closed" if behavior == "exit" else "timed out"
     try:
-        for _ in range(2):
+        for attempt in range(2):
             with pytest.raises(adapter.HermesACPError, match=expected):
                 await asyncio.wait_for(client.warmup(), 3)
             assert client._proc is None
             assert client._reader_task is None
             assert client._pending == {}
             assert client._session_id == ""
+            if stage == "session/load":
+                assert client._session_file.read_text() == "saved-conversation"
+                assert requests.read_text().splitlines() == ["initialize", "session/load"] * (attempt + 1)
     finally:
         await client.close()

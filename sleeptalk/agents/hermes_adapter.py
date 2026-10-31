@@ -87,6 +87,10 @@ class HermesACPError(RuntimeError):
     pass
 
 
+class HermesACPTransportError(HermesACPError):
+    """A lost connection or deadline is not evidence that a saved session is invalid."""
+
+
 _PERMISSION_KINDS = {
     "allow_once": PermissionDecision.ALLOW_ONCE,
     "allow_session": PermissionDecision.ALLOW_SESSION,
@@ -327,6 +331,8 @@ class HermesACPClient:
             return None
         try:
             result = await self._request(method, {"sessionId": saved, "cwd": self.cwd, "mcpServers": []})
+        except HermesACPTransportError:
+            raise
         except HermesACPError:
             return None
         finally:
@@ -392,7 +398,7 @@ class HermesACPClient:
             # every waiter so an exited agent cannot leave startup hanging.
             for future in self._pending.values():
                 if not future.done():
-                    future.set_exception(HermesACPError("Hermes ACP connection closed."))
+                    future.set_exception(HermesACPTransportError("Hermes ACP connection closed."))
             self._pending.clear()
 
     async def _handle_message(self, message: dict[str, Any]) -> None:
@@ -514,7 +520,7 @@ class HermesACPClient:
                 )
                 return await future
         except TimeoutError as exc:
-            raise HermesACPError(f"Hermes {method} timed out.") from exc
+            raise HermesACPTransportError(f"Hermes {method} timed out.") from exc
         finally:
             self._pending.pop(req_id, None)
             if not future.done():
