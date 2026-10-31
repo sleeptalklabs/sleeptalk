@@ -98,7 +98,13 @@ current [support matrix](launch-support-matrix.md) still applies.
       downloads and describe the included dependency constraints.
 - [ ] Tag `vX.Y.Z` on `main`; approve the `pypi` environment when the
       release workflow asks.
-- [ ] `pip install sleeptalk==X.Y.Z` works from a clean environment.
+- [ ] The README's pip command installs into a clean Python 3.11+ virtual
+      environment and `sleeptalk --help` works outside a checkout. Check the
+      GitHub preview before publication, then install `sleeptalk==X.Y.Z` with pip
+      from PyPI after publishing.
+- [ ] After the first PyPI upload is verified, replace the README's GitHub
+      preview requirement with `python -m pip install sleeptalk`, remove its
+      pending-publication note, and update the agent guide to match.
 - [ ] GitHub Release includes the wheel, source archive, installer, constraints,
       checksums, and build/rollback records; downloading all assets and running
       `sha256sum -c SHA256SUMS` succeeds.

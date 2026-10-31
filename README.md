@@ -46,7 +46,28 @@ agent and voice route. Start with [background workers](docs/background-workers.m
 
 ## Get started
 
-**Ask your agent.** Open it in the project you want to use. It needs to run
+**Install from your terminal.** On macOS or Ubuntu with Python 3.11 or newer,
+open a terminal in your project and paste:
+
+```bash
+python3 -m venv ~/.venvs/sleeptalk
+source ~/.venvs/sleeptalk/bin/activate
+python -m pip install "sleeptalk @ https://github.com/sleeptalklabs/sleeptalk/archive/517fbd4a2f691db5622206cdc95becd1e105ed81.zip"
+sleeptalk
+```
+
+This installs a fixed preview of Sleeptalk from GitHub and opens setup. No Git
+or Node.js is needed. The virtual environment keeps the install separate from
+your system Python; in a new terminal, activate it again with
+`source ~/.venvs/sleeptalk/bin/activate`, then run `sleeptalk` from your project.
+If you already have a Python 3.11+ virtual environment active, you can use just
+the `python -m pip install ...` and `sleeptalk` lines.
+
+**PyPI publication is still pending:** `pip install sleeptalk` is not available
+yet. After the first release, that will be the short install command. If you
+need Python installed too, expand **Other installation options** below.
+
+**Or ask your agent.** Open it in the project you want to use. It needs to run
 commands on the Mac or Ubuntu host where Sleeptalk will run and have permission
 to install software. You need a browser on that computer or your phone.
 
@@ -63,7 +84,15 @@ your first call. Agent login and local model downloads may need additional
 steps. The [agent setup guide](docs/agent-setup.md) covers installation,
 workspace selection, readiness checks, and phone versus same-computer calls.
 
-**Or do it yourself.** Download the wheel (`.whl`), `install.sh`, and
+<details>
+<summary><strong>Other installation options</strong> · Python installer and release bundles</summary>
+
+<br>
+
+On Ubuntu, if the pip quickstart reports that `venv` or `ensurepip` is missing,
+install `python3-venv` with your package manager, or use the installer below.
+
+Download the wheel (`.whl`), `install.sh`, and
 `constraints.txt` from the
 [latest release](https://github.com/sleeptalklabs/sleeptalk/releases/latest) into
 one folder. If no release is available yet, extract `sleeptalk-release-artifacts`
@@ -101,6 +130,11 @@ sleeptalk
 
 Replace the example paths with your own. See [Contributing](CONTRIBUTING.md)
 for development setup.
+
+The pip quickstart resolves current compatible dependencies. Use the wheel
+bundle and its constraints when you want the exact versions tested for a release.
+
+</details>
 
 `sleeptalk` opens the settings page in your browser. Setup there offers any speech-capable key already on the machine, or asks for one, plays a few voices to choose from, and asks where you want to talk; then you start a call from the page. With no browser on the machine (over SSH, or a server with no display), the same setup runs in the terminal.
 
