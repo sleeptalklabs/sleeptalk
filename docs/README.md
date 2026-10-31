@@ -9,6 +9,7 @@ talking while tasks run.
 
 ## Use Sleeptalk
 
+- [Set up through an agent](agent-setup.md). Install from a clean host, keep the intended workspace, choose a call device, and enter credentials privately.
 - [First-call defaults and troubleshooting](first-call-defaults.md). Quiet setup, the full voice picker, concise speech with complete text, and opt-in performance recording.
 - [Voice modes](voice-modes.md). Cascade and Local speech, GPT Realtime, and the separate GPT Live browser preview.
 - [Background workers](background-workers.md). Run several tasks during a call, ask for progress, steer a named job, and hear the result.
@@ -18,7 +19,7 @@ talking while tasks run.
 - [Discord setup](discord.md). The bot token, permissions, intents, and who can talk to it.
 - [Deployment](deployment.md). Keep a bot alive on a host with launchd, systemd, or Docker.
 - [Calls over your tailnet](tailnet-calls.md). Tailscale instead of the hosted relay: no relay, no TURN, nothing billed.
-- [Voice from a key you already have](reuse-your-key.md). OpenRouter, Venice, Groq, or Together as the speech provider; `host ensure` finds the key your agent already uses and sets voice up from it.
+- [Voice from a key you already have](reuse-your-key.md). OpenRouter, Venice, Groq, or Together as the speech provider; `host ensure` offers a compatible key and asks before using it for voice.
 - [Where your keys live](your-keys.md). No account, no server: keys are checked with their provider and kept in a private store on the host, and what each key page does with them.
 - [Voices](voices.md). Curated voices per provider, custom IDs, and changing the voice during a call.
 - [Local speech](local-speech.md). No speech key: streaming Moonshine with Kokoro, Piper, or Pocket TTS on your machine; use a local model too for an offline call.

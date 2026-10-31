@@ -36,9 +36,13 @@ breaks a supported path.
        constraints. Install with those constraints, then run `sleeptalk` in a
        project. Git and Node.js must not be required. After publication, repeat
        the download from the GitHub Release to verify the public links.
-2. [ ] **Agent-driven setup.** Ask an agent (Hermes or Claude Code) with
-       only the README prompt. It installs, sends a phone key link, and
-       returns a call link; no key appears in chat.
+2. [ ] **Agent-driven setup.** Give an agent (Hermes or Claude Code) only
+       the README prompt on a host without Sleeptalk. It installs using an
+       available bundle or source, keeps the user's project as the workspace,
+       checks the selected agent, and asks which device will join. It asks
+       before reusing a key or sends the private setup page. The call link
+       matches that device; no key appears in chat. Confirm an audible reply
+       and that the voice agent is working in the intended project.
 3. [ ] **Key reuse.** On a host whose agent already has an OpenRouter
        key, `host ensure` asks first; after a yes, `--reuse-key` sets voice
        up with nothing to paste.
