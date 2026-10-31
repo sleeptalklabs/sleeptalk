@@ -135,6 +135,7 @@ bundle and its constraints when you want the exact versions tested for a release
 
 > [!NOTE]
 > **Early release.** 0.1 covers the setups in the [support matrix](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/launch-support-matrix.md). If yours isn't there or something breaks, open an issue.
+> Manual setup, live-call, and service-restart checks remain **unverified** for 0.1.0; see the [release decision](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/release-checklist.md#010-release-decision-2026-10-31).
 
 ## Choose how voice works
 
