@@ -91,10 +91,10 @@ local-streaming = ["moonshine-voice==0.1.5"]
 # Compatibility name: hosted speech providers use aiohttp from core.
 tts-providers = []
 claude = [
-  "claude-agent-sdk==0.2.165",
+  "claude-agent-sdk==0.2.174",
 ]
 cursor = [
-  "cursor-sdk==1.0.37",
+  "cursor-sdk==1.2.0",
 ]
 
 [project.urls]
