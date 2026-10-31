@@ -4,6 +4,10 @@
 
 First public release.
 
+Published with the maintainer's explicit approval while manual setup, live-call,
+and service-restart checks remain **unverified**. Automated tests and package
+checks passed; see the [release decision](docs/release-checklist.md#010-release-decision-2026-10-31).
+
 - Cascade voice route: speech-to-text, your agent, text-to-speech.
 - Surfaces: browser call, terminal audio, Discord voice channel.
 - Agents: pi, Hermes, Cursor, Codex, OpenClaw, Claude Code, plus

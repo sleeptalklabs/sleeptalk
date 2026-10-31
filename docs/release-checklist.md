@@ -6,6 +6,20 @@ next patch release. The scenarios follow the
 [support matrix](launch-support-matrix.md); if the matrix changes, change
 this list with it.
 
+## 0.1.0 release decision (2026-10-31)
+
+The maintainer explicitly authorized publication of 0.1.0 with the human
+release scenarios below recorded as **unverified**. They remain unchecked:
+fresh interactive setup, agent-driven setup and key reuse, browser/phone and
+tailnet calls, Discord speech, terminal audio, settings changes, and service
+restart/reboot behavior. Automated checks do not establish that these worked
+in a live session.
+
+The release-preparation commit passed all 14 required CI checks and the
+[release rehearsal](https://github.com/sleeptalklabs/sleeptalk/actions/runs/41245767336),
+including package tests and artifact proof. This is a release-specific exception,
+not a completed human test record or a change to the gates for future releases.
+
 ## Before the first public release (once)
 
 - [x] GitHub: publish the reviewed source at `sleeptalklabs/sleeptalk` and
