@@ -106,11 +106,16 @@ jobs:
           assert source_version(root) == os.environ['RELEASE']
           with open(os.environ['GITHUB_ENV'], 'a') as out:
               print(f'SLEEPTALK_TEST_HERMES_ROOT={root}', file=out)
+              print(f'SLEEPTALK_TEST_HERMES_PYTHON_VERSION={record["python"]}', file=out)
               print(f'SLEEPTALK_TEST_HERMES_PYTHON={root}/venv/bin/python', file=out)
           PY
-          uv venv --python 3.11 "$RUNNER_TEMP/hermes/venv"
+      - name: Install reviewed Hermes dependencies
+        if: matrix.release.harness == 'hermes'
+        run: |
+          uv venv --python "$SLEEPTALK_TEST_HERMES_PYTHON_VERSION" "$RUNNER_TEMP/hermes/venv"
           # Hermes refuses wheel builds from source; an editable install is its supported path.
           uv pip install --python "$RUNNER_TEMP/hermes/venv/bin/python" -e "$RUNNER_TEMP/hermes[anthropic]"
+          "$RUNNER_TEMP/hermes/venv/bin/python" -c "import dotenv, openai"
           uv pip freeze --python "$RUNNER_TEMP/hermes/venv/bin/python" > hermes-dependencies.txt
       - name: Exercise selected upstream runtime and shared contracts
         run: |
@@ -120,7 +125,7 @@ jobs:
             hermes) tests='tests/test_hermes_bridge.py tests/test_hermes_installed.py tests/test_hermes_permissions.py tests/test_hermes_gateway_adapter.py' ;;
             openclaw) tests='tests/test_openclaw_release.py tests/test_openclaw_gateway_adapter.py' ;;
           esac
-          uv run --no-sync pytest -q $tests tests/test_harness_versions.py tests/agent_conformance --junitxml=harness-results.xml
+          uv run --no-sync pytest -v -o faulthandler_timeout=60 $tests tests/test_harness_versions.py tests/agent_conformance --junitxml=harness-results.xml
       - name: Retain resolution and results
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
