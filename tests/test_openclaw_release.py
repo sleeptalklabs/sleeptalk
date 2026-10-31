@@ -201,9 +201,11 @@ async def test_actual_gateway_auth_and_session(tmp_path):
         assert "sessions.create" in client._methods
         health = await client._session.request("health", {})
         assert health
-        assert (
-            await client.respond("hello", timeout=30) == "Verified OpenClaw response."
+        response = await client.respond("hello", timeout=30)
+        assert requests, (
+            "Gateway did not call the fixture provider: " + log_path.read_text()[-3000:]
         )
+        assert response == "Verified OpenClaw response.", log_path.read_text()[-3000:]
         assert (
             await client.respond("again", timeout=30) == "Verified OpenClaw response."
         )

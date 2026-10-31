@@ -296,9 +296,12 @@ async def test_probe_reaps_descendants_even_if_launcher_exits(tmp_path, parent_e
     child = tmp_path / 'child.py'
     child_pidfile = tmp_path / 'child.pid'
     child.write_text(
-        'import os,signal,time\n'
+        'import os,signal,time\nfrom pathlib import Path\n'
         'signal.signal(signal.SIGTERM, signal.SIG_IGN)\n'
-        f'open({str(child_pidfile)!r}, "w").write(str(os.getpid()))\n'
+        f'pidfile = Path({str(child_pidfile)!r})\n'
+        'pending = pidfile.with_suffix(".tmp")\n'
+        'pending.write_text(str(os.getpid()))\n'
+        'pending.replace(pidfile)\n'
         'time.sleep(60)\n'
     )
     parent = tmp_path / 'parent.py'
