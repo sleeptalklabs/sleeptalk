@@ -281,13 +281,17 @@ source recommendation is Hermes 0.21.7, upstream tag `v0.21.7`. The previously
 reviewed 0.21.3 source is still accepted. Your installed Hermes is
 left untouched.
 
-Prepare the checkout once per host, with Python 3.11 to 3.13:
+Prepare the checkout once per host, with Python 3.14:
 
 ```bash
 git clone --depth 1 --branch v0.21.7 https://github.com/NousResearch/hermes-agent.git /opt/hermes-0.21.7
-python3 -m venv /opt/hermes-0.21.7/venv
+python3.14 -m venv /opt/hermes-0.21.7/venv
 /opt/hermes-0.21.7/venv/bin/pip install -e '/opt/hermes-0.21.7[anthropic]'
 ```
+
+Hermes 0.21.7 needs its own Python 3.14 environment: its upstream metadata
+omits core dependencies on older Python versions. This does not change the
+Python version required by Sleeptalk or update your installed Hermes.
 
 The isolated Hermes needs an OpenAI or Anthropic API key of its own. Put it
 in the state directory's `.env` yourself, over SSH, as `ANTHROPIC_API_KEY` or

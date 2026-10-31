@@ -23,12 +23,13 @@ class HermesOptions(BaseModel):
 SOURCE_VERSIONS = json.loads(Path(__file__).with_name("hermes_bridge_versions.json").read_text())
 HERMES_VERSION = inventory()["harnesses"]["hermes"]["recommended"]
 HERMES_TAG = SOURCE_VERSIONS[HERMES_VERSION]["tag"]
+HERMES_PYTHON = SOURCE_VERSIONS[HERMES_VERSION]["python"]
 HERMES_REVISION = SOURCE_VERSIONS[HERMES_VERSION]["revision"]
 HERMES_REPOSITORY = "https://github.com/NousResearch/hermes-agent.git"
 SOURCE_HASHES = SOURCE_VERSIONS[HERMES_VERSION]["hashes"]
 HERMES_SETUP_HINT = (
     f"clone it with `git clone --depth 1 --branch {HERMES_TAG} {HERMES_REPOSITORY} <dir>`, create a "
-    "virtual environment inside it and `pip install -e '.[anthropic]'`, then set pi_bin to that environment's "
+    f"virtual environment with `python{HERMES_PYTHON} -m venv <dir>/venv` and `<dir>/venv/bin/pip install -e '<dir>[anthropic]'`, then set pi_bin to that environment's "
     "python and options.hermes_root to <dir> (docs/bring-your-own-agent.md, Hermes)"
 )
 

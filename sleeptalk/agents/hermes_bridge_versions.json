@@ -20,7 +20,8 @@
       "agent/client_lifecycle.py": "72b67a96ac478c7f4104642fd6f2c1b8eb24edc2b8432d2734ec047383998852",
       "agent/agent_runtime_helpers.py": "d9e0f31bc5f192e48f4c84c91a4e375e77d04a6304bb660978fac9ca51d6207e",
       "agent/turn_tool_round.py": "3e6cf5c94125dd75e2fb95cda6fe218a456187d9385a2a8005aa2f3276442d57"
-    }
+    },
+    "python": "3.11"
   },
   "0.21.7": {
     "tag": "v0.21.7",
@@ -43,6 +44,7 @@
       "agent/client_lifecycle.py": "4e8a80556184c415256934c50e6191b840910867fe68d36efc263440ea7b7dd2",
       "agent/agent_runtime_helpers.py": "295bd0adcb698ddeb87966f77a79ef1c8016702641db401bfe692ffb63e0dd49",
       "agent/turn_tool_round.py": "31b894dbf63e5551b1b6c67d099cfa0fb487176e92d211bb043d88fba601e696"
-    }
+    },
+    "python": "3.14"
   }
 }

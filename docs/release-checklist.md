@@ -8,17 +8,17 @@ this list with it.
 
 ## Before the first public release (once)
 
-- [ ] GitHub: publish the reviewed source at `sleeptalklabs/sleeptalk` and
+- [x] GitHub: publish the reviewed source at `sleeptalklabs/sleeptalk` and
       verify `origin`, README badges, application links, and private reporting links.
 - [x] PyPI: a pending trusted publisher is registered for project `sleeptalk`,
       owner `sleeptalklabs`, repository `sleeptalk`, workflow `release.yml`,
       environment `pypi` (verified 2026-10-31). The first successful upload
       creates the project; a pending publisher does not reserve its name.
-- [ ] GitHub: the `pypi` environment has required reviewers and permits
+- [x] GitHub: the `pypi` environment has required reviewers and permits
       deployment only from release tags matching `v*`.
-- [ ] GitHub: private vulnerability reporting (SECURITY.md links to it),
+- [x] GitHub: private vulnerability reporting (SECURITY.md links to it),
       secret scanning, and push protection are on.
-- [ ] GitHub: rulesets protect `main` (pull request, no force-push) and
+- [x] GitHub: rulesets protect `main` (pull request, no force-push) and
       `v*` tags.
 - [ ] Cloudflare: the selected $10 usage alert and API firewall rule are
       configured (see [operations](browser-service-operations.md#dashboard-follow-up-pending));
@@ -30,9 +30,12 @@ Record pass or fail and the commit. A failure blocks the release only if it
 breaks a supported path.
 
 1. [ ] **Fresh install from the README.** A clean macOS user (or VM), no
-       prior `~/.sleeptalk`: follow "Get started" as written, download the
-       wheel and installer from the GitHub release, install with its constraints,
-       then run `sleeptalk` in a project. Git and Node.js must not be required.
+       prior `~/.sleeptalk`: follow "Get started" as written. Before tagging,
+       download the `sleeptalk-release-artifacts` bundle from the successful
+       CI run on the candidate commit; it includes the wheel, installer and
+       constraints. Install with those constraints, then run `sleeptalk` in a
+       project. Git and Node.js must not be required. After publication, repeat
+       the download from the GitHub Release to verify the public links.
 2. [ ] **Agent-driven setup.** Ask an agent (Hermes or Claude Code) with
        only the README prompt. It installs, sends a phone key link, and
        returns a call link; no key appears in chat.
@@ -85,9 +88,9 @@ current [support matrix](launch-support-matrix.md) still applies.
 ## Release
 
 - [ ] CI is green on the release commit, including the release proof.
-- [ ] Review the remaining [Discord dependency advisory](#dependency-audit--2026-10-31) before tagging.
-- [ ] `CHANGELOG.md`: the release heading has its date.
-- [ ] `scripts/install.sh` and the README point at the new GitHub release
+- [x] Review the remaining [Discord dependency advisory](#dependency-audit--2026-10-31); the scoped finding below remains unpatched.
+- [x] `CHANGELOG.md`: the release heading has its date.
+- [x] `scripts/install.sh` and the README point at the new GitHub release
       downloads and describe the included dependency constraints.
 - [ ] Tag `vX.Y.Z` on `main`; approve the `pypi` environment when the
       release workflow asks.
@@ -112,6 +115,19 @@ metadata requires PyNaCl below 1.6. No dependency override was applied.
 
 The advisory concerns `crypto_core_ed25519_is_valid_point`. Static inspection
 found no calls to that API in Sleeptalk or the installed Discord package;
-Discord voice uses `nacl.secret.Aead` and `SecretBox`. This narrows the observed
-exposure, but does not make the dependency patched. Before tagging, use a
-compatible upstream fix or record the release review of this remaining finding.
+Discord voice uses `nacl.secret.Aead` and `SecretBox`.
+
+Release review completed on 2026-10-31: the same inspection covered
+`discord-ext-voice-recv` 0.5.2a179, whose receive path also uses those symmetric
+primitives. No use of the affected point-validation API was found in these
+three codebases. The [upstream maintainer's analysis](https://00f.net/2025/12/30/libsodium-vulnerability/)
+limits the bug to that low-level API; it does not affect the high-level signing
+APIs either. Based on those call paths, this finding is not considered a blocker
+for the reviewed 0.1.0 voice integration.
+
+This is a scoped dependency exception, not a patch or a claim that all PyNaCl
+uses are safe. Keep the audit finding visible and retain the resolver-compatible
+version; do not force an override or suppress the advisory. Re-review if the
+voice dependencies or cryptographic calls change, and adopt PyNaCl 1.6.2 or newer
+as soon as Discord's published constraints permit it. This review does not cover
+custom plugins or applications reusing PyNaCl outside Sleeptalk's voice paths.

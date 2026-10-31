@@ -273,7 +273,8 @@ runtime,root,site=sys.argv[1:]
 sys.path[:0]=[root,site]
 spec=importlib.util.spec_from_file_location('owned_bridge',runtime)
 module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
-def forbidden(*a,**k): raise AssertionError('ambient IO was attempted')
+# Match the production startup guard: optional probes may handle denied IO.
+def forbidden(*a,**k): raise OSError('ambient IO is disabled')
 socket.socket.connect=forbidden; subprocess.Popen=forbidden
 config=json.loads(os.environ.pop('SLEEPTALK_HERMES_CONFIG'))
 key=os.environ.pop('SLEEPTALK_HERMES_CREDENTIAL')
@@ -407,7 +408,8 @@ runtime,root,site=sys.argv[1:]
 sys.path[:0]=[root,site]
 spec=importlib.util.spec_from_file_location('owned_bridge',runtime)
 module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
-def forbidden(*a,**k): raise AssertionError('ambient IO was attempted')
+# Match the production startup guard: optional probes may handle denied IO.
+def forbidden(*a,**k): raise OSError('ambient IO is disabled')
 socket.socket.connect=forbidden; subprocess.Popen=forbidden
 config=json.loads(os.environ.pop('SLEEPTALK_HERMES_CONFIG'))
 key=os.environ.pop('SLEEPTALK_HERMES_CREDENTIAL')

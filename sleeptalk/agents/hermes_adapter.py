@@ -80,8 +80,15 @@ TOOL_VOCAB = ToolVocab(
 )
 
 
+ACP_REQUEST_TIMEOUT = 30.0
+
+
 class HermesACPError(RuntimeError):
     pass
+
+
+class HermesACPTransportError(HermesACPError):
+    """A lost connection or deadline is not evidence that a saved session is invalid."""
 
 
 _PERMISSION_KINDS = {
@@ -271,13 +278,12 @@ class HermesACPClient:
                 self._effective_identity["agentModel"] = models["currentModelId"]
             self._record_session_thinking(result.get("configOptions"))
         except BaseException:
-            if self._bridge_config is not None:
-                try:
-                    await self._restart()
-                finally:
-                    if self._bridge_launch is not None:
-                        self._bridge_launch.close()
-                        self._bridge_launch = None
+            try:
+                await self._restart()
+            finally:
+                if self._bridge_launch is not None:
+                    self._bridge_launch.close()
+                    self._bridge_launch = None
             raise
 
     def use_saved_session(self, directory: str | os.PathLike[str]) -> bool:
@@ -325,6 +331,8 @@ class HermesACPClient:
             return None
         try:
             result = await self._request(method, {"sessionId": saved, "cwd": self.cwd, "mcpServers": []})
+        except HermesACPTransportError:
+            raise
         except HermesACPError:
             return None
         finally:
@@ -385,6 +393,13 @@ class HermesACPClient:
                     await self._handle_message(message)
         except asyncio.CancelledError:
             pass
+        finally:
+            # EOF can arrive before initialize or session/new replies. Settle
+            # every waiter so an exited agent cannot leave startup hanging.
+            for future in self._pending.values():
+                if not future.done():
+                    future.set_exception(HermesACPTransportError("Hermes ACP connection closed."))
+            self._pending.clear()
 
     async def _handle_message(self, message: dict[str, Any]) -> None:
         # Response to one of our requests
@@ -498,10 +513,18 @@ class HermesACPClient:
         req_id = next(self._req_counter)
         future = asyncio.get_running_loop().create_future()
         self._pending[req_id] = future
-        await self._send(
-            {"jsonrpc": "2.0", "id": req_id, "method": method, "params": params}
-        )
-        return await future
+        try:
+            async with asyncio.timeout(ACP_REQUEST_TIMEOUT):
+                await self._send(
+                    {"jsonrpc": "2.0", "id": req_id, "method": method, "params": params}
+                )
+                return await future
+        except TimeoutError as exc:
+            raise HermesACPTransportError(f"Hermes {method} timed out.") from exc
+        finally:
+            self._pending.pop(req_id, None)
+            if not future.done():
+                future.cancel()
 
     # ---- AgentAdapter protocol ----
 
