@@ -11,7 +11,8 @@ talking while tasks run.
 
 - [Set up through an agent](agent-setup.md). Install from a clean host, keep the intended workspace, choose a call device, and enter credentials privately.
 - [First-call defaults and troubleshooting](first-call-defaults.md). Quiet setup, the full voice picker, concise speech with complete text, and opt-in performance recording.
-- [Voice modes](voice-modes.md). Cascade and Local speech, GPT Realtime, and the separate GPT Live browser preview.
+- [Voice modes](voice-modes.md). Agent-led Cascade or a voice model with agent handoff; speech providers and call surfaces are separate choices.
+- [Speech providers](speech-providers.md). Every built-in listening and speaking provider, model choices, and preview or legacy adapter limits.
 - [Background workers](background-workers.md). Run several tasks during a call, ask for progress, steer a named job, and hear the result.
 - [OpenAI Realtime](realtime-hybrid.md). OpenAI handles voice and delegates specialist work to your agent.
 - [GPT Live](gpt-live.md). Continuous browser conversation with a separate specialist backend; preview limits and controls.
