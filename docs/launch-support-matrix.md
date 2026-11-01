@@ -21,7 +21,7 @@ Public docs, wizard copy, CLI help, and release checks must match this table.
 | Local speech | STT and TTS `provider = "local"`: Moonshine Small Streaming by default, Piper/Kokoro/Pocket TTS for voice, English, no speech key, models downloaded during setup. See [Local speech](local-speech.md) |
 | Just a model (no agent) | `type = "model"`: OpenRouter, OpenAI, Anthropic, Ollama, or any OpenAI-compatible endpoint; one API key or none for a local server; no tools. See [Just a model](model-only.md) |
 | Background workers | Eligible Cascade agents, including with Local speech: fresh agent sessions keep work running while the conversation continues; three concurrent jobs by default, more queue. Jobs end with the call. “Just a model” and command adapters have no worker factory. See [background workers](background-workers.md) |
-| Install | Reviewed CI wheel bundle with its installer and dependency constraints, or `sh scripts/install.sh` from a checkout. Public PyPI releases are not yet available. See the [README](../README.md#get-started) |
+| Install | `python -m pip install sleeptalk` from PyPI in a Python 3.11+ environment, the GitHub Release wheel bundle with its installer and dependency constraints, or `sh scripts/install.sh` from a checkout. See the [README](../README.md#get-started) |
 
 Supported means the adapter or surface is registered, covered by automated
 tests, and used as a product path. Choose the workspace, adapter, and surface

@@ -139,18 +139,58 @@ bundle and its constraints when you want the exact versions tested for a release
 
 ## Choose how voice works
 
-| Mode | Conversation and work | Where to start |
-| --- | --- | --- |
-| **Cascade, with cloud or local speech** | Your own agent handles the conversation. Separate listening and speaking models add voice; eligible agents can run several background workers. | [Voice modes](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/voice-modes.md) |
-| **Local speech** | Moonshine listens and Kokoro, Piper, or Pocket TTS speaks on the host, with no speech key. Your agent can still use a cloud model; use a local model as well for an offline call. English only. | [Local speech](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/local-speech.md) |
-| **GPT Realtime** | OpenAI handles spoken conversation and hands files, tools, and current information to your configured agent. One specialist task at a time. | [OpenAI Realtime](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/realtime-hybrid.md) |
-| **GPT Live — browser preview** | Continuous listening and speech, with your configured agent doing specialist work. A separate implementation from GPT Realtime; eligible agents can run background workers while conversation continues. | [GPT Live](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/gpt-live.md) |
+Start with **who handles the conversation**, then choose the speech service.
 
-Local speech is a Cascade option. Browser delivery—same machine, tailnet, or
-hosted link—is a separate choice from the speech mode. See the
-[support matrix](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/launch-support-matrix.md) for surface and preview limits.
+| Conversation style | Who talks with you | Speech choices |
+| --- | --- | --- |
+| **Your agent leads — Cascade** | Your configured agent answers; listening and speaking models turn audio into text and its reply back into speech. Eligible agents can run background workers while you keep talking. | Cloud speech providers, Local speech, or separate providers for listening and speaking. |
+| **A voice model leads — Hybrid** | An OpenAI voice model handles conversation and delegates files, tools, and specialist work to your configured agent. | [GPT Realtime](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/realtime-hybrid.md) runs one specialist task at a time. [GPT Live](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/gpt-live.md) is a browser preview with background workers on eligible agents. |
+
+**Local speech is a Cascade option.** It runs listening and speaking on your
+host; the agent can still use a cloud model. For an offline call after setup,
+use Local speech, a local model, and a same-machine connection. English only.
+See [Local speech](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/local-speech.md).
+
+Where you call—browser, terminal, or Discord—and whether a browser link uses
+this computer, a tailnet, or the hosted relay are separate choices. See
+[voice modes](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/voice-modes.md)
+and the [support matrix](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/launch-support-matrix.md)
+for the combinations available.
+
+## Speech providers
+
+These are the speech services offered in setup. The provider is the account or
+API you connect; a model is the listening or speaking engine chosen within it.
+Model names below are examples from Sleeptalk's catalog, not an exhaustive list.
+
+| Provider | Role in Sleeptalk | Speech models |
+| --- | --- | --- |
+| **Cartesia** | Cascade listening and speaking | Ink; Sonic |
+| **Deepgram** | Cascade listening and speaking | Nova; Flux and Aura-2 voices |
+| **ElevenLabs** | Cascade listening and speaking | Scribe; ElevenLabs speech models and voices |
+| **OpenRouter** | Cascade listening and speaking through one API | Parakeet, Whisper, Scribe; Grok Voice, ElevenLabs, Deepgram, Kokoro, and others |
+| **Venice** | Cascade listening and speaking through one API | Parakeet, Whisper; Grok Voice, Kokoro, ElevenLabs, and others |
+| **Together** | Cascade listening and speaking through one API | Parakeet, Whisper; Cartesia Sonic, Orpheus, Kokoro |
+| **Groq** | Cascade listening and speaking | Whisper; Orpheus |
+| **Local** | Cascade listening and speaking on your host; no speech key | Moonshine; Kokoro, Piper, Kyutai Pocket TTS |
+| **OpenAI** | Voice conversation with agent handoff | GPT Realtime; GPT Live browser preview |
+
+**Additional speech-output adapters:** Rime, Hume, and PlayHT/PlayAI exist for
+profile-based configuration, outside the standard speech-service picker. They
+are preview/legacy integrations with different availability limits; see the
+[complete provider guide](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/speech-providers.md#additional-speech-output-adapters)
+before choosing one.
+
+A voice such as Grok Voice can be available through several providers; that
+does not imply a direct connection to its model maker. The settings page shows
+model and voice choices for the selected service. See
+[Voices](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/voices.md) and
+[using an existing provider key](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/reuse-your-key.md).
+Provider billing and agent-model usage are separate.
 
 ## How it works
+
+In Cascade, your agent supplies the spoken reply:
 
 ```text
    you ──voice──▶  browser · tailnet · Discord · terminal
@@ -178,27 +218,6 @@ The hosted relay at `call.sleep.talk` only introduces your phone to your machine
 | **Terminal** | Your microphone and speakers on the host | None |
 
 See [Calls over your tailnet](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/tailnet-calls.md) and [Discord setup](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/discord.md).
-
-<details>
-<summary><strong>Speech services</strong> · who listens, who speaks, what it costs</summary>
-
-<br>
-
-| Service | Listens with | Speaks with | Note |
-| --- | --- | --- | --- |
-| Deepgram | Nova-3, streamed | Flux voices | Streams words as you say them; $200 free credit, no card |
-| Cartesia | Ink, streamed | Sonic voices | The default pick; free tier, no card |
-| ElevenLabs | Scribe | ElevenLabs voices | The biggest voice library |
-| OpenRouter | Parakeet | Grok Voice; Flux voices free | The key your agent may already have |
-| Venice | Parakeet | Grok Voice | Prepaid credits |
-| Together | Parakeet | Cartesia Sonic | Cents an hour to listen |
-| Groq | Whisper | Orpheus | Fast, cheap listening |
-| OpenAI Realtime / GPT Live | Hears you directly | The selected OpenAI voice model | Conversation plus handoff to your agent. These use separate routes with different controls; GPT Live is a browser preview. See [voice modes](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/voice-modes.md) |
-| Local | Moonshine Streaming | Kokoro, Piper, or Pocket TTS | No speech key; English, on the host. Pocket's bundle also carries a non-commercial notice. See [Local speech](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/local-speech.md) |
-
-Every service has a golden default voice and a few curated picks; any voice ID from its library works, and you can change voices mid-call from the settings wheel. Streaming services decide the end of your turn from the audio itself; the aggregators listen one turn at a time, so replies start a beat later there. See [Voice from a key you already have](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/reuse-your-key.md) and [Voices](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/voices.md).
-
-</details>
 
 <details>
 <summary><strong>Your keys</strong> · where they live and where they go</summary>
