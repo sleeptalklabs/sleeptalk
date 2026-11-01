@@ -46,7 +46,25 @@ agent and voice route. Start with [background workers](https://github.com/sleept
 
 ## Get started
 
-**Install from your terminal.** On macOS or Ubuntu with Python 3.11 or newer,
+**Paste this into your agent.** Open your agent in the project you want to use,
+then send this prompt:
+
+```text
+Help me set up Sleeptalk for this project. Read https://github.com/sleeptalklabs/sleeptalk and follow its installation instructions if needed. Keep my current project as the workspace.
+
+Then follow `sleeptalk host --help` and check that my agent is ready. Ask which device I'll call from. Use the private settings page for speech choices and credentials; ask before reusing an existing key, and never request keys in chat.
+
+Once setup is ready, start one browser call and give me the link. Help me verify that I can speak and hear a response.
+```
+
+Your agent checks your setup, asks for any missing choices, and guides you to
+your first call. It needs permission to run commands and install software on
+the Mac or Ubuntu host where Sleeptalk will run. You need a browser on that
+computer or your phone. Agent login and local model downloads may need
+additional steps. The [agent setup guide](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/agent-setup.md) covers installation,
+workspace selection, readiness checks, and phone versus same-computer calls.
+
+**Or install from your terminal.** On macOS or Ubuntu with Python 3.11 or newer,
 open a terminal in your project and paste:
 
 ```bash
@@ -63,23 +81,6 @@ If you already have a Python 3.11+ virtual environment active, you can use just
 the `python -m pip install ...` and `sleeptalk` lines.
 
 If you need Python installed too, expand **Other installation options** below.
-
-**Or ask your agent.** Open it in the project you want to use. It needs to run
-commands on the Mac or Ubuntu host where Sleeptalk will run and have permission
-to install software. You need a browser on that computer or your phone.
-
-```text
-Help me set up Sleeptalk for this project. Read https://github.com/sleeptalklabs/sleeptalk and follow its installation instructions if needed. Keep my current project as the workspace.
-
-Then follow `sleeptalk host --help` and check that my agent is ready. Ask which device I'll call from. Use the private settings page for speech choices and credentials; ask before reusing an existing key, and never request keys in chat.
-
-Once setup is ready, start one browser call and give me the link. Help me verify that I can speak and hear a response.
-```
-
-Your agent checks your setup, asks for any missing choices, and guides you to
-your first call. Agent login and local model downloads may need additional
-steps. The [agent setup guide](https://github.com/sleeptalklabs/sleeptalk/blob/main/docs/agent-setup.md) covers installation,
-workspace selection, readiness checks, and phone versus same-computer calls.
 
 <details>
 <summary><strong>Other installation options</strong> · Python installer and release bundles</summary>
