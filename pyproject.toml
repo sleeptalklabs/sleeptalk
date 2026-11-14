@@ -87,14 +87,14 @@ local = [
   "onnx>=1.17",
 ]
 # Optional CPU streaming input; batch local speech stays lightweight.
-local-streaming = ["moonshine-voice==0.1.5"]
+local-streaming = ["moonshine-voice==0.1.6"]
 # Compatibility name: hosted speech providers use aiohttp from core.
 tts-providers = []
 claude = [
-  "claude-agent-sdk==0.2.165",
+  "claude-agent-sdk==0.2.180",
 ]
 cursor = [
-  "cursor-sdk==1.0.37",
+  "cursor-sdk==1.3.1",
 ]
 
 [project.urls]
